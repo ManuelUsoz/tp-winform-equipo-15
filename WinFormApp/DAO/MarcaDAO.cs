@@ -38,10 +38,7 @@ namespace DAO
             }
             finally 
             {
-                if (accesoADatos != null)
-                {
-                    accesoADatos.cerrarConexion();
-                }
+                accesoADatos?.cerrarConexion();
             };
 
         }
