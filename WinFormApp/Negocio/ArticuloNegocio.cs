@@ -29,33 +29,17 @@ namespace Negocio
         }
         public List<Articulo> listar()
         {
-            List<Articulo> lista = new List<Articulo>();
-            AccesoADatos datos = new AccesoADatos();
-
+            List<Articulo> artList = new List<Articulo>();
+            ArticuloDAO artDAO = new ArticuloDAO();
+            artList = artDAO.GetArticulos();
             try
             {
-                datos.consultar("");//hacer la consutla
-                datos.ejecutarLectura();
+                return artList;
 
-                while (datos.Lector.Read())
-                {
-                    Articulo aux = new Articulo();
-                    //Llenar con los demas atributos de Articulo
-                    aux.Code = (string)datos.Lector["Codigo"];
-                    aux.Nombre = (string)datos.Lector["Nombre"];
-                    lista.Add(aux);
-                }
-
-                return lista;
             }
             catch (Exception ex)
             {
-
                 throw ex;
-            }
-            finally
-            {
-                datos.cerrarConexion();
             }
         }
 

@@ -39,8 +39,8 @@ namespace DAO
             }
             finally 
             {
-                accesoADatos?.cerrarConexion();
-            };
+                accesoADatos.cerrarConexion();
+            }
 
         }
     }

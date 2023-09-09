@@ -47,6 +47,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="scriptDB\CATALOGO_DB_v3.sql" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\DAO\DAO.csproj">
       <Project>{9d4f8b20-aff2-45e9-b94d-5ac24771b63a}</Project>
       <Name>DAO</Name>
@@ -55,9 +58,6 @@
       <Project>{a84de11a-46f8-4633-8b94-de56d254da68}</Project>
       <Name>Dominio</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="scriptDB\CATALOGO_DB_v3.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -60,6 +60,7 @@
             this.listaDeArticulosToolStripMenuItem.Name = "listaDeArticulosToolStripMenuItem";
             this.listaDeArticulosToolStripMenuItem.Size = new System.Drawing.Size(107, 20);
             this.listaDeArticulosToolStripMenuItem.Text = "&Lista de articulos";
+            this.listaDeArticulosToolStripMenuItem.Click += new System.EventHandler(this.listaDeArticulosToolStripMenuItem_Click);
             // 
             // agregarArticuloToolStripMenuItem
             // 

@@ -12,8 +12,38 @@ namespace DAO
     {
         public List<Articulo> GetArticulos()
         {
-            //TODO
-            return null;
+            List<Articulo> listaArticulos = new List<Articulo>();
+            AccesoADatos accesoADatos = new AccesoADatos("server=.\\SQLEXPRESS; database=CATALOGO_P3_DB; integrated security=true");
+            try
+            {
+                accesoADatos.AbrirConexion();
+
+                string consulta = "SELECT Id, Codigo, Nombre, Descripcion, IdMarca, IdCategoria, Precio FROM ARTICULOS";
+
+                accesoADatos.consultar(consulta);
+
+                while (accesoADatos.Lector.Read())
+                {
+                    Articulo articulo = new Articulo();
+                    articulo.Code = accesoADatos.Lector["Codigo"].ToString();
+                    articulo.Nombre = accesoADatos.Lector["Nombre"].ToString();
+                    articulo.Descripcion = accesoADatos.Lector["Descripcion"].ToString();
+                    articulo.Marca = new Marca();
+                    articulo.Marca.Descripcion = accesoADatos.Lector["idMarca"].ToString();
+                    articulo.Categoria = new Categoria();
+                    articulo.Categoria.Descripcion = accesoADatos.Lector["idCategoria"].ToString();
+                    articulo.Precio = (decimal)accesoADatos.Lector["Precio"];
+
+                    listaArticulos.Add(articulo);
+                }
+
+                return listaArticulos;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public List<Articulo> GetArticulos(int marcaId, int categoriaId)
@@ -22,11 +52,14 @@ namespace DAO
             {
                 AccesoADatos accesoADatos = new AccesoADatos();
                 List<Articulo> articulos = new List<Articulo>();
-                
+
                 accesoADatos.consultar("SELECT A.Codigo, A.Nombre, A.Descripcion, M.Descripcion as Marca, C.Descripcion as Categoria, A.Precio FROM ARTICULOS A INNER JOIN MARCAS M ON A.IdMarca = M.Id INNER JOIN CATEGORIAS C ON A.IdCategoria = C.Id WHERE M.Id = @MarcaId AND C.Id = @CategoriaId;");
                 accesoADatos.setearParametro("@MarcaId", marcaId);
                 accesoADatos.setearParametro("@CategoriaId", categoriaId);
                 accesoADatos.AbrirConexion();
+
+                accesoADatos.AbrirConexion();
+
                 accesoADatos.ejecutarLectura();
 
                 while (accesoADatos.Lector.Read())
@@ -46,7 +79,7 @@ namespace DAO
                 }
                 accesoADatos.cerrarConexion();
                 return articulos;
-            }catch (Exception ex)
+            } catch (Exception ex)
             {
                 throw ex;
             }
