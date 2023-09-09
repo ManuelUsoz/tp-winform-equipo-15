@@ -91,6 +91,7 @@
             this.detalleDeUnArticuloToolStripMenuItem.Name = "detalleDeUnArticuloToolStripMenuItem";
             this.detalleDeUnArticuloToolStripMenuItem.Size = new System.Drawing.Size(131, 20);
             this.detalleDeUnArticuloToolStripMenuItem.Text = "&Detalle de un articulo";
+            this.detalleDeUnArticuloToolStripMenuItem.Click += new System.EventHandler(this.detalleDeUnArticuloToolStripMenuItem_Click);
             // 
             // MainForm
             // 
