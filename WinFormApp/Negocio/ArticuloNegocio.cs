@@ -67,37 +67,7 @@ namespace Negocio
             }
         }
 
-        public Articulo Find(string code)
-        {
-            Articulo articulo = new Articulo();
-            try
-            {
-                using (SqlConnection sqlConnection = new SqlConnection("server=.; database=CATALOGO_P3_DB; integrated security=true"))
-                {
-                    sqlConnection.Open();
-                    string consulta = "SELECT Codigo, Nombre, Descripcion, Precio FROM ARTICULOS WHERE Codigo = @codigo";
-                    using (SqlCommand sqlCommand = new SqlCommand(consulta, sqlConnection))
-                    {
-                        sqlCommand.Parameters.AddWithValue("@codigo", code);
-                        SqlDataReader reader = sqlCommand.ExecuteReader();
-
-                        if (reader.Read())
-                        {
-                            articulo.Code = reader["Codigo"].ToString();
-                            articulo.Nombre = reader["Nombre"].ToString();
-                            articulo.Descripcion = reader["Descripcion"].ToString();
-                        }
-                        reader.Close();
-                    }
-                }
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
-
-            return articulo;
-        }
+        
 
     }
 }
