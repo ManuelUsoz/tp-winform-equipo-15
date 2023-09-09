@@ -35,5 +35,28 @@ namespace WinForm_App
 
             dgvArticulos.Columns["ImagenUrl"].Visible = false;
         }
+        /*
+         * FALTA TERMINAR
+         * 
+        private void dgvArticulos_SelectionChanged(object sender, EventArgs e)
+        {
+            Articulo selecArt = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+            cargarImagen(selecArt.ImagenURL);
+        }
+
+        
+
+        private void cargarImagen(Imagen imagenURL)
+        {
+            try
+            {
+                pbListaArticulos.Load();
+            }
+            catch (Exception ex)
+            {
+                pbListaArticulos.Load("https://i0.wp.com/casagres.com.ar/wp-content/uploads/2022/09/placeholder.png?ssl=1");
+            }
+        }
+        */
     }
 }

@@ -28,21 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pbListaArticulos = new System.Windows.Forms.PictureBox();
             this.labelListaArticulos = new System.Windows.Forms.Label();
             this.dgvArticulos = new System.Windows.Forms.DataGridView();
             this.buttonAgregar = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbListaArticulos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).BeginInit();
             this.SuspendLayout();
             // 
-            // pictureBox1
+            // pbListaArticulos
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(777, 37);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(375, 372);
-            this.pictureBox1.TabIndex = 8;
-            this.pictureBox1.TabStop = false;
+            this.pbListaArticulos.Location = new System.Drawing.Point(777, 37);
+            this.pbListaArticulos.Name = "pbListaArticulos";
+            this.pbListaArticulos.Size = new System.Drawing.Size(375, 372);
+            this.pbListaArticulos.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbListaArticulos.TabIndex = 8;
+            this.pbListaArticulos.TabStop = false;
             // 
             // labelListaArticulos
             // 
@@ -62,6 +63,7 @@
             this.dgvArticulos.RowHeadersWidth = 51;
             this.dgvArticulos.Size = new System.Drawing.Size(759, 372);
             this.dgvArticulos.TabIndex = 6;
+            this.dgvArticulos.SelectionChanged += new System.EventHandler(this.dgvArticulos_SelectionChanged);
             // 
             // buttonAgregar
             // 
@@ -78,14 +80,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1158, 450);
             this.Controls.Add(this.buttonAgregar);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pbListaArticulos);
             this.Controls.Add(this.labelListaArticulos);
             this.Controls.Add(this.dgvArticulos);
             this.Name = "frmListaArticulos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Lista de articulos";
             this.Load += new System.EventHandler(this.frmListaArticulos_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbListaArticulos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -94,7 +96,7 @@
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pbListaArticulos;
         private System.Windows.Forms.Label labelListaArticulos;
         private System.Windows.Forms.DataGridView dgvArticulos;
         private System.Windows.Forms.Button buttonAgregar;
