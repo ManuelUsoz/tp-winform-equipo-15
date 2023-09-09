@@ -22,5 +22,11 @@ namespace WinForm_App
             buscarForm form = new buscarForm();
             form.ShowDialog();
         }
+
+        private void detalleDeUnArticuloToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            detalleArticulo form = new detalleArticulo();
+            form.ShowDialog();
+        }
     }
 }

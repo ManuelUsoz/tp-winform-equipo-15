@@ -42,7 +42,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Articulo.cs" />
+<<<<<<< HEAD
+    <Compile Include="Imagen.cs" />
+=======
     <Compile Include="Categoria.cs" />
+>>>>>>> 5e230ecdc7c0446aa0daaeb9877387f5c8eaa26c
     <Compile Include="Marca.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

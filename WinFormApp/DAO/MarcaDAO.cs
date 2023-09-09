@@ -10,7 +10,7 @@ namespace DAO
         public List<Marca> List()
         {
             List<Marca> listaMarcas = new List<Marca>();
-            AccesoADatos accesoADatos = new AccesoADatos("server=.; database=CATALOGO_P3_DB; integrated security=true");
+            AccesoADatos accesoADatos = new AccesoADatos("server=.\\SQLEXPRESS; database=CATALOGO_P3_DB; integrated security=true");
 
             try
             {
