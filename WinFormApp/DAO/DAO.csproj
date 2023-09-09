@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccesoADatos.cs" />
+    <Compile Include="CategoriaDAO.cs" />
     <Compile Include="MarcaDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

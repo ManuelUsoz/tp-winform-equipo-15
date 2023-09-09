@@ -27,25 +27,32 @@ namespace WinForm_App
             List<Marca> marcas = marcaNegocio.list();
             cboxMarca.Items.AddRange(marcas.ToArray());
 
+            CategoriaNegocio categoriaNegocio = new CategoriaNegocio();
+            List<Categoria> categorias = categoriaNegocio.List();
+            cboxCategoria.Items.AddRange(categorias.ToArray());
+
+
+
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            ArticuloNegocio articuloNegocio = new ArticuloNegocio();
+            string selectedBrand = cboxMarca.SelectedItem.ToString();
+            string selectedCategory = cboxCategoria.SelectedItem.ToString();
+
             try
             {
-                Articulo articulo = articuloNegocio.Find("S99");
-                if (articulo != null)
+                if(selectedBrand != null)
                 {
-                    articulos.Clear();
-                    articulos.Add(articulo);
-                    dgvResultadoBusquedaArticulo.DataSource = articulos;
+                    if(selectedCategory != null)
+                    {
+                        ArticuloNegocio articuloNegocio = new ArticuloNegocio();
+                    }
                 }
 
-            }
-            catch(Exception ex)
+            }catch(Exception)
             {
-                throw ex;
+                MessageBox.Show("No se encontro lo requerido");
             }
         }
 
