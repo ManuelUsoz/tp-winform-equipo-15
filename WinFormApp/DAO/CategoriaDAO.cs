@@ -17,11 +17,12 @@ namespace DAO
                 AccesoADatos accesoADatos = new AccesoADatos("server=.; database=CATALOGO_P3_DB; integrated security=true");
                 List<Categoria> categorias = new List<Categoria>();
                 accesoADatos.AbrirConexion();
-                accesoADatos.consultar("SELECT Descripcion FROM CATEGORIAS");
+                accesoADatos.consultar("SELECT Id, Descripcion FROM CATEGORIAS");
                 accesoADatos.ejecutarLectura();
                 while (accesoADatos.Lector.Read())
                 {
                     Categoria categoria = new Categoria();
+                    categoria.Id = (int)accesoADatos.Lector["Id"];
                     categoria.Descripcion = accesoADatos.Lector["Descripcion"].ToString();
                     categorias.Add(categoria);
                 }

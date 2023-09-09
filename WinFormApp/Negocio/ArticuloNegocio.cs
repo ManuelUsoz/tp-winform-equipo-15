@@ -13,6 +13,20 @@ namespace Negocio
 {
     public class ArticuloNegocio
     {
+        public ArticuloDAO articuloDAO;
+
+        public ArticuloNegocio()
+        {
+            articuloDAO = new ArticuloDAO();
+        }
+
+        public ArticuloDAO ArticuloDAO
+        {
+            get
+            {
+                return articuloDAO;
+            }
+        }
         public List<Articulo> listar()
         {
             List<Articulo> lista = new List<Articulo>();
@@ -67,7 +81,46 @@ namespace Negocio
             }
         }
 
-        
+        public List<Articulo> GetArticulos(int idMarca, int idCategoria)
+        {
+            try
+            {
+                List<Articulo> articulos = ArticuloDAO.GetArticulos(idMarca, idCategoria);
+                return articulos;
 
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public List<Articulo> GetArticulos(int idMarca)
+        {
+            try
+            {
+                List<Articulo> articulos = ArticuloDAO.GetArticulos(idMarca);
+                return articulos;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+
+        }
+
+        public List<Articulo> GetArticulosByCategory(int idCategoria)
+        {
+            try
+            {
+                List<Articulo> articulos = ArticuloDAO.GetArticulosByCategoria(idCategoria);
+                return articulos;
+
+            }catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }
