@@ -23,7 +23,8 @@ namespace WinForm_App
 
         private void buscarForm_Load(object sender, EventArgs e)
         {
-            
+            MarcaNegocio marcaNegocio = new MarcaNegocio();
+            cboxMarca.Items.AddRange(marcaNegocio.list().ToArray());
 
         }
 

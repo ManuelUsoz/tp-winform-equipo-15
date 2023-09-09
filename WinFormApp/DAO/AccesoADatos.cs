@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -27,6 +28,20 @@ namespace Negocio
             comando = new SqlCommand();
         }
 
+        public AccesoADatos(string conn)
+        {
+            conexion = new SqlConnection(conn);
+            comando = new SqlCommand();
+        }
+
+        public void AbrirConexion()
+        {
+            if (conexion.State != ConnectionState.Open)
+            {
+                conexion.Open();
+            }
+        }
+
         public void consultar(string consulta)
         {
             comando.CommandType = System.Data.CommandType.Text;
@@ -38,7 +53,6 @@ namespace Negocio
             comando.Connection = conexion;
             try
             {
-                conexion.Open();
                 lector = comando.ExecuteReader();
             }
             catch (Exception ex)

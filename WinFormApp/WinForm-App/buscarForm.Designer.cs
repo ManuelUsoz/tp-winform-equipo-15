@@ -35,7 +35,7 @@
             this.brandLabel = new System.Windows.Forms.Label();
             this.lblField = new System.Windows.Forms.Label();
             this.cboxCategoria = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cboxMarca = new System.Windows.Forms.ComboBox();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResultadoBusquedaArticulo)).BeginInit();
             this.SuspendLayout();
@@ -108,13 +108,13 @@
             this.cboxCategoria.TabIndex = 6;
             this.cboxCategoria.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
-            // comboBox2
+            // cboxMarca
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(380, 56);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 24);
-            this.comboBox2.TabIndex = 7;
+            this.cboxMarca.FormattingEnabled = true;
+            this.cboxMarca.Location = new System.Drawing.Point(380, 56);
+            this.cboxMarca.Name = "cboxMarca";
+            this.cboxMarca.Size = new System.Drawing.Size(121, 24);
+            this.cboxMarca.TabIndex = 7;
             // 
             // comboBox3
             // 
@@ -131,7 +131,7 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(1316, 558);
             this.Controls.Add(this.comboBox3);
-            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.cboxMarca);
             this.Controls.Add(this.cboxCategoria);
             this.Controls.Add(this.lblField);
             this.Controls.Add(this.brandLabel);
@@ -159,7 +159,7 @@
         private System.Windows.Forms.Label brandLabel;
         private System.Windows.Forms.Label lblField;
         private System.Windows.Forms.ComboBox cboxCategoria;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cboxMarca;
         private System.Windows.Forms.ComboBox comboBox3;
     }
 }

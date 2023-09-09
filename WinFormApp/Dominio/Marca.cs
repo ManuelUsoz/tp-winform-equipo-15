@@ -9,7 +9,6 @@ namespace Dominio
     public class Marca
     {
         public long Id { get; set; }
-        public string ImagenUrl { get; set; }
-        public long IdArticulo { get; set; }
+        public string Descripcion { get; set; }
     }
 }
