@@ -28,5 +28,11 @@ namespace WinForm_App
             detalleArticulo form = new detalleArticulo();
             form.ShowDialog();
         }
+
+        private void listaDeArticulosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmListaArticulos frmlistArt= new frmListaArticulos();
+            frmlistArt.ShowDialog();
+        }
     }
 }

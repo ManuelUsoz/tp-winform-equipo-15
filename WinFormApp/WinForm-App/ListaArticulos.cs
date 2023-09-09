@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Dominio;
+using Negocio;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,9 +12,10 @@ using System.Windows.Forms;
 
 namespace WinForm_App
 {
-    public partial class ListaArticulos : Form
+    public partial class frmListaArticulos : Form
     {
-        public ListaArticulos()
+        private List<Articulo> listaArticulos;
+        public frmListaArticulos()
         {
             InitializeComponent();
         }
@@ -20,6 +23,17 @@ namespace WinForm_App
         private void btnBuscar_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void frmListaArticulos_Load(object sender, EventArgs e)
+        {
+            ArticuloNegocio artNegocio = new ArticuloNegocio();
+
+            listaArticulos = artNegocio.List();
+
+            dgvArticulos.DataSource = listaArticulos;
+
+            dgvArticulos.Columns["ImagenUrl"].Visible = false;
         }
     }
 }
