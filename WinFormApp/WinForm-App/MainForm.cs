@@ -10,11 +10,17 @@ using System.Windows.Forms;
 
 namespace WinForm_App
 {
-    public partial class Articulo : Form
+    public partial class MainForm : Form
     {
-        public Articulo()
+        public MainForm()
         {
             InitializeComponent();
+        }
+
+        private void buscarArticuloToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            buscarForm form = new buscarForm();
+            form.ShowDialog();
         }
     }
 }

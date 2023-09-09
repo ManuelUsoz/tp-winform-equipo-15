@@ -1,6 +1,6 @@
 ﻿namespace WinForm_App
 {
-    partial class Articulo
+    partial class MainForm
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -40,6 +40,7 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.listaDeArticulosToolStripMenuItem,
             this.agregarArticuloToolStripMenuItem,
@@ -49,53 +50,55 @@
             this.detalleDeUnArticuloToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1067, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // listaDeArticulosToolStripMenuItem
             // 
             this.listaDeArticulosToolStripMenuItem.Name = "listaDeArticulosToolStripMenuItem";
-            this.listaDeArticulosToolStripMenuItem.Size = new System.Drawing.Size(107, 20);
+            this.listaDeArticulosToolStripMenuItem.Size = new System.Drawing.Size(134, 24);
             this.listaDeArticulosToolStripMenuItem.Text = "&Lista de articulos";
             // 
             // agregarArticuloToolStripMenuItem
             // 
             this.agregarArticuloToolStripMenuItem.Name = "agregarArticuloToolStripMenuItem";
-            this.agregarArticuloToolStripMenuItem.Size = new System.Drawing.Size(104, 20);
+            this.agregarArticuloToolStripMenuItem.Size = new System.Drawing.Size(131, 24);
             this.agregarArticuloToolStripMenuItem.Text = "&Agregar articulo";
             // 
             // modificarArticuloToolStripMenuItem
             // 
             this.modificarArticuloToolStripMenuItem.Name = "modificarArticuloToolStripMenuItem";
-            this.modificarArticuloToolStripMenuItem.Size = new System.Drawing.Size(113, 20);
+            this.modificarArticuloToolStripMenuItem.Size = new System.Drawing.Size(141, 24);
             this.modificarArticuloToolStripMenuItem.Text = "&Modificar articulo";
             // 
             // eliminarArticuloToolStripMenuItem
             // 
             this.eliminarArticuloToolStripMenuItem.Name = "eliminarArticuloToolStripMenuItem";
-            this.eliminarArticuloToolStripMenuItem.Size = new System.Drawing.Size(105, 20);
+            this.eliminarArticuloToolStripMenuItem.Size = new System.Drawing.Size(131, 24);
             this.eliminarArticuloToolStripMenuItem.Text = "&Eliminar articulo";
             // 
             // buscarArticuloToolStripMenuItem
             // 
             this.buscarArticuloToolStripMenuItem.Name = "buscarArticuloToolStripMenuItem";
-            this.buscarArticuloToolStripMenuItem.Size = new System.Drawing.Size(158, 20);
+            this.buscarArticuloToolStripMenuItem.Size = new System.Drawing.Size(198, 24);
             this.buscarArticuloToolStripMenuItem.Text = "&Buscar articulo por criterio";
+            this.buscarArticuloToolStripMenuItem.Click += new System.EventHandler(this.buscarArticuloToolStripMenuItem_Click);
             // 
             // detalleDeUnArticuloToolStripMenuItem
             // 
             this.detalleDeUnArticuloToolStripMenuItem.Name = "detalleDeUnArticuloToolStripMenuItem";
-            this.detalleDeUnArticuloToolStripMenuItem.Size = new System.Drawing.Size(131, 20);
+            this.detalleDeUnArticuloToolStripMenuItem.Size = new System.Drawing.Size(166, 24);
             this.detalleDeUnArticuloToolStripMenuItem.Text = "&Detalle de un articulo";
             // 
             // Articulo
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Articulo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu Inicial";

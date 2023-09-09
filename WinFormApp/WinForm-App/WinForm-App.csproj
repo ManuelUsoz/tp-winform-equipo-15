@@ -52,11 +52,17 @@
     <Compile Include="AgregarArticulo.Designer.cs">
       <DependentUpon>AgregarArticulo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Articulo.cs">
+    <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Articulo.Designer.cs">
-      <DependentUpon>Articulo.cs</DependentUpon>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="buscarForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="buscarForm.Designer.cs">
+      <DependentUpon>buscarForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ListaArticulos.cs">
       <SubType>Form</SubType>
@@ -69,8 +75,11 @@
     <EmbeddedResource Include="AgregarArticulo.resx">
       <DependentUpon>AgregarArticulo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Articulo.resx">
-      <DependentUpon>Articulo.cs</DependentUpon>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="buscarForm.resx">
+      <DependentUpon>buscarForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ListaArticulos.resx">
       <DependentUpon>ListaArticulos.cs</DependentUpon>

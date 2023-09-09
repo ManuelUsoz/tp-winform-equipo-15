@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
@@ -24,7 +26,7 @@ namespace Negocio
                 {
                     Articulo aux = new Articulo();
                     //Llenar con los demas atributos de Articulo
-                    aux.CodNumero = (int)datos.Lector["CodNumero"];
+                    aux.Code = (string)datos.Lector["Codigo"];
                     aux.Nombre = (string)datos.Lector["Nombre"];
                     lista.Add(aux);
                 }
@@ -63,5 +65,38 @@ namespace Negocio
                 datos.cerrarConexion();
             }
         }
+
+        public Articulo Find(string code)
+        {
+            Articulo articulo = new Articulo();
+            try
+            {
+                using (SqlConnection sqlConnection = new SqlConnection("server=.; database=CATALOGO_P3_DB; integrated security=true"))
+                {
+                    sqlConnection.Open();
+                    string consulta = "SELECT Codigo, Nombre, Descripcion, Precio FROM ARTICULOS WHERE Codigo = @codigo";
+                    using (SqlCommand sqlCommand = new SqlCommand(consulta, sqlConnection))
+                    {
+                        sqlCommand.Parameters.AddWithValue("@codigo", code);
+                        SqlDataReader reader = sqlCommand.ExecuteReader();
+
+                        if (reader.Read())
+                        {
+                            articulo.Code = reader["Codigo"].ToString();
+                            articulo.Nombre = reader["Nombre"].ToString();
+                            articulo.Descripcion = reader["Descripcion"].ToString();
+                        }
+                        reader.Close();
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+            return articulo;
+        }
+
     }
 }

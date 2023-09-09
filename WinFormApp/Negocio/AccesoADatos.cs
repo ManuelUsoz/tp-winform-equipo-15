@@ -23,7 +23,7 @@ namespace Negocio
 
         public AccesoADatos()
         {
-            conexion = new SqlConnection();//Hay que agregar el server cuando este disponible
+            conexion = new SqlConnection("server=.; database=CATALOGO_P3_DB; integrated security=true");//Hay que agregar el server cuando este disponible
             comando = new SqlCommand();
         }
 
