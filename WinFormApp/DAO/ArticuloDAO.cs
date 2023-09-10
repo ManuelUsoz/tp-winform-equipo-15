@@ -336,5 +336,121 @@ namespace DAO
                 accesoADatos.cerrarConexion();
             }
         }
+
+        public List<Articulo> GetArticulos(int idMarca, int categoriaId, string field, string criteria, string value)
+        {
+            AccesoADatos accesoADatos = new AccesoADatos("server=.; database=CATALOGO_P3_DB; integrated security=true");
+            List<Articulo> articulos = new List<Articulo>();
+            Dictionary<string, string> operadoresSQL = new Dictionary<string, string>
+            {
+                { "Es igual a", "=" },
+                { "Es mayor a", ">" },
+                { "Es menor a", "<" },
+                { "Contiene", "LIKE '%" },
+                { "Igual a", "=" }
+            };
+            try
+            {
+                string sqloperator = operadoresSQL[criteria];
+                string query = "";
+
+                if (field == "Precio")
+                {
+                    query = "SELECT A.Id, A.Codigo, A.Nombre, A.Descripcion, M.Descripcion as Marca, C.Descripcion as Categoria, A.Precio FROM ARTICULOS A LEFT JOIN MARCAS M ON M.Id = A.IdMarca LEFT JOIN CATEGORIAS C ON C.Id = A.IdCategoria WHERE A." + field + " " + sqloperator + " " + value + " AND A.IdCategoria = " + categoriaId + " AND A.IdMarca = "+idMarca+"";
+                }
+                else
+                {
+                    if (sqloperator == "LIKE '%")
+                    {
+                        query = "SELECT A.Id, A.Codigo, A.Nombre, A.Descripcion, M.Descripcion as Marca, C.Descripcion as Categoria, A.Precio FROM ARTICULOS A LEFT JOIN MARCAS M ON M.Id = A.IdMarca LEFT JOIN CATEGORIAS C ON C.Id = A.IdCategoria WHERE A." + field + " " + sqloperator + "" + value + "%' AND A.IdCategoria = " + categoriaId + " AND A.IdMarca = " + idMarca + "";
+                    }
+                    else
+                    {
+                        query = "SELECT A.Id, A.Codigo, A.Nombre, A.Descripcion, M.Descripcion as Marca, C.Descripcion as Categoria, A.Precio FROM ARTICULOS A LEFT JOIN MARCAS M ON M.Id = A.IdMarca LEFT JOIN CATEGORIAS C ON C.Id = A.IdCategoria WHERE A." + field + " " + sqloperator + " '" + value + "' AND A.IdCategoria = " + categoriaId + " AND A.IdMarca = " + idMarca + "";
+
+                    }
+                }
+
+                accesoADatos.consultar(query);
+                accesoADatos.AbrirConexion();
+                accesoADatos.ejecutarLectura();
+
+                while (accesoADatos.Lector.Read())
+                {
+                    Articulo articulo = new Articulo();
+                    this.LoadArticle(ref articulo, ref accesoADatos);
+                    articulos.Add(articulo);
+                }
+
+                return articulos;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                accesoADatos.cerrarConexion();
+            }
+        }
+
+        public List<Articulo> GetArticulosByCategory(int categoryId, string field, string criteria, string value)
+        {
+            AccesoADatos accesoADatos = new AccesoADatos("server=.; database=CATALOGO_P3_DB; integrated security=true");
+            List<Articulo> articulos = new List<Articulo>();
+            Dictionary<string, string> operadoresSQL = new Dictionary<string, string>
+            {
+                { "Es igual a", "=" },
+                { "Es mayor a", ">" },
+                { "Es menor a", "<" },
+                { "Contiene", "LIKE '%" },
+                { "Igual a", "=" }
+            };
+            try
+            {
+                string sqloperator = operadoresSQL[criteria];
+                string query = "";
+
+                if (field == "Precio")
+                {
+                    query = "SELECT A.Id, A.Codigo, A.Nombre, A.Descripcion, M.Descripcion as Marca, C.Descripcion as Categoria, A.Precio FROM ARTICULOS A LEFT JOIN MARCAS M ON M.Id = A.IdMarca LEFT JOIN CATEGORIAS C ON C.Id = A.IdCategoria WHERE A." + field + " " + sqloperator + " " + value + " AND A.IdCategoria = " + categoryId + "";
+                }
+                else
+                {
+                    if (sqloperator == "LIKE '%")
+                    {
+                        query = "SELECT A.Id, A.Codigo, A.Nombre, A.Descripcion, M.Descripcion as Marca, C.Descripcion as Categoria, A.Precio FROM ARTICULOS A LEFT JOIN MARCAS M ON M.Id = A.IdMarca LEFT JOIN CATEGORIAS C ON C.Id = A.IdCategoria WHERE A." + field + " " + sqloperator + "" + value + "%' AND A.IdCategoria = " + categoryId + "";
+                    }
+                    else
+                    {
+                        query = "SELECT A.Id, A.Codigo, A.Nombre, A.Descripcion, M.Descripcion as Marca, C.Descripcion as Categoria, A.Precio FROM ARTICULOS A LEFT JOIN MARCAS M ON M.Id = A.IdMarca LEFT JOIN CATEGORIAS C ON C.Id = A.IdCategoria WHERE A." + field + " " + sqloperator + " '" + value + "' AND A.IdCategoria = " + categoryId + "";
+
+                    }
+                }
+
+                accesoADatos.consultar(query);
+                accesoADatos.AbrirConexion();
+                accesoADatos.ejecutarLectura();
+
+                while (accesoADatos.Lector.Read())
+                {
+                    Articulo articulo = new Articulo();
+                    this.LoadArticle(ref articulo, ref accesoADatos);
+                    articulos.Add(articulo);
+                }
+
+                return articulos;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                accesoADatos.cerrarConexion();
+            }
+        }
     }
 }

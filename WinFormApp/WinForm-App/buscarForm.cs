@@ -93,6 +93,22 @@ namespace WinForm_App
                     List<Articulo> articulos = articuloNegocio.GetArticulos(selectedBrand.Id, selectedField, selectedCriteria, value);
                     dgvResultadoBusquedaArticulo.DataSource = articulos;
                 }
+
+                //Selecciono el combo de categoria, sin marca pero con filtros especificos
+                if(selectedBrand == null && selectedCategory != null && selectedField != null)
+                {
+                    string value = TxtBoxCriteriaFilter.Text;
+                    List<Articulo> articulos = articuloNegocio.GetArticulosByCategory(selectedCategory.Id, selectedField, selectedCriteria, value);
+                    dgvResultadoBusquedaArticulo.DataSource = articulos;
+                }
+
+                //Selecciono todos los combos
+                if(selectedBrand != null && selectedCategory != null && selectedField != null)
+                {
+                    string value = TxtBoxCriteriaFilter.Text;
+                    List<Articulo> articulos = articuloNegocio.GetArticulos(selectedBrand.Id, selectedCategory.Id, selectedField, selectedCriteria, value);
+                    dgvResultadoBusquedaArticulo.DataSource = articulos;   
+                }
             }catch(Exception)
             {
                 MessageBox.Show("No se encontro lo requerido");
