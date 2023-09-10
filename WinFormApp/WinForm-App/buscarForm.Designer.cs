@@ -99,6 +99,7 @@
             // 
             // cboxCategoria
             // 
+            this.cboxCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboxCategoria.FormattingEnabled = true;
             this.cboxCategoria.Location = new System.Drawing.Point(313, 145);
             this.cboxCategoria.Name = "cboxCategoria";
@@ -107,6 +108,7 @@
             // 
             // cboxMarca
             // 
+            this.cboxMarca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboxMarca.FormattingEnabled = true;
             this.cboxMarca.Location = new System.Drawing.Point(163, 145);
             this.cboxMarca.Name = "cboxMarca";
@@ -134,6 +136,7 @@
             // 
             // cboxCampoFilter
             // 
+            this.cboxCampoFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboxCampoFilter.FormattingEnabled = true;
             this.cboxCampoFilter.Location = new System.Drawing.Point(464, 145);
             this.cboxCampoFilter.Name = "cboxCampoFilter";
@@ -143,6 +146,7 @@
             // 
             // cboxCriterioFilter
             // 
+            this.cboxCriterioFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboxCriterioFilter.FormattingEnabled = true;
             this.cboxCriterioFilter.Location = new System.Drawing.Point(602, 145);
             this.cboxCriterioFilter.Name = "cboxCriterioFilter";
