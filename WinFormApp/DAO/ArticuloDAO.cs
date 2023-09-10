@@ -40,16 +40,7 @@ namespace DAO
                 while (accesoADatos.Lector.Read())
                 {
                     Articulo articulo = new Articulo();
-                    articulo.Id = (int)accesoADatos.Lector["Id"];
-                    articulo.Code = accesoADatos.Lector["Codigo"].ToString();
-                    articulo.Nombre = accesoADatos.Lector["Nombre"].ToString();
-                    articulo.Descripcion = accesoADatos.Lector["Descripcion"].ToString();
-                    articulo.Marca = new Marca();
-                    articulo.Marca.Descripcion = accesoADatos.Lector["Marca"].ToString();
-                    articulo.Categoria = new Categoria();
-                    articulo.Categoria.Descripcion = accesoADatos.Lector["Categoria"].ToString();
-                    articulo.Precio = (decimal)accesoADatos.Lector["Precio"];
-
+                    this.LoadArticle(ref articulo, ref accesoADatos);
                     listaArticulos.Add(articulo);
                 }
 
@@ -81,15 +72,7 @@ namespace DAO
                 while (accesoADatos.Lector.Read())
                 {
                     Articulo articulo = new Articulo();
-                    articulo.Code = accesoADatos.Lector["Codigo"].ToString();
-                    articulo.Nombre = accesoADatos.Lector["Nombre"].ToString();
-                    articulo.Descripcion = accesoADatos.Lector["Descripcion"].ToString();
-                    articulo.Marca = new Marca();
-                    articulo.Marca.Descripcion = accesoADatos.Lector["Marca"].ToString();
-                    articulo.Categoria = new Categoria();
-                    articulo.Categoria.Descripcion = accesoADatos.Lector["Categoria"].ToString();
-                    articulo.Precio = (decimal)accesoADatos.Lector["Precio"];
-
+                    this.LoadArticle(ref articulo, ref accesoADatos);
                     articulos.Add(articulo);
 
                 }
@@ -117,15 +100,7 @@ namespace DAO
                 while (accesoADatos.Lector.Read())
                 {
                     Articulo articulo = new Articulo();
-                    articulo.Code = accesoADatos.Lector["Codigo"].ToString();
-                    articulo.Nombre = accesoADatos.Lector["Nombre"].ToString();
-                    articulo.Descripcion = accesoADatos.Lector["Descripcion"].ToString();
-                    articulo.Marca = new Marca();
-                    articulo.Marca.Descripcion = accesoADatos.Lector["Marca"].ToString();
-                    articulo.Categoria = new Categoria();
-                    articulo.Categoria.Descripcion = accesoADatos.Lector["Categoria"].ToString();
-                    articulo.Precio = (decimal)accesoADatos.Lector["Precio"];
-
+                    this.LoadArticle(ref articulo, ref accesoADatos);
                     articulos.Add(articulo);
 
                 }
@@ -153,15 +128,7 @@ namespace DAO
                 while (accesoADatos.Lector.Read())
                 {
                     Articulo articulo = new Articulo();
-                    articulo.Code = accesoADatos.Lector["Codigo"].ToString();
-                    articulo.Nombre = accesoADatos.Lector["Nombre"].ToString();
-                    articulo.Descripcion = accesoADatos.Lector["Descripcion"].ToString();
-                    articulo.Marca = new Marca();
-                    articulo.Marca.Descripcion = accesoADatos.Lector["Marca"].ToString();
-                    articulo.Categoria = new Categoria();
-                    articulo.Categoria.Descripcion = accesoADatos.Lector["Categoria"].ToString();
-                    articulo.Precio = (decimal)accesoADatos.Lector["Precio"];
-
+                    this.LoadArticle(ref articulo, ref accesoADatos);
                     articulos.Add(articulo);
 
                 }
@@ -218,15 +185,7 @@ namespace DAO
                 while (accesoADatos.Lector.Read())
                 {
                     Articulo articulo = new Articulo();
-                    articulo.Code = accesoADatos.Lector["Codigo"].ToString();
-                    articulo.Nombre = accesoADatos.Lector["Nombre"].ToString();
-                    articulo.Descripcion = accesoADatos.Lector["Descripcion"].ToString();
-                    articulo.Marca = new Marca();
-                    articulo.Marca.Descripcion = accesoADatos.Lector["Marca"].ToString();
-                    articulo.Categoria = new Categoria();
-                    articulo.Categoria.Descripcion = accesoADatos.Lector["Categoria"].ToString();
-                    articulo.Precio = (decimal)accesoADatos.Lector["Precio"];
-
+                    this.LoadArticle(ref articulo, ref accesoADatos);
                     articulos.Add(articulo);
                 }
 
@@ -254,16 +213,7 @@ namespace DAO
                 while (accesoADatos.Lector.Read())
                 {
                     Articulo articulo = new Articulo();
-                    articulo.Id = (int)accesoADatos.Lector["Id"];
-                    articulo.Code = accesoADatos.Lector["Codigo"].ToString();
-                    articulo.Nombre = accesoADatos.Lector["Nombre"].ToString();
-                    articulo.Descripcion = accesoADatos.Lector["Descripcion"].ToString();
-                    articulo.Marca = new Marca();
-                    articulo.Marca.Descripcion = accesoADatos.Lector["Marca"].ToString();
-                    articulo.Categoria = new Categoria();
-                    articulo.Categoria.Descripcion = accesoADatos.Lector["Categoria"].ToString();
-                    articulo.Precio = (decimal)accesoADatos.Lector["Precio"];
-
+                    this.LoadArticle(ref articulo, ref accesoADatos);
                     articulos.Add(articulo);
                 }
 

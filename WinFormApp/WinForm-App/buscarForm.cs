@@ -41,43 +41,77 @@ namespace WinForm_App
             brandLabel.Visible = false;
             categoryComboLabel.Visible = false;
             TxtBoxCriteriaFilter.Visible = false;
+            BtnResetFilters.Visible = false;
 
+        }
+            
+        private bool validateCbox()
+        {
+            if(cboxCampoFilter.SelectedIndex != -1)
+            {
+                if(cboxCriterioFilter.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Por favor seleccione un criterio a filtrar");
+                    return false;
+                }
+                else
+                {
+                    if(cboxCampoFilter.SelectedItem.ToString() == "Precio")
+                    {
+                        if (!decimal.TryParse(TxtBoxCriteriaFilter.Text, out decimal txt))
+                        {
+                            MessageBox.Show("Si quiere filtrar por precio ingrese números");
+                            return false;
+                        }
+                    }
+                }
+            }
+
+            
+            return true;
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             dgvResultadoBusquedaArticulo.DataSource = null;
-            Marca selectedBrand = (Marca)cboxMarca.SelectedItem ?? null;
-            Categoria selectedCategory = (Categoria)cboxCategoria.SelectedItem ;
-            string selectedCriteria = (string)cboxCriterioFilter.SelectedItem;
-            string selectedField = (string)cboxCampoFilter.SelectedItem;
             ArticuloNegocio articuloNegocio = new ArticuloNegocio();
 
             try
             {
+                Marca selectedBrand = (Marca)cboxMarca.SelectedItem ?? null;
+                Categoria selectedCategory = (Categoria)cboxCategoria.SelectedItem;
+                string selectedCriteria = (string)cboxCriterioFilter.SelectedItem;
+                string selectedField = (string)cboxCampoFilter.SelectedItem;
+
+                if (!this.validateCbox())
+                {
+                    this.BtnResetFilters_Click(sender, e);
+                    return;
+                }
+
                 //Selecciono una marca y categoria sin filtrado de campos y criterio
-                if(selectedBrand != null && selectedCategory != null && selectedField == null && TxtBoxQuickFilter.Text == null)
+                if(selectedBrand != null && selectedCategory != null && selectedField == null)
                 {
                     List<Articulo> articulos = articuloNegocio.GetArticulos(selectedBrand.Id, selectedCategory.Id);
                     dgvResultadoBusquedaArticulo.DataSource = articulos;
                 }
 
                 //Selecciono una marca pero no categoria sin filtrado de campos y criterio
-                if(selectedBrand != null && selectedCategory == null && selectedField == null && TxtBoxQuickFilter.Text == null)
+                if(selectedBrand != null && selectedCategory == null && selectedField == null)
                 {
                     List<Articulo> articulos = articuloNegocio.GetArticulos(selectedBrand.Id);
                     dgvResultadoBusquedaArticulo.DataSource = articulos;
                 }
 
                 //Selecciono una categoria pero no marca sin filtrado de campos y criterio
-                if(selectedBrand == null && selectedCategory != null && selectedField == null && TxtBoxQuickFilter.Text == null)
+                if(selectedBrand == null && selectedCategory != null && selectedField == null)
                 {
                     List<Articulo> articulos = articuloNegocio.GetArticulosByCategory(selectedCategory.Id);
                     dgvResultadoBusquedaArticulo.DataSource = articulos;
                 }
 
                 //No selecciono combos, pero selecciono filtros avanzados
-                if(selectedBrand == null && selectedCategory == null && selectedField != null && TxtBoxQuickFilter.Text == null)
+                if(selectedBrand == null && selectedCategory == null && selectedField != null)
                 {
                     string value = TxtBoxCriteriaFilter.Text;
                     List<Articulo> articulos = articuloNegocio.GetArticulos(selectedField, selectedCriteria, value);
@@ -86,7 +120,7 @@ namespace WinForm_App
                 }
 
                 //Selecciono el combo de marca, no selecciono categorias pero esta filtrando por campo y criterio
-                if(selectedBrand != null && selectedCategory == null && selectedField != null && TxtBoxQuickFilter.Text == null)
+                if(selectedBrand != null && selectedCategory == null && selectedField != null)
                 {
                     string value = TxtBoxCriteriaFilter.Text;
                     List<Articulo> articulos = articuloNegocio.GetArticulos(selectedBrand.Id, selectedField, selectedCriteria, value);
@@ -94,7 +128,7 @@ namespace WinForm_App
                 }
 
                 //Selecciono el combo de categoria, sin marca pero con filtros especificos
-                if(selectedBrand == null && selectedCategory != null && selectedField != null && TxtBoxQuickFilter.Text == null)
+                if(selectedBrand == null && selectedCategory != null && selectedField != null)
                 {
                     string value = TxtBoxCriteriaFilter.Text;
                     List<Articulo> articulos = articuloNegocio.GetArticulosByCategory(selectedCategory.Id, selectedField, selectedCriteria, value);
@@ -102,22 +136,11 @@ namespace WinForm_App
                 }
 
                 //Selecciono todos los combos
-                if(selectedBrand != null && selectedCategory != null && selectedField != null && TxtBoxQuickFilter.Text == null)
+                if(selectedBrand != null && selectedCategory != null && selectedField != null)
                 {
                     string value = TxtBoxCriteriaFilter.Text;
                     List<Articulo> articulos = articuloNegocio.GetArticulos(selectedBrand.Id, selectedCategory.Id, selectedField, selectedCriteria, value);
                     dgvResultadoBusquedaArticulo.DataSource = articulos;   
-                }
-
-                //Quiere usar los dos filtros
-                if (TxtBoxQuickFilter.Text != null && (selectedBrand != null || selectedCategory != null || selectedField != null || selectedCriteria != null))
-                {
-                    MessageBox.Show("Por favor utilice uno de los dos filtros");
-                    cboxCampoFilter.SelectedIndex = -1;
-                    cboxMarca.SelectedIndex = -1;
-                    cboxCategoria.SelectedIndex = -1;
-                    cboxCriterioFilter.SelectedIndex = -1;
-                    TxtBoxQuickFilter.Text = "";
                 }
 
             }
@@ -136,6 +159,7 @@ namespace WinForm_App
             brandLabel.Visible = true;
             categoryComboLabel.Visible = true;
             btnBuscar.Visible = true;
+            BtnResetFilters.Visible = true;
             List<string> optionsComboBox = new List<string> { "Codigo", "Nombre", "Descripcion", "Precio", "Todos"};
 
             cboxCampoFilter.Items.AddRange(optionsComboBox.ToArray());
@@ -188,6 +212,7 @@ namespace WinForm_App
             cboxMarca.SelectedIndex = -1;
             cboxCategoria.SelectedIndex = -1;
             cboxCriterioFilter.SelectedIndex = -1;
+            TxtBoxCriteriaFilter.Text = null;
         }
     }
 }
