@@ -405,8 +405,7 @@ namespace DAO
             AccesoADatos datos = new AccesoADatos();
             try
             {
-                //Falta corregir la consulta ya que me tira error
-                datos.consultar("INSERT INTO ARTICULOS (Codigo, Nombre, Descripcion, IdMarca, IdCategoria, Precio) VALUES ('"+nuevo.Code+"', '"+nuevo.Nombre+"', '"+nuevo.Descripcion+"', '@IdMarca, @IdCategoria, '"+nuevo.Precio+"')");
+                datos.consultar("INSERT INTO ARTICULOS (Codigo, Nombre, Descripcion, IdMarca, IdCategoria, Precio) VALUES ('"+nuevo.Code+"', '"+nuevo.Nombre+"', '"+nuevo.Descripcion+"', @IdMarca, @IdCategoria, "+nuevo.Precio+")");
                 datos.setearParametro("@IdMarca",nuevo.Marca.Id);
                 datos.setearParametro("@IdCategoria",nuevo.Categoria.Id);
                 datos.ejecutarAccion();

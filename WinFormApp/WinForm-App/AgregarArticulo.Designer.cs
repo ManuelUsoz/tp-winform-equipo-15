@@ -41,11 +41,10 @@
             this.txtbDescripcion = new System.Windows.Forms.TextBox();
             this.txtbURLImagen = new System.Windows.Forms.TextBox();
             this.nudPrecio = new System.Windows.Forms.NumericUpDown();
-            this.nudCodigo = new System.Windows.Forms.NumericUpDown();
             this.cbMarca = new System.Windows.Forms.ComboBox();
             this.cbCategoria = new System.Windows.Forms.ComboBox();
+            this.txtbCodigo = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.nudPrecio)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudCodigo)).BeginInit();
             this.SuspendLayout();
             // 
             // labelCode
@@ -54,7 +53,7 @@
             this.labelCode.Location = new System.Drawing.Point(12, 22);
             this.labelCode.Name = "labelCode";
             this.labelCode.Size = new System.Drawing.Size(43, 13);
-            this.labelCode.TabIndex = 0;
+            this.labelCode.TabIndex = 8;
             this.labelCode.Text = "Codigo:";
             // 
             // labelNombre
@@ -63,7 +62,7 @@
             this.labelNombre.Location = new System.Drawing.Point(12, 49);
             this.labelNombre.Name = "labelNombre";
             this.labelNombre.Size = new System.Drawing.Size(47, 13);
-            this.labelNombre.TabIndex = 1;
+            this.labelNombre.TabIndex = 9;
             this.labelNombre.Text = "Nombre:";
             // 
             // labelDescripcion
@@ -72,7 +71,7 @@
             this.labelDescripcion.Location = new System.Drawing.Point(12, 77);
             this.labelDescripcion.Name = "labelDescripcion";
             this.labelDescripcion.Size = new System.Drawing.Size(66, 13);
-            this.labelDescripcion.TabIndex = 2;
+            this.labelDescripcion.TabIndex = 10;
             this.labelDescripcion.Text = "Descripcion:";
             // 
             // labelMarca
@@ -81,7 +80,7 @@
             this.labelMarca.Location = new System.Drawing.Point(12, 102);
             this.labelMarca.Name = "labelMarca";
             this.labelMarca.Size = new System.Drawing.Size(40, 13);
-            this.labelMarca.TabIndex = 3;
+            this.labelMarca.TabIndex = 11;
             this.labelMarca.Text = "Marca:";
             // 
             // labelCategoria
@@ -90,7 +89,7 @@
             this.labelCategoria.Location = new System.Drawing.Point(12, 132);
             this.labelCategoria.Name = "labelCategoria";
             this.labelCategoria.Size = new System.Drawing.Size(55, 13);
-            this.labelCategoria.TabIndex = 4;
+            this.labelCategoria.TabIndex = 12;
             this.labelCategoria.Text = "Categoria:";
             // 
             // labelImagen
@@ -99,7 +98,7 @@
             this.labelImagen.Location = new System.Drawing.Point(12, 159);
             this.labelImagen.Name = "labelImagen";
             this.labelImagen.Size = new System.Drawing.Size(106, 13);
-            this.labelImagen.TabIndex = 5;
+            this.labelImagen.TabIndex = 13;
             this.labelImagen.Text = "URL Imagen: FALTA";
             // 
             // labelPrecio
@@ -108,7 +107,7 @@
             this.labelPrecio.Location = new System.Drawing.Point(12, 186);
             this.labelPrecio.Name = "labelPrecio";
             this.labelPrecio.Size = new System.Drawing.Size(40, 13);
-            this.labelPrecio.TabIndex = 6;
+            this.labelPrecio.TabIndex = 14;
             this.labelPrecio.Text = "Precio:";
             // 
             // buttonAceptar
@@ -116,7 +115,7 @@
             this.buttonAceptar.Location = new System.Drawing.Point(87, 237);
             this.buttonAceptar.Name = "buttonAceptar";
             this.buttonAceptar.Size = new System.Drawing.Size(75, 23);
-            this.buttonAceptar.TabIndex = 7;
+            this.buttonAceptar.TabIndex = 6;
             this.buttonAceptar.Text = "Aceptar";
             this.buttonAceptar.UseVisualStyleBackColor = true;
             this.buttonAceptar.Click += new System.EventHandler(this.buttonAceptar_Click);
@@ -126,7 +125,7 @@
             this.buttonCancelar.Location = new System.Drawing.Point(283, 237);
             this.buttonCancelar.Name = "buttonCancelar";
             this.buttonCancelar.Size = new System.Drawing.Size(75, 23);
-            this.buttonCancelar.TabIndex = 8;
+            this.buttonCancelar.TabIndex = 7;
             this.buttonCancelar.Text = "Cancelar";
             this.buttonCancelar.UseVisualStyleBackColor = true;
             this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);
@@ -136,60 +135,67 @@
             this.txtbNombre.Location = new System.Drawing.Point(87, 49);
             this.txtbNombre.Name = "txtbNombre";
             this.txtbNombre.Size = new System.Drawing.Size(271, 20);
-            this.txtbNombre.TabIndex = 9;
+            this.txtbNombre.TabIndex = 1;
             // 
             // txtbDescripcion
             // 
             this.txtbDescripcion.Location = new System.Drawing.Point(87, 75);
             this.txtbDescripcion.Name = "txtbDescripcion";
             this.txtbDescripcion.Size = new System.Drawing.Size(271, 20);
-            this.txtbDescripcion.TabIndex = 10;
+            this.txtbDescripcion.TabIndex = 2;
             // 
             // txtbURLImagen
             // 
             this.txtbURLImagen.Location = new System.Drawing.Point(124, 156);
             this.txtbURLImagen.Name = "txtbURLImagen";
             this.txtbURLImagen.Size = new System.Drawing.Size(10, 20);
-            this.txtbURLImagen.TabIndex = 11;
+            this.txtbURLImagen.TabIndex = 15;
             // 
             // nudPrecio
             // 
             this.nudPrecio.Location = new System.Drawing.Point(87, 180);
+            this.nudPrecio.Maximum = new decimal(new int[] {
+            9999999,
+            0,
+            0,
+            0});
             this.nudPrecio.Name = "nudPrecio";
             this.nudPrecio.Size = new System.Drawing.Size(271, 20);
-            this.nudPrecio.TabIndex = 12;
-            // 
-            // nudCodigo
-            // 
-            this.nudCodigo.Location = new System.Drawing.Point(87, 23);
-            this.nudCodigo.Name = "nudCodigo";
-            this.nudCodigo.Size = new System.Drawing.Size(271, 20);
-            this.nudCodigo.TabIndex = 13;
+            this.nudPrecio.TabIndex = 5;
             // 
             // cbMarca
             // 
+            this.cbMarca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbMarca.FormattingEnabled = true;
             this.cbMarca.Location = new System.Drawing.Point(87, 102);
             this.cbMarca.Name = "cbMarca";
             this.cbMarca.Size = new System.Drawing.Size(271, 21);
-            this.cbMarca.TabIndex = 14;
+            this.cbMarca.TabIndex = 3;
             // 
             // cbCategoria
             // 
+            this.cbCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCategoria.FormattingEnabled = true;
             this.cbCategoria.Location = new System.Drawing.Point(87, 129);
             this.cbCategoria.Name = "cbCategoria";
             this.cbCategoria.Size = new System.Drawing.Size(271, 21);
-            this.cbCategoria.TabIndex = 15;
+            this.cbCategoria.TabIndex = 4;
+            // 
+            // txtbCodigo
+            // 
+            this.txtbCodigo.Location = new System.Drawing.Point(87, 19);
+            this.txtbCodigo.Name = "txtbCodigo";
+            this.txtbCodigo.Size = new System.Drawing.Size(271, 20);
+            this.txtbCodigo.TabIndex = 0;
             // 
             // frmAgregarArticulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(370, 269);
+            this.Controls.Add(this.txtbCodigo);
             this.Controls.Add(this.cbCategoria);
             this.Controls.Add(this.cbMarca);
-            this.Controls.Add(this.nudCodigo);
             this.Controls.Add(this.nudPrecio);
             this.Controls.Add(this.txtbURLImagen);
             this.Controls.Add(this.txtbDescripcion);
@@ -208,7 +214,6 @@
             this.Text = "Agregar nuevo articulo";
             this.Load += new System.EventHandler(this.frmAgregarArticulo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nudPrecio)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudCodigo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -229,8 +234,8 @@
         private System.Windows.Forms.TextBox txtbDescripcion;
         private System.Windows.Forms.TextBox txtbURLImagen;
         private System.Windows.Forms.NumericUpDown nudPrecio;
-        private System.Windows.Forms.NumericUpDown nudCodigo;
         private System.Windows.Forms.ComboBox cbMarca;
         private System.Windows.Forms.ComboBox cbCategoria;
+        private System.Windows.Forms.TextBox txtbCodigo;
     }
 }
