@@ -43,28 +43,6 @@ namespace Negocio
             }
         }
 
-        public void agregar(Articulo nuevo)
-        {
-            AccesoADatos datos = new AccesoADatos();
-            try
-            {
-                datos.consultar("");//hacer la consulta
-                //Para Usar Luego
-                //datos.setearParametro("");
-                //datos.setearParametro("");
-                datos.ejecutarAccion();
-            }
-            catch (Exception ex)
-            {
-
-                throw ex;
-            }
-            finally
-            {
-                datos.cerrarConexion();
-            }
-        }
-
         public List<Articulo> GetArticulos(int idMarca, int idCategoria)
         {
             try
@@ -130,7 +108,7 @@ namespace Negocio
                 throw ex;
             }
         }
-
+        /*
         public List<Articulo> GetArticulos(int idMarca, string field, string criteria, string value)
         {
             try
@@ -142,5 +120,6 @@ namespace Negocio
                 throw ex;
             }
         }
+        */
     }
 }

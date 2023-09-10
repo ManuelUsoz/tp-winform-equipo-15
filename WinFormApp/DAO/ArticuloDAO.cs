@@ -279,7 +279,7 @@ namespace DAO
                 accesoADatos.cerrarConexion();
             }
         }
-
+        /*
         public List<Articulo> GetArticulosByBrandAndCriteria(int idMarca, string field, string criteria, string value)
         {
             AccesoADatos accesoADatos = new AccesoADatos("server=.; database=CATALOGO_P3_DB; integrated security=true");
@@ -334,5 +334,27 @@ namespace DAO
                 accesoADatos.cerrarConexion();
             }
         }
+        */
+        public void agregar(Articulo nuevo)
+        {
+            AccesoADatos datos = new AccesoADatos();
+            try
+            {
+                //Falta corregir la consulta ya que me tira error
+                datos.consultar("INSERT INTO ARTICULOS (Codigo, Nombre, Descripcion, IdMarca, IdCategoria, Precio) VALUES ('"+nuevo.Code+"', '"+nuevo.Nombre+"', '"+nuevo.Descripcion+"', '@IdMarca, @IdCategoria, '"+nuevo.Precio+"')");
+                datos.setearParametro("@IdMarca",nuevo.Marca.Id);
+                datos.setearParametro("@IdCategoria",nuevo.Categoria.Id);
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }  
     }
 }
