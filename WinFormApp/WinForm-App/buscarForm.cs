@@ -14,8 +14,6 @@ namespace WinForm_App
 {
     public partial class buscarForm : Form
     {
-        private List<Articulo> articulos = new List<Articulo>();
-
         public buscarForm()
         {
             InitializeComponent();
@@ -92,7 +90,10 @@ namespace WinForm_App
                 if(selectedBrand != null && selectedCategory == null && selectedField != null)
                 {
                     string value = TxtBoxCriteriaFilter.Text;
-                    //List<Articulo> articulos = 
+
+                    List<Articulo> articulos = articuloNegocio.GetArticulos(selectedBrand.Id, selectedField, selectedCriteria, value);
+                    dgvResultadoBusquedaArticulo.DataSource = articulos;
+
                 }
             }catch(Exception)
             {
@@ -152,7 +153,7 @@ namespace WinForm_App
         private void cboxCriterioFilter_SelectedIndexChanged(object sender, EventArgs e)
         {
             TxtBoxCriteriaFilter.Visible = true;
-
+            TxtBoxCriteriaFilter.Text = null;
         }
     }
 }
