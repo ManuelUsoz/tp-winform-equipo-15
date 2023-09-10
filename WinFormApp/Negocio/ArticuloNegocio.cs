@@ -108,7 +108,7 @@ namespace Negocio
                 throw ex;
             }
         }
-        /*
+       
         public List<Articulo> GetArticulos(int idMarca, string field, string criteria, string value)
         {
             try
@@ -120,6 +120,6 @@ namespace Negocio
                 throw ex;
             }
         }
-        */
+        
     }
 }
