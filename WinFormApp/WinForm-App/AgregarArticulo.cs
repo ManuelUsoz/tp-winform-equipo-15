@@ -32,7 +32,7 @@ namespace WinForm_App
             ArticuloDAO artDAO = new ArticuloDAO();
             try
             {
-                articulo.Code = nudCodigo.Text;
+                articulo.Code = txtbCodigo.Text;
                 articulo.Nombre = txtbNombre.Text;
                 articulo.Descripcion = txtbDescripcion.Text;
                 articulo.Marca = (Marca)cbMarca.SelectedItem;
@@ -56,7 +56,6 @@ namespace WinForm_App
             CategoriaDAO categoriaDAO = new CategoriaDAO();
             try
             {
-                //FALTA HACER QUE NO SE PUEDA ESCRIBIR EN LOS COMBOBOX
                 cbMarca.DataSource = marcaDAO.List();
                 cbCategoria.DataSource = categoriaDAO.list();
             }
