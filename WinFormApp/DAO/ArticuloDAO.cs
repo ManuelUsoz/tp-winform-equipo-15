@@ -13,6 +13,7 @@ namespace DAO
     {
         private void LoadArticle(ref Articulo articulo, ref AccesoADatos accesoADatos)
         {
+            //Metodo que sirve para cargar el articulo proviniente de la base, con joins a MARCAS Y CATEGORIAS
             articulo.Id = (int)accesoADatos.Lector["Id"];
             articulo.Code = accesoADatos.Lector["Codigo"].ToString();
             articulo.Nombre = accesoADatos.Lector["Nombre"].ToString();
@@ -189,8 +190,7 @@ namespace DAO
             };
 
             string sqloperator = operadoresSQL[criteria];
-            string query = "";
-
+            string query;
             if (field == "Precio")
             {
                 query = "SELECT A.Id, A.Codigo, A.Nombre, A.Descripcion, M.Descripcion as Marca, C.Descripcion as Categoria, A.Precio FROM ARTICULOS A LEFT JOIN MARCAS M ON M.Id = A.IdMarca LEFT JOIN CATEGORIAS C ON C.Id = A.IdCategoria WHERE " + field + " " + sqloperator + " " + value + "";
@@ -280,7 +280,7 @@ namespace DAO
             }
         }
 
-        public List<Articulo> GetArticulosByBrandAndCriteria(int idMarca, string field, string criteria, string value)
+        public List<Articulo> GetArticulos(int idMarca, string field, string criteria, string value)
         {
             AccesoADatos accesoADatos = new AccesoADatos("server=.; database=CATALOGO_P3_DB; integrated security=true");
             List<Articulo> articulos = new List<Articulo>();
@@ -299,17 +299,17 @@ namespace DAO
 
                 if (field == "Precio")
                 {
-                    query = "SELECT A.Id, A.Codigo, A.Nombre, A.Descripcion, M.Descripcion as Marca, C.Descripcion as Categoria, A.Precio FROM ARTICULOS A LEFT JOIN MARCAS M ON M.Id = A.IdMarca LEFT JOIN CATEGORIAS C ON C.Id = A.IdCategoria WHERE " + field + " " + sqloperator + " " + value + " AND A.IdMarca = "+value+"";
+                    query = "SELECT A.Id, A.Codigo, A.Nombre, A.Descripcion, M.Descripcion as Marca, C.Descripcion as Categoria, A.Precio FROM ARTICULOS A LEFT JOIN MARCAS M ON M.Id = A.IdMarca LEFT JOIN CATEGORIAS C ON C.Id = A.IdCategoria WHERE A." + field + " " + sqloperator + " " + value + " AND A.IdMarca = "+ idMarca + "";
                 }
                 else
                 {
                     if (sqloperator == "LIKE '%")
                     {
-                        query = "SELECT A.Id, A.Codigo, A.Nombre, A.Descripcion, M.Descripcion as Marca, C.Descripcion as Categoria, A.Precio FROM ARTICULOS A LEFT JOIN MARCAS M ON M.Id = A.IdMarca LEFT JOIN CATEGORIAS C ON C.Id = A.IdCategoria WHERE " + field + " " + sqloperator + "" + value + "%' AND A.IdMarca = "+value+"";
+                        query = "SELECT A.Id, A.Codigo, A.Nombre, A.Descripcion, M.Descripcion as Marca, C.Descripcion as Categoria, A.Precio FROM ARTICULOS A LEFT JOIN MARCAS M ON M.Id = A.IdMarca LEFT JOIN CATEGORIAS C ON C.Id = A.IdCategoria WHERE A." + field + " " + sqloperator + "" + value + "%' AND A.IdMarca = "+idMarca+"";
                     }
                     else
                     {
-                        query = "SELECT A.Id, A.Codigo, A.Nombre, A.Descripcion, M.Descripcion as Marca, C.Descripcion as Categoria, A.Precio FROM ARTICULOS A LEFT JOIN MARCAS M ON M.Id = A.IdMarca LEFT JOIN CATEGORIAS C ON C.Id = A.IdCategoria WHERE " + field + " " + sqloperator + " '" + value + "' AND A.IdMarca = " + value + "";
+                        query = "SELECT A.Id, A.Codigo, A.Nombre, A.Descripcion, M.Descripcion as Marca, C.Descripcion as Categoria, A.Precio FROM ARTICULOS A LEFT JOIN MARCAS M ON M.Id = A.IdMarca LEFT JOIN CATEGORIAS C ON C.Id = A.IdCategoria WHERE A." + field + " " + sqloperator + " '" + value + "' AND A.IdMarca = " + idMarca + "";
 
                     }
                 }
@@ -324,6 +324,8 @@ namespace DAO
                     this.LoadArticle(ref articulo, ref accesoADatos);
                     articulos.Add(articulo);
                 }
+
+                return articulos;
 
             }
             catch (Exception ex) {
