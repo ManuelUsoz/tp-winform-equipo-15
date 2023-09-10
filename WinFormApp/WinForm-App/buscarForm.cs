@@ -31,68 +31,62 @@ namespace WinForm_App
             List<Categoria> categorias = categoriaNegocio.List();
             cboxCategoria.Items.AddRange(categorias.ToArray());
 
+            //Setear todo en visible false
             LblCampoFilter.Visible = false;
             cboxCampoFilter.Visible = false;
+            LblCriterioFilter.Visible = false;
+            cboxCriterioFilter.Visible = false;
+            LblHint.Visible = false;
+            TxtBoxQuickFilter.Visible = false;
+            cboxCategoria.Visible = false;
+            cboxMarca.Visible = false;
+            brandLabel.Visible = false;
+            categoryComboLabel.Visible = false;
+            TxtBoxCriteriaFilter.Visible = false;
+            btnBuscar.Visible = false;
+
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
+            dgvResultadoBusquedaArticulo.DataSource = null;
             Marca selectedBrand = (Marca)cboxMarca.SelectedItem;
             Categoria selectedCategory = (Categoria)cboxCategoria.SelectedItem;
+            string selectedCriteria = cboxCriterioFilter.SelectedItem.ToString();
             string selectedField = (string)cboxCampoFilter.SelectedItem;
+            ArticuloNegocio articuloNegocio = new ArticuloNegocio();
 
             try
             {
-                if(selectedBrand != null) 
+                //Selecciono una marca y categoria
+                if(selectedBrand != null && selectedCategory != null)
                 {
-                    if(selectedCategory != null)
-                    {
-                        if(selectedField != null)
-                        {
-                            switch (selectedField)
-                            {
-                                case "Codigo":
-
-                                    break;
-                                case "Nombre":
-                                    break;
-                                case "Precio":
-                                    break;
-                                default:
-                                    break;
-                            }
-                        }
-                        else
-                        {
-                            ArticuloNegocio articuloNegocio = new ArticuloNegocio();
-                            List<Articulo> articulos = articuloNegocio.GetArticulos(selectedBrand.Id, selectedCategory.Id);
-                            dgvResultadoBusquedaArticulo.DataSource = articulos;
-                        }
-                    }
-                    else
-                    {
-                        dgvResultadoBusquedaArticulo.DataSource = null;
-                        ArticuloNegocio articuloNegocio = new ArticuloNegocio();
-                        List<Articulo> articulos = articuloNegocio.GetArticulos(selectedBrand.Id);
-                        dgvResultadoBusquedaArticulo.DataSource = articulos;
-
-                    }
-                }
-                else if(selectedBrand == null)
-                {
-                    if (selectedCategory != null)
-                    {
-                        ArticuloNegocio articuloNegocio = new ArticuloNegocio();
-                        List<Articulo> articulos = articuloNegocio.GetArticulosByCategory(selectedCategory.Id);
-                        dgvResultadoBusquedaArticulo.DataSource = articulos;
-                    }
-                }
-                else
-                {
-                    //Listar todos
+                    List<Articulo> articulos = articuloNegocio.GetArticulos(selectedBrand.Id, selectedCategory.Id);
+                    dgvResultadoBusquedaArticulo.DataSource = articulos;
                 }
 
-                BtnShowFilters.Visible = true;
+                //Selecciono una marca pero no categoria
+                if(selectedBrand != null && selectedCategory == null)
+                {
+                    List<Articulo> articulos = articuloNegocio.GetArticulos(selectedBrand.Id);
+                    dgvResultadoBusquedaArticulo.DataSource = articulos;
+                }
+
+                //Selecciono una categoria pero no marca
+                if(selectedBrand == null && selectedCategory != null)
+                {
+                    List<Articulo> articulos = articuloNegocio.GetArticulosByCategory(selectedCategory.Id);
+                    dgvResultadoBusquedaArticulo.DataSource = articulos;
+                }
+
+                //No selecciono combos, pero selecciono filtros avanzados
+                if(selectedBrand == null && selectedCategory == null && selectedField != null)
+                {
+                    string value = TxtBoxCriteriaFilter.Text;
+                    List<Articulo> articulos = articuloNegocio.GetArticulos(selectedField, selectedCriteria, value);
+                    dgvResultadoBusquedaArticulo.DataSource = articulos;
+                    
+                }
             }catch(Exception)
             {
                 MessageBox.Show("No se encontro lo requerido");
@@ -103,13 +97,55 @@ namespace WinForm_App
         {
             LblCampoFilter.Visible = true;
             cboxCampoFilter.Visible = true;
-            List<string> optionsComboBox = new List<string> { "Codigo", "Nombre", "Descripcion", "Precio"};
+            cboxCategoria.Visible = true;
+            cboxMarca.Visible = true;
+            brandLabel.Visible = true;
+            categoryComboLabel.Visible = true;
+            btnBuscar.Visible = true;
+            List<string> optionsComboBox = new List<string> { "Codigo", "Nombre", "Descripcion", "Precio", "Todos"};
 
             cboxCampoFilter.Items.AddRange(optionsComboBox.ToArray());
 
 
         }
 
-        
+        private void OnSelectedFieldChange(object sender, EventArgs e)
+        {
+            cboxCriterioFilter.Visible = true;
+            LblCriterioFilter.Visible = true;
+            cboxCriterioFilter.Items.Clear();
+
+            if (cboxCampoFilter.SelectedItem.ToString() == "Precio")
+            {
+                cboxCriterioFilter.Items.Add("Es igual a");
+                cboxCriterioFilter.Items.Add("Es mayor a");
+                cboxCriterioFilter.Items.Add("Es menor a");
+            }
+            else
+            {
+                cboxCriterioFilter.Items.Add("Contiene");
+                cboxCriterioFilter.Items.Add("Igual a");
+            }
+
+        }
+
+        private void OnHintChange(object sender, EventArgs e)
+        {
+            ArticuloNegocio articuloNegocio = new ArticuloNegocio();
+            List<Articulo> articulos = articuloNegocio.GetArticulosByHint(TxtBoxQuickFilter.Text.ToLower());
+            dgvResultadoBusquedaArticulo.DataSource = articulos;
+        }
+
+        private void BtnQuickFilter_Click(object sender, EventArgs e)
+        {
+            LblHint.Visible = true;
+            TxtBoxQuickFilter.Visible = true;  
+        }
+
+        private void cboxCriterioFilter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            TxtBoxCriteriaFilter.Visible = true;
+
+        }
     }
 }
