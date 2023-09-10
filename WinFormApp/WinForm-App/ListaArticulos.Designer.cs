@@ -63,7 +63,6 @@
             this.dgvArticulos.RowHeadersWidth = 51;
             this.dgvArticulos.Size = new System.Drawing.Size(759, 372);
             this.dgvArticulos.TabIndex = 6;
-            this.dgvArticulos.SelectionChanged += new System.EventHandler(this.dgvArticulos_SelectionChanged);
             // 
             // buttonAgregar
             // 
