@@ -11,6 +11,18 @@ namespace DAO
 {
     public class ArticuloDAO
     {
+        private void LoadArticle(ref Articulo articulo, ref AccesoADatos accesoADatos)
+        {
+            articulo.Id = (int)accesoADatos.Lector["Id"];
+            articulo.Code = accesoADatos.Lector["Codigo"].ToString();
+            articulo.Nombre = accesoADatos.Lector["Nombre"].ToString();
+            articulo.Descripcion = accesoADatos.Lector["Descripcion"].ToString();
+            articulo.Marca = new Marca();
+            articulo.Marca.Descripcion = accesoADatos.Lector["Marca"].ToString();
+            articulo.Categoria = new Categoria();
+            articulo.Categoria.Descripcion = accesoADatos.Lector["Categoria"].ToString();
+            articulo.Precio = (decimal)accesoADatos.Lector["Precio"];
+        }
         public List<Articulo> GetArticulos()
         {
             List<Articulo> listaArticulos = new List<Articulo>();
@@ -260,6 +272,61 @@ namespace DAO
             }
             catch (Exception ex)
             {
+                throw ex;
+            }
+            finally
+            {
+                accesoADatos.cerrarConexion();
+            }
+        }
+
+        public List<Articulo> GetArticulosByBrandAndCriteria(int idMarca, string field, string criteria, string value)
+        {
+            AccesoADatos accesoADatos = new AccesoADatos("server=.; database=CATALOGO_P3_DB; integrated security=true");
+            List<Articulo> articulos = new List<Articulo>();
+            Dictionary<string, string> operadoresSQL = new Dictionary<string, string>
+            {
+                { "Es igual a", "=" },
+                { "Es mayor a", ">" },
+                { "Es menor a", "<" },
+                { "Contiene", "LIKE '%" },
+                { "Igual a", "=" }
+            };
+            try
+            {
+                string sqloperator = operadoresSQL[criteria];
+                string query = "";
+
+                if (field == "Precio")
+                {
+                    query = "SELECT A.Id, A.Codigo, A.Nombre, A.Descripcion, M.Descripcion as Marca, C.Descripcion as Categoria, A.Precio FROM ARTICULOS A LEFT JOIN MARCAS M ON M.Id = A.IdMarca LEFT JOIN CATEGORIAS C ON C.Id = A.IdCategoria WHERE " + field + " " + sqloperator + " " + value + " AND A.IdMarca = "+value+"";
+                }
+                else
+                {
+                    if (sqloperator == "LIKE '%")
+                    {
+                        query = "SELECT A.Id, A.Codigo, A.Nombre, A.Descripcion, M.Descripcion as Marca, C.Descripcion as Categoria, A.Precio FROM ARTICULOS A LEFT JOIN MARCAS M ON M.Id = A.IdMarca LEFT JOIN CATEGORIAS C ON C.Id = A.IdCategoria WHERE " + field + " " + sqloperator + "" + value + "%' AND A.IdMarca = "+value+"";
+                    }
+                    else
+                    {
+                        query = "SELECT A.Id, A.Codigo, A.Nombre, A.Descripcion, M.Descripcion as Marca, C.Descripcion as Categoria, A.Precio FROM ARTICULOS A LEFT JOIN MARCAS M ON M.Id = A.IdMarca LEFT JOIN CATEGORIAS C ON C.Id = A.IdCategoria WHERE " + field + " " + sqloperator + " '" + value + "' AND A.IdMarca = " + value + "";
+
+                    }
+                }
+
+                accesoADatos.consultar(query);
+                accesoADatos.AbrirConexion();
+                accesoADatos.ejecutarLectura();
+
+                while (accesoADatos.Lector.Read())
+                {
+                    Articulo articulo = new Articulo();
+                    this.LoadArticle(ref articulo, ref accesoADatos);
+                    articulos.Add(articulo);
+                }
+
+            }
+            catch (Exception ex) {
                 throw ex;
             }
             finally

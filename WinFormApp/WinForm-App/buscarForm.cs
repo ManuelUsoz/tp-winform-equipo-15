@@ -58,22 +58,22 @@ namespace WinForm_App
 
             try
             {
-                //Selecciono una marca y categoria
-                if(selectedBrand != null && selectedCategory != null)
+                //Selecciono una marca y categoria sin filtrado de campos y criterio
+                if(selectedBrand != null && selectedCategory != null && selectedField == null)
                 {
                     List<Articulo> articulos = articuloNegocio.GetArticulos(selectedBrand.Id, selectedCategory.Id);
                     dgvResultadoBusquedaArticulo.DataSource = articulos;
                 }
 
-                //Selecciono una marca pero no categoria
-                if(selectedBrand != null && selectedCategory == null)
+                //Selecciono una marca pero no categoria sin filtrado de campos y criterio
+                if(selectedBrand != null && selectedCategory == null && selectedField == null)
                 {
                     List<Articulo> articulos = articuloNegocio.GetArticulos(selectedBrand.Id);
                     dgvResultadoBusquedaArticulo.DataSource = articulos;
                 }
 
-                //Selecciono una categoria pero no marca
-                if(selectedBrand == null && selectedCategory != null)
+                //Selecciono una categoria pero no marca sin filtrado de campos y criterio
+                if(selectedBrand == null && selectedCategory != null && selectedField == null)
                 {
                     List<Articulo> articulos = articuloNegocio.GetArticulosByCategory(selectedCategory.Id);
                     dgvResultadoBusquedaArticulo.DataSource = articulos;
@@ -86,6 +86,13 @@ namespace WinForm_App
                     List<Articulo> articulos = articuloNegocio.GetArticulos(selectedField, selectedCriteria, value);
                     dgvResultadoBusquedaArticulo.DataSource = articulos;
                     
+                }
+
+                //Selecciono el combo de marca, no selecciono categorias pero esta filtrando por campo y criterio
+                if(selectedBrand != null && selectedCategory == null && selectedField != null)
+                {
+                    string value = TxtBoxCriteriaFilter.Text;
+                    List<Articulo> articulos = 
                 }
             }catch(Exception)
             {

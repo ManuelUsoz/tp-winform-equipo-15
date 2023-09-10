@@ -130,5 +130,17 @@ namespace Negocio
                 throw ex;
             }
         }
+
+        public List<Articulo> GetArticulos(int idMarca, string field, string criteria, string value)
+        {
+            try
+            {
+                List<Articulo> articulos = ArticuloDAO.GetArticulos(idMarca, field, criteria, value);
+                return articulos;
+            }catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }
