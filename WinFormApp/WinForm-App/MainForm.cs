@@ -34,5 +34,11 @@ namespace WinForm_App
             frmListaArticulos frmlistArt= new frmListaArticulos();
             frmlistArt.ShowDialog();
         }
+
+        private void agregarArticuloToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAgregarArticulo frmAgregarArticulo = new frmAgregarArticulo();
+            frmAgregarArticulo.ShowDialog();
+        }
     }
 }

@@ -123,8 +123,10 @@ namespace WinForm_App
                 if(selectedBrand != null && selectedCategory == null && selectedField != null)
                 {
                     string value = TxtBoxCriteriaFilter.Text;
+
                     List<Articulo> articulos = articuloNegocio.GetArticulos(selectedBrand.Id, selectedField, selectedCriteria, value);
                     dgvResultadoBusquedaArticulo.DataSource = articulos;
+
                 }
 
                 //Selecciono el combo de categoria, sin marca pero con filtros especificos
