@@ -44,14 +44,15 @@
             this.TxtBoxQuickFilter = new System.Windows.Forms.TextBox();
             this.LblHint = new System.Windows.Forms.Label();
             this.TxtBoxCriteriaFilter = new System.Windows.Forms.TextBox();
+            this.BtnResetFilters = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResultadoBusquedaArticulo)).BeginInit();
             this.SuspendLayout();
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(920, 129);
+            this.btnBuscar.Location = new System.Drawing.Point(909, 70);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(101, 40);
+            this.btnBuscar.Size = new System.Drawing.Size(112, 44);
             this.btnBuscar.TabIndex = 0;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
@@ -73,7 +74,7 @@
             // 
             this.titleFormSearch.AutoSize = true;
             this.titleFormSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.titleFormSearch.Location = new System.Drawing.Point(919, 19);
+            this.titleFormSearch.Location = new System.Drawing.Point(22, 9);
             this.titleFormSearch.Name = "titleFormSearch";
             this.titleFormSearch.Size = new System.Drawing.Size(102, 32);
             this.titleFormSearch.TabIndex = 2;
@@ -82,7 +83,7 @@
             // categoryComboLabel
             // 
             this.categoryComboLabel.AutoSize = true;
-            this.categoryComboLabel.Location = new System.Drawing.Point(310, 123);
+            this.categoryComboLabel.Location = new System.Drawing.Point(314, 131);
             this.categoryComboLabel.Name = "categoryComboLabel";
             this.categoryComboLabel.Size = new System.Drawing.Size(66, 16);
             this.categoryComboLabel.TabIndex = 3;
@@ -91,7 +92,7 @@
             // brandLabel
             // 
             this.brandLabel.AutoSize = true;
-            this.brandLabel.Location = new System.Drawing.Point(160, 123);
+            this.brandLabel.Location = new System.Drawing.Point(164, 131);
             this.brandLabel.Name = "brandLabel";
             this.brandLabel.Size = new System.Drawing.Size(45, 16);
             this.brandLabel.TabIndex = 4;
@@ -101,7 +102,7 @@
             // 
             this.cboxCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboxCategoria.FormattingEnabled = true;
-            this.cboxCategoria.Location = new System.Drawing.Point(313, 145);
+            this.cboxCategoria.Location = new System.Drawing.Point(317, 153);
             this.cboxCategoria.Name = "cboxCategoria";
             this.cboxCategoria.Size = new System.Drawing.Size(136, 24);
             this.cboxCategoria.TabIndex = 6;
@@ -110,14 +111,14 @@
             // 
             this.cboxMarca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboxMarca.FormattingEnabled = true;
-            this.cboxMarca.Location = new System.Drawing.Point(163, 145);
+            this.cboxMarca.Location = new System.Drawing.Point(167, 153);
             this.cboxMarca.Name = "cboxMarca";
             this.cboxMarca.Size = new System.Drawing.Size(135, 24);
             this.cboxMarca.TabIndex = 7;
             // 
             // BtnShowFilters
             // 
-            this.BtnShowFilters.Location = new System.Drawing.Point(28, 123);
+            this.BtnShowFilters.Location = new System.Drawing.Point(28, 131);
             this.BtnShowFilters.Name = "BtnShowFilters";
             this.BtnShowFilters.Size = new System.Drawing.Size(112, 46);
             this.BtnShowFilters.TabIndex = 17;
@@ -128,7 +129,7 @@
             // LblCampoFilter
             // 
             this.LblCampoFilter.AutoSize = true;
-            this.LblCampoFilter.Location = new System.Drawing.Point(461, 123);
+            this.LblCampoFilter.Location = new System.Drawing.Point(465, 131);
             this.LblCampoFilter.Name = "LblCampoFilter";
             this.LblCampoFilter.Size = new System.Drawing.Size(51, 16);
             this.LblCampoFilter.TabIndex = 18;
@@ -138,7 +139,7 @@
             // 
             this.cboxCampoFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboxCampoFilter.FormattingEnabled = true;
-            this.cboxCampoFilter.Location = new System.Drawing.Point(464, 145);
+            this.cboxCampoFilter.Location = new System.Drawing.Point(468, 153);
             this.cboxCampoFilter.Name = "cboxCampoFilter";
             this.cboxCampoFilter.Size = new System.Drawing.Size(121, 24);
             this.cboxCampoFilter.TabIndex = 19;
@@ -148,7 +149,7 @@
             // 
             this.cboxCriterioFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboxCriterioFilter.FormattingEnabled = true;
-            this.cboxCriterioFilter.Location = new System.Drawing.Point(602, 145);
+            this.cboxCriterioFilter.Location = new System.Drawing.Point(606, 153);
             this.cboxCriterioFilter.Name = "cboxCriterioFilter";
             this.cboxCriterioFilter.Size = new System.Drawing.Size(121, 24);
             this.cboxCriterioFilter.TabIndex = 20;
@@ -157,7 +158,7 @@
             // LblCriterioFilter
             // 
             this.LblCriterioFilter.AutoSize = true;
-            this.LblCriterioFilter.Location = new System.Drawing.Point(599, 123);
+            this.LblCriterioFilter.Location = new System.Drawing.Point(603, 131);
             this.LblCriterioFilter.Name = "LblCriterioFilter";
             this.LblCriterioFilter.Size = new System.Drawing.Size(49, 16);
             this.LblCriterioFilter.TabIndex = 21;
@@ -165,7 +166,7 @@
             // 
             // BtnQuickFilter
             // 
-            this.BtnQuickFilter.Location = new System.Drawing.Point(28, 58);
+            this.BtnQuickFilter.Location = new System.Drawing.Point(28, 65);
             this.BtnQuickFilter.Name = "BtnQuickFilter";
             this.BtnQuickFilter.Size = new System.Drawing.Size(112, 46);
             this.BtnQuickFilter.TabIndex = 22;
@@ -175,7 +176,7 @@
             // 
             // TxtBoxQuickFilter
             // 
-            this.TxtBoxQuickFilter.Location = new System.Drawing.Point(163, 77);
+            this.TxtBoxQuickFilter.Location = new System.Drawing.Point(163, 89);
             this.TxtBoxQuickFilter.Name = "TxtBoxQuickFilter";
             this.TxtBoxQuickFilter.Size = new System.Drawing.Size(197, 22);
             this.TxtBoxQuickFilter.TabIndex = 23;
@@ -184,7 +185,7 @@
             // LblHint
             // 
             this.LblHint.AutoSize = true;
-            this.LblHint.Location = new System.Drawing.Point(160, 58);
+            this.LblHint.Location = new System.Drawing.Point(160, 70);
             this.LblHint.Name = "LblHint";
             this.LblHint.Size = new System.Drawing.Size(109, 16);
             this.LblHint.TabIndex = 24;
@@ -192,10 +193,20 @@
             // 
             // TxtBoxCriteriaFilter
             // 
-            this.TxtBoxCriteriaFilter.Location = new System.Drawing.Point(741, 147);
+            this.TxtBoxCriteriaFilter.Location = new System.Drawing.Point(745, 155);
             this.TxtBoxCriteriaFilter.Name = "TxtBoxCriteriaFilter";
             this.TxtBoxCriteriaFilter.Size = new System.Drawing.Size(143, 22);
             this.TxtBoxCriteriaFilter.TabIndex = 25;
+            // 
+            // BtnResetFilters
+            // 
+            this.BtnResetFilters.Location = new System.Drawing.Point(909, 133);
+            this.BtnResetFilters.Name = "BtnResetFilters";
+            this.BtnResetFilters.Size = new System.Drawing.Size(112, 44);
+            this.BtnResetFilters.TabIndex = 26;
+            this.BtnResetFilters.Text = "Resetear filtros";
+            this.BtnResetFilters.UseVisualStyleBackColor = true;
+            this.BtnResetFilters.Click += new System.EventHandler(this.BtnResetFilters_Click);
             // 
             // buscarForm
             // 
@@ -203,6 +214,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(1316, 558);
+            this.Controls.Add(this.BtnResetFilters);
             this.Controls.Add(this.TxtBoxCriteriaFilter);
             this.Controls.Add(this.LblHint);
             this.Controls.Add(this.TxtBoxQuickFilter);
@@ -248,5 +260,6 @@
         private System.Windows.Forms.TextBox TxtBoxQuickFilter;
         private System.Windows.Forms.Label LblHint;
         private System.Windows.Forms.TextBox TxtBoxCriteriaFilter;
+        private System.Windows.Forms.Button BtnResetFilters;
     }
 }

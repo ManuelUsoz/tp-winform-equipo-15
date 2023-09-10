@@ -41,44 +41,43 @@ namespace WinForm_App
             brandLabel.Visible = false;
             categoryComboLabel.Visible = false;
             TxtBoxCriteriaFilter.Visible = false;
-            btnBuscar.Visible = false;
 
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             dgvResultadoBusquedaArticulo.DataSource = null;
-            Marca selectedBrand = (Marca)cboxMarca.SelectedItem;
-            Categoria selectedCategory = (Categoria)cboxCategoria.SelectedItem;
-            string selectedCriteria = cboxCriterioFilter.SelectedItem.ToString();
+            Marca selectedBrand = (Marca)cboxMarca.SelectedItem ?? null;
+            Categoria selectedCategory = (Categoria)cboxCategoria.SelectedItem ;
+            string selectedCriteria = (string)cboxCriterioFilter.SelectedItem;
             string selectedField = (string)cboxCampoFilter.SelectedItem;
             ArticuloNegocio articuloNegocio = new ArticuloNegocio();
 
             try
             {
                 //Selecciono una marca y categoria sin filtrado de campos y criterio
-                if(selectedBrand != null && selectedCategory != null && selectedField == null)
+                if(selectedBrand != null && selectedCategory != null && selectedField == null && TxtBoxQuickFilter.Text == null)
                 {
                     List<Articulo> articulos = articuloNegocio.GetArticulos(selectedBrand.Id, selectedCategory.Id);
                     dgvResultadoBusquedaArticulo.DataSource = articulos;
                 }
 
                 //Selecciono una marca pero no categoria sin filtrado de campos y criterio
-                if(selectedBrand != null && selectedCategory == null && selectedField == null)
+                if(selectedBrand != null && selectedCategory == null && selectedField == null && TxtBoxQuickFilter.Text == null)
                 {
                     List<Articulo> articulos = articuloNegocio.GetArticulos(selectedBrand.Id);
                     dgvResultadoBusquedaArticulo.DataSource = articulos;
                 }
 
                 //Selecciono una categoria pero no marca sin filtrado de campos y criterio
-                if(selectedBrand == null && selectedCategory != null && selectedField == null)
+                if(selectedBrand == null && selectedCategory != null && selectedField == null && TxtBoxQuickFilter.Text == null)
                 {
                     List<Articulo> articulos = articuloNegocio.GetArticulosByCategory(selectedCategory.Id);
                     dgvResultadoBusquedaArticulo.DataSource = articulos;
                 }
 
                 //No selecciono combos, pero selecciono filtros avanzados
-                if(selectedBrand == null && selectedCategory == null && selectedField != null)
+                if(selectedBrand == null && selectedCategory == null && selectedField != null && TxtBoxQuickFilter.Text == null)
                 {
                     string value = TxtBoxCriteriaFilter.Text;
                     List<Articulo> articulos = articuloNegocio.GetArticulos(selectedField, selectedCriteria, value);
@@ -87,7 +86,7 @@ namespace WinForm_App
                 }
 
                 //Selecciono el combo de marca, no selecciono categorias pero esta filtrando por campo y criterio
-                if(selectedBrand != null && selectedCategory == null && selectedField != null)
+                if(selectedBrand != null && selectedCategory == null && selectedField != null && TxtBoxQuickFilter.Text == null)
                 {
                     string value = TxtBoxCriteriaFilter.Text;
                     List<Articulo> articulos = articuloNegocio.GetArticulos(selectedBrand.Id, selectedField, selectedCriteria, value);
@@ -95,7 +94,7 @@ namespace WinForm_App
                 }
 
                 //Selecciono el combo de categoria, sin marca pero con filtros especificos
-                if(selectedBrand == null && selectedCategory != null && selectedField != null)
+                if(selectedBrand == null && selectedCategory != null && selectedField != null && TxtBoxQuickFilter.Text == null)
                 {
                     string value = TxtBoxCriteriaFilter.Text;
                     List<Articulo> articulos = articuloNegocio.GetArticulosByCategory(selectedCategory.Id, selectedField, selectedCriteria, value);
@@ -103,13 +102,26 @@ namespace WinForm_App
                 }
 
                 //Selecciono todos los combos
-                if(selectedBrand != null && selectedCategory != null && selectedField != null)
+                if(selectedBrand != null && selectedCategory != null && selectedField != null && TxtBoxQuickFilter.Text == null)
                 {
                     string value = TxtBoxCriteriaFilter.Text;
                     List<Articulo> articulos = articuloNegocio.GetArticulos(selectedBrand.Id, selectedCategory.Id, selectedField, selectedCriteria, value);
                     dgvResultadoBusquedaArticulo.DataSource = articulos;   
                 }
-            }catch(Exception)
+
+                //Quiere usar los dos filtros
+                if (TxtBoxQuickFilter.Text != null && (selectedBrand != null || selectedCategory != null || selectedField != null || selectedCriteria != null))
+                {
+                    MessageBox.Show("Por favor utilice uno de los dos filtros");
+                    cboxCampoFilter.SelectedIndex = -1;
+                    cboxMarca.SelectedIndex = -1;
+                    cboxCategoria.SelectedIndex = -1;
+                    cboxCriterioFilter.SelectedIndex = -1;
+                    TxtBoxQuickFilter.Text = "";
+                }
+
+            }
+            catch (Exception)
             {
                 MessageBox.Show("No se encontro lo requerido");
             }
@@ -137,7 +149,7 @@ namespace WinForm_App
             LblCriterioFilter.Visible = true;
             cboxCriterioFilter.Items.Clear();
 
-            if (cboxCampoFilter.SelectedItem.ToString() == "Precio")
+            if ((string)cboxCampoFilter.SelectedItem == "Precio")
             {
                 cboxCriterioFilter.Items.Add("Es igual a");
                 cboxCriterioFilter.Items.Add("Es mayor a");
@@ -168,6 +180,14 @@ namespace WinForm_App
         {
             TxtBoxCriteriaFilter.Visible = true;
             TxtBoxCriteriaFilter.Text = null;
+        }
+
+        private void BtnResetFilters_Click(object sender, EventArgs e)
+        {
+            cboxCampoFilter.SelectedIndex = -1;
+            cboxMarca.SelectedIndex = -1;
+            cboxCategoria.SelectedIndex = -1;
+            cboxCriterioFilter.SelectedIndex = -1;
         }
     }
 }
