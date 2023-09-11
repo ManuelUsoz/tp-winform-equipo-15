@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Dominio;
+using Negocio;
 
 namespace WinForm_App
 {
@@ -25,6 +27,22 @@ namespace WinForm_App
         private void eliminarArticulo_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            ArticuloNegocio negocio = new ArticuloNegocio();
+            try 
+            {
+                int id = int.Parse(txtEliminar.Text.Trim());
+                negocio.eliminar(id);
+                lblExitoso.Text = $"Articulo con Id numero {id} eliminado con exito";
+                txtEliminar.Text = "";
+            } 
+            catch(Exception ex) 
+            {
+                throw ex;
+            }
         }
     }
 }

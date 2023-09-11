@@ -138,5 +138,20 @@ namespace Negocio
                 throw ex;
             }
         }
+
+        public void eliminar(int id)
+        {
+            try
+            {
+                AccesoADatos datos = new AccesoADatos();
+                datos.AbrirConexion();
+                datos.consultar($"delete from ARTICULOS where Id = {id}");
+                datos.ejecutarLectura();
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

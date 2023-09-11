@@ -40,5 +40,11 @@ namespace WinForm_App
             frmAgregarArticulo frmAgregarArticulo = new frmAgregarArticulo();
             frmAgregarArticulo.ShowDialog();
         }
+
+        private void eliminarArticuloToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            eliminarArticulo form = new eliminarArticulo();
+            form.ShowDialog();
+        }
     }
 }
