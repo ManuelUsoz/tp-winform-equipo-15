@@ -52,5 +52,11 @@ namespace WinForm_App
             frmListaArticulos form = new frmListaArticulos();
             form.ShowDialog(this);
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            buscarForm buscarForm = new buscarForm();
+            buscarForm.ShowDialog(this);
+        }
     }
 }

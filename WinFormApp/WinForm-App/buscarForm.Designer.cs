@@ -30,7 +30,6 @@
         {
             this.btnBuscar = new System.Windows.Forms.Button();
             this.dgvResultadoBusquedaArticulo = new System.Windows.Forms.DataGridView();
-            this.titleFormSearch = new System.Windows.Forms.Label();
             this.categoryComboLabel = new System.Windows.Forms.Label();
             this.brandLabel = new System.Windows.Forms.Label();
             this.cboxCategoria = new System.Windows.Forms.ComboBox();
@@ -69,16 +68,6 @@
             this.dgvResultadoBusquedaArticulo.RowTemplate.Height = 24;
             this.dgvResultadoBusquedaArticulo.Size = new System.Drawing.Size(993, 332);
             this.dgvResultadoBusquedaArticulo.TabIndex = 1;
-            // 
-            // titleFormSearch
-            // 
-            this.titleFormSearch.AutoSize = true;
-            this.titleFormSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.titleFormSearch.Location = new System.Drawing.Point(22, 9);
-            this.titleFormSearch.Name = "titleFormSearch";
-            this.titleFormSearch.Size = new System.Drawing.Size(102, 32);
-            this.titleFormSearch.TabIndex = 2;
-            this.titleFormSearch.Text = "Buscar\r\n";
             // 
             // categoryComboLabel
             // 
@@ -228,7 +217,6 @@
             this.Controls.Add(this.cboxCategoria);
             this.Controls.Add(this.brandLabel);
             this.Controls.Add(this.categoryComboLabel);
-            this.Controls.Add(this.titleFormSearch);
             this.Controls.Add(this.dgvResultadoBusquedaArticulo);
             this.Controls.Add(this.btnBuscar);
             this.MinimumSize = new System.Drawing.Size(1334, 605);
@@ -246,7 +234,6 @@
 
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.DataGridView dgvResultadoBusquedaArticulo;
-        private System.Windows.Forms.Label titleFormSearch;
         private System.Windows.Forms.Label categoryComboLabel;
         private System.Windows.Forms.Label brandLabel;
         private System.Windows.Forms.ComboBox cboxCategoria;

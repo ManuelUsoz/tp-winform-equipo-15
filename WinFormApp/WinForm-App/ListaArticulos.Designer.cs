@@ -42,9 +42,10 @@
             // 
             // pbListaArticulos
             // 
-            this.pbListaArticulos.Location = new System.Drawing.Point(777, 37);
+            this.pbListaArticulos.Location = new System.Drawing.Point(1036, 46);
+            this.pbListaArticulos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbListaArticulos.Name = "pbListaArticulos";
-            this.pbListaArticulos.Size = new System.Drawing.Size(375, 372);
+            this.pbListaArticulos.Size = new System.Drawing.Size(500, 458);
             this.pbListaArticulos.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbListaArticulos.TabIndex = 8;
             this.pbListaArticulos.TabStop = false;
@@ -53,9 +54,10 @@
             // 
             this.labelListaArticulos.AutoSize = true;
             this.labelListaArticulos.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.labelListaArticulos.Location = new System.Drawing.Point(7, 9);
+            this.labelListaArticulos.Location = new System.Drawing.Point(9, 11);
+            this.labelListaArticulos.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelListaArticulos.Name = "labelListaArticulos";
-            this.labelListaArticulos.Size = new System.Drawing.Size(160, 25);
+            this.labelListaArticulos.Size = new System.Drawing.Size(207, 29);
             this.labelListaArticulos.TabIndex = 7;
             this.labelListaArticulos.Text = "Lista de Articulos";
             // 
@@ -63,19 +65,22 @@
             // 
             this.dgvArticulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvArticulos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgvArticulos.Location = new System.Drawing.Point(12, 37);
+            this.dgvArticulos.Location = new System.Drawing.Point(16, 46);
+            this.dgvArticulos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvArticulos.MultiSelect = false;
             this.dgvArticulos.Name = "dgvArticulos";
             this.dgvArticulos.RowHeadersWidth = 51;
             this.dgvArticulos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvArticulos.Size = new System.Drawing.Size(759, 372);
+            this.dgvArticulos.Size = new System.Drawing.Size(1012, 458);
             this.dgvArticulos.TabIndex = 6;
+            this.dgvArticulos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.OnCellDoubleClick);
             // 
             // buttonAgregar
             // 
-            this.buttonAgregar.Location = new System.Drawing.Point(12, 415);
+            this.buttonAgregar.Location = new System.Drawing.Point(16, 511);
+            this.buttonAgregar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonAgregar.Name = "buttonAgregar";
-            this.buttonAgregar.Size = new System.Drawing.Size(70, 23);
+            this.buttonAgregar.Size = new System.Drawing.Size(93, 28);
             this.buttonAgregar.TabIndex = 9;
             this.buttonAgregar.Text = "Agregar";
             this.buttonAgregar.UseVisualStyleBackColor = true;
@@ -83,9 +88,10 @@
             // 
             // buttonModificar
             // 
-            this.buttonModificar.Location = new System.Drawing.Point(97, 415);
+            this.buttonModificar.Location = new System.Drawing.Point(129, 511);
+            this.buttonModificar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonModificar.Name = "buttonModificar";
-            this.buttonModificar.Size = new System.Drawing.Size(70, 23);
+            this.buttonModificar.Size = new System.Drawing.Size(93, 28);
             this.buttonModificar.TabIndex = 10;
             this.buttonModificar.Text = "Modificar";
             this.buttonModificar.UseVisualStyleBackColor = true;
@@ -93,9 +99,10 @@
             // 
             // buttonEliminar
             // 
-            this.buttonEliminar.Location = new System.Drawing.Point(188, 415);
+            this.buttonEliminar.Location = new System.Drawing.Point(251, 511);
+            this.buttonEliminar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonEliminar.Name = "buttonEliminar";
-            this.buttonEliminar.Size = new System.Drawing.Size(70, 23);
+            this.buttonEliminar.Size = new System.Drawing.Size(93, 28);
             this.buttonEliminar.TabIndex = 11;
             this.buttonEliminar.Text = "Eliminar";
             this.buttonEliminar.UseVisualStyleBackColor = true;
@@ -103,9 +110,10 @@
             // 
             // buttonBuscar
             // 
-            this.buttonBuscar.Location = new System.Drawing.Point(278, 415);
+            this.buttonBuscar.Location = new System.Drawing.Point(371, 511);
+            this.buttonBuscar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonBuscar.Name = "buttonBuscar";
-            this.buttonBuscar.Size = new System.Drawing.Size(70, 23);
+            this.buttonBuscar.Size = new System.Drawing.Size(93, 28);
             this.buttonBuscar.TabIndex = 12;
             this.buttonBuscar.Text = "Buscar";
             this.buttonBuscar.UseVisualStyleBackColor = true;
@@ -113,9 +121,10 @@
             // 
             // buttonDetalle
             // 
-            this.buttonDetalle.Location = new System.Drawing.Point(367, 415);
+            this.buttonDetalle.Location = new System.Drawing.Point(489, 511);
+            this.buttonDetalle.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonDetalle.Name = "buttonDetalle";
-            this.buttonDetalle.Size = new System.Drawing.Size(70, 23);
+            this.buttonDetalle.Size = new System.Drawing.Size(93, 28);
             this.buttonDetalle.TabIndex = 13;
             this.buttonDetalle.Text = "Detalle";
             this.buttonDetalle.UseVisualStyleBackColor = true;
@@ -123,9 +132,9 @@
             // 
             // frmListaArticulos
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1158, 450);
+            this.ClientSize = new System.Drawing.Size(1544, 554);
             this.Controls.Add(this.buttonDetalle);
             this.Controls.Add(this.buttonBuscar);
             this.Controls.Add(this.buttonEliminar);
@@ -134,6 +143,7 @@
             this.Controls.Add(this.pbListaArticulos);
             this.Controls.Add(this.labelListaArticulos);
             this.Controls.Add(this.dgvArticulos);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmListaArticulos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Lista de articulos";
