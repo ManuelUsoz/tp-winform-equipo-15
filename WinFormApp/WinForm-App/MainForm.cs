@@ -46,5 +46,11 @@ namespace WinForm_App
             eliminarArticulo form = new eliminarArticulo();
             form.ShowDialog();
         }
+
+        private void OpenArticlesForm_Click(object sender, EventArgs e)
+        {
+            frmListaArticulos form = new frmListaArticulos();
+            form.ShowDialog(this);
+        }
     }
 }
