@@ -33,18 +33,20 @@
             this.labelDescripcion = new System.Windows.Forms.Label();
             this.labelMarca = new System.Windows.Forms.Label();
             this.labelCategoria = new System.Windows.Forms.Label();
-            this.labelImagen = new System.Windows.Forms.Label();
+            this.labelImagenUrl = new System.Windows.Forms.Label();
             this.labelPrecio = new System.Windows.Forms.Label();
             this.buttonAceptar = new System.Windows.Forms.Button();
             this.buttonCancelar = new System.Windows.Forms.Button();
             this.txtbNombre = new System.Windows.Forms.TextBox();
             this.txtbDescripcion = new System.Windows.Forms.TextBox();
-            this.txtbURLImagen = new System.Windows.Forms.TextBox();
+            this.txtbImagenUrl = new System.Windows.Forms.TextBox();
             this.nudPrecio = new System.Windows.Forms.NumericUpDown();
             this.cbMarca = new System.Windows.Forms.ComboBox();
             this.cbCategoria = new System.Windows.Forms.ComboBox();
             this.txtbCodigo = new System.Windows.Forms.TextBox();
+            this.pbImagenUrl = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.nudPrecio)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbImagenUrl)).BeginInit();
             this.SuspendLayout();
             // 
             // labelCode
@@ -92,14 +94,14 @@
             this.labelCategoria.TabIndex = 12;
             this.labelCategoria.Text = "Categoria:";
             // 
-            // labelImagen
+            // labelImagenUrl
             // 
-            this.labelImagen.AutoSize = true;
-            this.labelImagen.Location = new System.Drawing.Point(12, 159);
-            this.labelImagen.Name = "labelImagen";
-            this.labelImagen.Size = new System.Drawing.Size(106, 13);
-            this.labelImagen.TabIndex = 13;
-            this.labelImagen.Text = "URL Imagen: FALTA";
+            this.labelImagenUrl.AutoSize = true;
+            this.labelImagenUrl.Location = new System.Drawing.Point(12, 159);
+            this.labelImagenUrl.Name = "labelImagenUrl";
+            this.labelImagenUrl.Size = new System.Drawing.Size(61, 13);
+            this.labelImagenUrl.TabIndex = 13;
+            this.labelImagenUrl.Text = "Imagen Url:";
             // 
             // labelPrecio
             // 
@@ -144,12 +146,13 @@
             this.txtbDescripcion.Size = new System.Drawing.Size(271, 20);
             this.txtbDescripcion.TabIndex = 2;
             // 
-            // txtbURLImagen
+            // txtbImagenUrl
             // 
-            this.txtbURLImagen.Location = new System.Drawing.Point(124, 156);
-            this.txtbURLImagen.Name = "txtbURLImagen";
-            this.txtbURLImagen.Size = new System.Drawing.Size(10, 20);
-            this.txtbURLImagen.TabIndex = 15;
+            this.txtbImagenUrl.Location = new System.Drawing.Point(87, 156);
+            this.txtbImagenUrl.Name = "txtbImagenUrl";
+            this.txtbImagenUrl.Size = new System.Drawing.Size(271, 20);
+            this.txtbImagenUrl.TabIndex = 15;
+            this.txtbImagenUrl.Leave += new System.EventHandler(this.txtbImagenUrl_Leave);
             // 
             // nudPrecio
             // 
@@ -188,22 +191,32 @@
             this.txtbCodigo.Size = new System.Drawing.Size(271, 20);
             this.txtbCodigo.TabIndex = 0;
             // 
+            // pbImagenUrl
+            // 
+            this.pbImagenUrl.Location = new System.Drawing.Point(374, 22);
+            this.pbImagenUrl.Name = "pbImagenUrl";
+            this.pbImagenUrl.Size = new System.Drawing.Size(338, 282);
+            this.pbImagenUrl.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbImagenUrl.TabIndex = 16;
+            this.pbImagenUrl.TabStop = false;
+            // 
             // frmAgregarArticulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(370, 269);
+            this.ClientSize = new System.Drawing.Size(724, 316);
+            this.Controls.Add(this.pbImagenUrl);
             this.Controls.Add(this.txtbCodigo);
             this.Controls.Add(this.cbCategoria);
             this.Controls.Add(this.cbMarca);
             this.Controls.Add(this.nudPrecio);
-            this.Controls.Add(this.txtbURLImagen);
+            this.Controls.Add(this.txtbImagenUrl);
             this.Controls.Add(this.txtbDescripcion);
             this.Controls.Add(this.txtbNombre);
             this.Controls.Add(this.buttonCancelar);
             this.Controls.Add(this.buttonAceptar);
             this.Controls.Add(this.labelPrecio);
-            this.Controls.Add(this.labelImagen);
+            this.Controls.Add(this.labelImagenUrl);
             this.Controls.Add(this.labelCategoria);
             this.Controls.Add(this.labelMarca);
             this.Controls.Add(this.labelDescripcion);
@@ -214,6 +227,7 @@
             this.Text = "Agregar nuevo articulo";
             this.Load += new System.EventHandler(this.frmAgregarArticulo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nudPrecio)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbImagenUrl)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -226,16 +240,17 @@
         private System.Windows.Forms.Label labelDescripcion;
         private System.Windows.Forms.Label labelMarca;
         private System.Windows.Forms.Label labelCategoria;
-        private System.Windows.Forms.Label labelImagen;
+        private System.Windows.Forms.Label labelImagenUrl;
         private System.Windows.Forms.Label labelPrecio;
         private System.Windows.Forms.Button buttonAceptar;
         private System.Windows.Forms.Button buttonCancelar;
         private System.Windows.Forms.TextBox txtbNombre;
         private System.Windows.Forms.TextBox txtbDescripcion;
-        private System.Windows.Forms.TextBox txtbURLImagen;
+        private System.Windows.Forms.TextBox txtbImagenUrl;
         private System.Windows.Forms.NumericUpDown nudPrecio;
         private System.Windows.Forms.ComboBox cbMarca;
         private System.Windows.Forms.ComboBox cbCategoria;
         private System.Windows.Forms.TextBox txtbCodigo;
+        private System.Windows.Forms.PictureBox pbImagenUrl;
     }
 }

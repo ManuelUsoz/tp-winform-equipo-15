@@ -37,7 +37,8 @@ namespace WinForm_App
                 articulo.Descripcion = txtbDescripcion.Text;
                 articulo.Marca = (Marca)cbMarca.SelectedItem;
                 articulo.Categoria = (Categoria)cbCategoria.SelectedItem;
-                //articulo.ImagenURL=(Imagen)txtbURLImagen.Text;
+                //Revisar
+                //articulo.ImagenURL = (Imagen)txtbImagenUrl.Text;
                 articulo.Precio=int.Parse(nudPrecio.Text);
                 
                 artDAO.agregar(articulo);
@@ -62,7 +63,24 @@ namespace WinForm_App
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
+
             }
+        }
+        private void cargarImagen(string imagen)
+        {
+            try
+            {
+                pbImagenUrl.Load(imagen);
+            }
+            catch (Exception ex)
+            {
+                pbImagenUrl.Load("https://i0.wp.com/casagres.com.ar/wp-content/uploads/2022/09/placeholder.png?ssl=1");
+            }
+        }
+        
+        private void txtbImagenUrl_Leave(object sender, EventArgs e)
+        {
+            cargarImagen(txtbImagenUrl.Text);
         }
     }
 }

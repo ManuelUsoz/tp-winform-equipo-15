@@ -19,6 +19,8 @@ namespace DAO
             articulo.Marca.Descripcion = accesoADatos.Lector["Marca"].ToString();
             articulo.Categoria = new Categoria();
             articulo.Categoria.Descripcion = accesoADatos.Lector["Categoria"].ToString();
+            articulo.ImagenURL = new Imagen();
+            articulo.ImagenURL.ImagenUrl = accesoADatos.Lector["ImagenUrl"].ToString();
             articulo.Precio = (decimal)accesoADatos.Lector["Precio"];
         }
         public List<Articulo> GetArticulos()
@@ -29,7 +31,7 @@ namespace DAO
             {
                 accesoADatos.AbrirConexion();
 
-                string consulta = "SELECT A.Id, A.Codigo, A.Nombre, A.Descripcion, M.Descripcion as Marca, C.Descripcion as Categoria, A.Precio FROM ARTICULOS A INNER JOIN MARCAS M ON A.IdMarca = M.Id INNER JOIN CATEGORIAS C ON A.IdCategoria = C.Id";
+                string consulta = "SELECT A.Id, A.Codigo, A.Nombre, A.Descripcion, M.Descripcion as Marca, C.Descripcion as Categoria, I.ImagenUrl, A.Precio FROM ARTICULOS A INNER JOIN MARCAS M ON A.IdMarca = M.Id INNER JOIN CATEGORIAS C ON A.IdCategoria = C.Id INNER JOIN IMAGENES I ON A.Id=I.IdArticulo";
 
                 accesoADatos.consultar(consulta);
                 accesoADatos.ejecutarLectura();
@@ -405,9 +407,10 @@ namespace DAO
             AccesoADatos datos = new AccesoADatos();
             try
             {
-                datos.consultar("INSERT INTO ARTICULOS (Codigo, Nombre, Descripcion, IdMarca, IdCategoria, Precio) VALUES ('"+nuevo.Code+"', '"+nuevo.Nombre+"', '"+nuevo.Descripcion+"', @IdMarca, @IdCategoria, "+nuevo.Precio+")");
+                datos.consultar("INSERT INTO ARTICULOS (Codigo, Nombre, Descripcion, IdMarca, IdCategoria, ImagenUrl, Precio) VALUES ('" + nuevo.Code+"', '"+nuevo.Nombre+"', '"+nuevo.Descripcion+ "', @IdMarca, @IdCategoria, @ImagenUrl," + nuevo.Precio+")");
                 datos.setearParametro("@IdMarca",nuevo.Marca.Id);
                 datos.setearParametro("@IdCategoria",nuevo.Categoria.Id);
+                datos.setearParametro("@ImagenUrl", nuevo.ImagenURL.ImagenUrl);//Revisar
                 datos.ejecutarAccion();
             }
             catch (Exception ex)
