@@ -150,6 +150,13 @@ namespace WinForm_App
             {
                 MessageBox.Show("No se encontro lo requerido");
             }
+            finally
+            {
+                cboxCampoFilter.SelectedIndex = -1;
+                cboxCategoria.SelectedIndex = -1;
+                cboxCriterioFilter.SelectedIndex = -1;
+                cboxMarca.SelectedIndex = -1;
+            }
         }
 
         private void BtnShowFilters_Click(object sender, EventArgs e)

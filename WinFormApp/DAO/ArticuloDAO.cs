@@ -26,6 +26,26 @@ namespace DAO
             articulo.ImagenURL.ImagenUrl = accesoADatos.Lector["ImagenUrl"].ToString();
             articulo.Precio = (decimal)accesoADatos.Lector["Precio"];
         }
+
+        private void LoadArticle(ref Articulo articulo, ref AccesoADatos accesoADatos, bool needsIds)
+        {
+            if (!needsIds)
+            {
+                articulo.Id = (int)accesoADatos.Lector["Id"];
+                articulo.Code = accesoADatos.Lector["Codigo"].ToString();
+                articulo.Nombre = accesoADatos.Lector["Nombre"].ToString();
+                articulo.Descripcion = accesoADatos.Lector["Descripcion"].ToString();
+                articulo.Marca = new Marca();
+                articulo.Marca.Descripcion = accesoADatos.Lector["Marca"].ToString();
+                articulo.Marca.Id = (int)accesoADatos.Lector["Marcaid"];
+                articulo.Categoria = new Categoria();
+                articulo.Categoria.Descripcion = accesoADatos.Lector["Categoria"].ToString();
+                articulo.Categoria.Id = (int)accesoADatos.Lector["CategoriaId"];
+                articulo.ImagenURL = new Imagen();
+                articulo.ImagenURL.ImagenUrl = accesoADatos.Lector["ImagenUrl"].ToString();
+                articulo.Precio = (decimal)accesoADatos.Lector["Precio"];
+            }
+        }
         public List<Articulo> GetArticulos()
         {
             List<Articulo> listaArticulos = new List<Articulo>();
@@ -74,7 +94,7 @@ namespace DAO
                 while (accesoADatos.Lector.Read())
                 {
                     Articulo articulo = new Articulo();
-                    this.LoadArticle(ref articulo, ref accesoADatos);
+                    this.LoadArticle(ref articulo, ref accesoADatos, false);
                     articulos.Add(articulo);
 
                 }
@@ -102,7 +122,7 @@ namespace DAO
                 while (accesoADatos.Lector.Read())
                 {
                     Articulo articulo = new Articulo();
-                    this.LoadArticle(ref articulo, ref accesoADatos);
+                    this.LoadArticle(ref articulo, ref accesoADatos, false);
                     articulos.Add(articulo);
 
                 }
@@ -130,7 +150,7 @@ namespace DAO
                 while (accesoADatos.Lector.Read())
                 {
                     Articulo articulo = new Articulo();
-                    this.LoadArticle(ref articulo, ref accesoADatos);
+                    this.LoadArticle(ref articulo, ref accesoADatos, false);
                     articulos.Add(articulo);
 
                 }
@@ -187,7 +207,7 @@ namespace DAO
                 while (accesoADatos.Lector.Read())
                 {
                     Articulo articulo = new Articulo();
-                    this.LoadArticle(ref articulo, ref accesoADatos);
+                    this.LoadArticle(ref articulo, ref accesoADatos, false);
                     articulos.Add(articulo);
                 }
 
@@ -215,7 +235,7 @@ namespace DAO
                 while (accesoADatos.Lector.Read())
                 {
                     Articulo articulo = new Articulo();
-                    this.LoadArticle(ref articulo, ref accesoADatos);
+                    this.LoadArticle(ref articulo, ref accesoADatos, false);
                     articulos.Add(articulo);
                 }
 
@@ -273,7 +293,7 @@ namespace DAO
                 while (accesoADatos.Lector.Read())
                 {
                     Articulo articulo = new Articulo();
-                    this.LoadArticle(ref articulo, ref accesoADatos);
+                    this.LoadArticle(ref articulo, ref accesoADatos, false);
                     articulos.Add(articulo);
                 }
 
@@ -330,7 +350,7 @@ namespace DAO
                 while (accesoADatos.Lector.Read())
                 {
                     Articulo articulo = new Articulo();
-                    this.LoadArticle(ref articulo, ref accesoADatos);
+                    this.LoadArticle(ref articulo, ref accesoADatos, false);
                     articulos.Add(articulo);
                 }
 
@@ -388,7 +408,7 @@ namespace DAO
                 while (accesoADatos.Lector.Read())
                 {
                     Articulo articulo = new Articulo();
-                    this.LoadArticle(ref articulo, ref accesoADatos);
+                    this.LoadArticle(ref articulo, ref accesoADatos, false);
                     articulos.Add(articulo);
                 }
 
