@@ -57,7 +57,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(832, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(832, 30);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -120,9 +120,9 @@
             this.SidePanel.Controls.Add(this.button1);
             this.SidePanel.Controls.Add(this.OpenArticlesForm);
             this.SidePanel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.SidePanel.Location = new System.Drawing.Point(0, 28);
+            this.SidePanel.Location = new System.Drawing.Point(0, 30);
             this.SidePanel.Name = "SidePanel";
-            this.SidePanel.Size = new System.Drawing.Size(283, 505);
+            this.SidePanel.Size = new System.Drawing.Size(283, 503);
             this.SidePanel.TabIndex = 3;
             // 
             // button1
