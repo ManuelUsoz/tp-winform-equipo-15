@@ -156,7 +156,13 @@ namespace Negocio
 
         public void Update(Articulo articulo)
         {
-
+            try
+            {
+                ArticuloDAO.Update(articulo);
+            }catch(Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

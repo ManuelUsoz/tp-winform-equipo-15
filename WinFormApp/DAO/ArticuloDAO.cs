@@ -429,10 +429,10 @@ namespace DAO
 
         public void Update(Articulo articulo)
         {
-            AccesoADatos accesoADatos = new AccesoADatos();
+            AccesoADatos accesoADatos = new AccesoADatos("server=.; database=CATALOGO_P3_DB; integrated security=true");
             try
             {
-                accesoADatos.consultar("UPDATE ARTICULOS SET Codigo = " + articulo.Code + ", Nombre = " + articulo.Nombre + ", Descripcion = " + articulo.Descripcion + ", IdMarca = " + articulo.Marca.Id + ", IdCategoria = " + articulo.Categoria.Id + ", Precio = " + articulo.Precio + " WHERE Id = "+articulo.Id+"");
+                accesoADatos.consultar("UPDATE ARTICULOS SET Codigo = '" + articulo.Code + "', Nombre = '" + articulo.Nombre + "', Descripcion = '" + articulo.Descripcion + "', IdMarca = " + articulo.Marca.Id + ", IdCategoria = " + articulo.Categoria.Id + ", Precio = " + articulo.Precio + " WHERE Id = "+articulo.Id+"");
                 accesoADatos.ejecutarAccion();
 
             }catch (Exception ex) 

@@ -32,12 +32,12 @@ namespace WinForm_App
 
             this.marcaNegocio = new MarcaNegocio();
             this.categoriaNegocio = new CategoriaNegocio();
-            BtnCancelar.Visible = false;
-            BtnModificar.Visible = false;
+            BtnModificar.Enabled = false;
 
             TxtBoxCodigo.Enabled = enableUserModification;
             TxtBoxDescripcion.Enabled = enableUserModification;
             TxtBoxNombre.Enabled = enableUserModification;
+            TxtBoxPrecio.Enabled = enableUserModification;
             CboxCategorias.Enabled = enableUserModification;
             CboxMarca.Enabled = enableUserModification;
         }
@@ -81,6 +81,7 @@ namespace WinForm_App
             TxtBoxCodigo.Text = Articulo.Code;
             TxtBoxDescripcion.Text = Articulo.Descripcion;
             TxtBoxNombre.Text = Articulo.Nombre;
+            TxtBoxPrecio.Text = Articulo.Precio.ToString();
             CboxCategorias.SelectedValue = Articulo.Categoria.Id;
             CboxMarca.SelectedValue = Articulo.Marca.Id;
         }
@@ -103,9 +104,25 @@ namespace WinForm_App
             articulo.Descripcion = TxtBoxDescripcion.Text;
             articulo.Marca = (Marca)CboxMarca.SelectedItem;
             articulo.Categoria = (Categoria)CboxCategorias.SelectedItem;
+            articulo.Precio = decimal.Parse(TxtBoxPrecio.Text);
 
-            this.articuloNegocio.Update(articulo);
+            try
+            {
+                this.articuloNegocio.Update(articulo);
+                MessageBox.Show("Entidad modificada correctamente!");
+                this.Close();
+            }catch(Exception)
+            {
+                MessageBox.Show("Error al modificar la entidad");
+            }
+
             
+            
+        }
+
+        private void BtnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

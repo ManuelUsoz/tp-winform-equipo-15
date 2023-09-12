@@ -25,6 +25,8 @@ namespace WinForm_App
         private void frmListaArticulos_Load(object sender, EventArgs e)
         {
             cargar();
+            buttonDetalle.Enabled = false;
+            buttonEliminar.Enabled = false;
         }
 
         private void cargar()
@@ -110,6 +112,12 @@ namespace WinForm_App
             {
                 pbListaArticulos.Image = Properties.Resources.OIP;
             }
+        }
+
+        private void dgvArticulos_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            buttonDetalle.Enabled = true;
+            buttonEliminar.Enabled = true;
         }
     }
 }
