@@ -216,5 +216,18 @@ namespace WinForm_App
             cboxCriterioFilter.SelectedIndex = -1;
             TxtBoxCriteriaFilter.Text = null;
         }
+
+        private void OnSelectionChange(object sender, EventArgs e)
+        {
+            Articulo articulo = dgvResultadoBusquedaArticulo.CurrentRow.DataBoundItem as Articulo;
+            try
+            {
+                PicBoxArticulo.Load(articulo.ImagenURL.ImagenUrl);
+            }
+            catch (Exception)
+            {
+                PicBoxArticulo.Image = Properties.Resources.OIP;
+            }
+        }
     }
 }

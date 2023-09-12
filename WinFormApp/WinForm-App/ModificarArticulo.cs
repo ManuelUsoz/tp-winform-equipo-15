@@ -16,13 +16,30 @@ namespace WinForm_App
     {
         private MarcaNegocio marcaNegocio;
         private CategoriaNegocio categoriaNegocio;
-
+        private ArticuloNegocio articuloNegocio;
 
         public ModificarArticulo()
         {
+            InitializeComponent();
             this.marcaNegocio = new MarcaNegocio();
             this.categoriaNegocio = new CategoriaNegocio();
+            this.articuloNegocio = new ArticuloNegocio();
+        }
+
+        public ModificarArticulo(bool enableUserModification)
+        {
             InitializeComponent();
+
+            this.marcaNegocio = new MarcaNegocio();
+            this.categoriaNegocio = new CategoriaNegocio();
+            BtnCancelar.Visible = false;
+            BtnModificar.Visible = false;
+
+            TxtBoxCodigo.Enabled = enableUserModification;
+            TxtBoxDescripcion.Enabled = enableUserModification;
+            TxtBoxNombre.Enabled = enableUserModification;
+            CboxCategorias.Enabled = enableUserModification;
+            CboxMarca.Enabled = enableUserModification;
         }
 
         public Articulo Articulo { get; set; }
@@ -51,7 +68,7 @@ namespace WinForm_App
             {
                 PicBoxArticulo.Load(Articulo.ImagenURL.ImagenUrl);
 
-            }catch(Exception ex)
+            }catch(Exception)
             {
                 PicBoxArticulo.Image = Properties.Resources.OIP;
             }
@@ -66,6 +83,29 @@ namespace WinForm_App
             TxtBoxNombre.Text = Articulo.Nombre;
             CboxCategorias.SelectedValue = Articulo.Categoria.Id;
             CboxMarca.SelectedValue = Articulo.Marca.Id;
+        }
+
+        private void BtnModificar_Click(object sender, EventArgs e)
+        {
+            if (!decimal.TryParse(TxtBoxPrecio.Text, out decimal txt))
+            {
+                MessageBox.Show("Ingrese numeros en el campo precio");
+                return;
+            }
+
+            Articulo articulo = new Articulo();
+            articulo.Marca = new Marca();
+            articulo.Categoria  = new Categoria();
+            articulo.ImagenURL = new Imagen();
+            articulo.Id = Articulo.Id;
+            articulo.Code = TxtBoxCodigo.Text;
+            articulo.Nombre = TxtBoxNombre.Text;
+            articulo.Descripcion = TxtBoxDescripcion.Text;
+            articulo.Marca = (Marca)CboxMarca.SelectedItem;
+            articulo.Categoria = (Categoria)CboxCategorias.SelectedItem;
+
+            this.articuloNegocio.Update(articulo);
+            
         }
     }
 }

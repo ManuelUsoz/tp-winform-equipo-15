@@ -153,5 +153,10 @@ namespace Negocio
                 throw ex;
             }
         }
+
+        public void Update(Articulo articulo)
+        {
+
+        }
     }
 }

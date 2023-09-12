@@ -54,7 +54,10 @@ namespace WinForm_App
 
         private void buttonModificar_Click(object sender, EventArgs e)
         {
-            //llenar cuando se cree
+            Articulo articulo = dgvArticulos.CurrentRow.DataBoundItem as Articulo;
+            ModificarArticulo modificarArticulo = new ModificarArticulo();
+            modificarArticulo.Articulo = articulo;
+            modificarArticulo.ShowDialog();
         }
 
         private void buttonEliminar_Click(object sender, EventArgs e)
@@ -72,8 +75,19 @@ namespace WinForm_App
 
         private void buttonDetalle_Click(object sender, EventArgs e)
         {
-            detalleArticulo detalle= new detalleArticulo();
-            detalle.ShowDialog();
+            //detalleArticulo detalle= new detalleArticulo();
+            //detalle.ShowDialog();
+            if (dgvArticulos.SelectedRows.Count > 0)
+            {
+                Articulo articulo = dgvArticulos.SelectedRows[0].DataBoundItem as Articulo;
+                ModificarArticulo modificarArticulo = new ModificarArticulo(false);
+                modificarArticulo.Articulo = articulo;
+                modificarArticulo.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Por favor, seleccione una fila antes de hacer clic en Detalle.");
+            }
         }
 
         private void OnCellDoubleClick(object sender, DataGridViewCellEventArgs e)
