@@ -58,5 +58,10 @@ namespace WinForm_App
             buscarForm buscarForm = new buscarForm();
             buscarForm.ShowDialog(this);
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Grupo 15 / Integrantes: Bee Bianco, Ignacio Ezequiel / Bressani, Efrain Victorio / Usoz Neri, Manuel Ignacio");   
+        }
     }
 }

@@ -30,9 +30,9 @@
         {
             this.LblGreeting = new System.Windows.Forms.Label();
             this.SidePanel = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
             this.OpenArticlesForm = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.SidePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -62,9 +62,24 @@
             this.SidePanel.Size = new System.Drawing.Size(283, 533);
             this.SidePanel.TabIndex = 3;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox1.Image = global::WinForm_App.Properties.Resources.staff_96px;
+            this.pictureBox1.InitialImage = global::WinForm_App.Properties.Resources.staff_96px;
+            this.pictureBox1.Location = new System.Drawing.Point(26, 29);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(226, 132);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox1.TabIndex = 4;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -83,6 +98,7 @@
             // 
             this.OpenArticlesForm.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.OpenArticlesForm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.OpenArticlesForm.Cursor = System.Windows.Forms.Cursors.Hand;
             this.OpenArticlesForm.FlatAppearance.BorderSize = 0;
             this.OpenArticlesForm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.OpenArticlesForm.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -96,18 +112,6 @@
             this.OpenArticlesForm.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.OpenArticlesForm.UseVisualStyleBackColor = false;
             this.OpenArticlesForm.Click += new System.EventHandler(this.OpenArticlesForm_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Image = global::WinForm_App.Properties.Resources.staff_96px;
-            this.pictureBox1.InitialImage = global::WinForm_App.Properties.Resources.staff_96px;
-            this.pictureBox1.Location = new System.Drawing.Point(26, 29);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(226, 132);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox1.TabIndex = 4;
-            this.pictureBox1.TabStop = false;
             // 
             // panel1
             // 

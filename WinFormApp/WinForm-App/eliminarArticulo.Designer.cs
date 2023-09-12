@@ -77,9 +77,8 @@
             this.lblExitoso.AutoSize = true;
             this.lblExitoso.Location = new System.Drawing.Point(14, 89);
             this.lblExitoso.Name = "lblExitoso";
-            this.lblExitoso.Size = new System.Drawing.Size(9, 13);
+            this.lblExitoso.Size = new System.Drawing.Size(0, 13);
             this.lblExitoso.TabIndex = 4;
-            this.lblExitoso.Text = "l";
             // 
             // eliminarArticulo
             // 

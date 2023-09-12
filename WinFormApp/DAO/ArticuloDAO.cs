@@ -412,7 +412,8 @@ namespace DAO
                 datos.consultar("INSERT INTO ARTICULOS (Codigo, Nombre, Descripcion, IdMarca, IdCategoria, ImagenUrl, Precio) VALUES ('" + nuevo.Code+"', '"+nuevo.Nombre+"', '"+nuevo.Descripcion+ "', @IdMarca, @IdCategoria, @ImagenUrl," + nuevo.Precio+")");
                 datos.setearParametro("@IdMarca",nuevo.Marca.Id);
                 datos.setearParametro("@IdCategoria",nuevo.Categoria.Id);
-                datos.setearParametro("@ImagenUrl", nuevo.ImagenURL.ImagenUrl);//Revisar
+                //Revisar
+                //datos.setearParametro("@ImagenUrl",nuevo.ImagenURL.ImagenUrl);
                 datos.ejecutarAccion();
             }
             catch (Exception ex)

@@ -58,6 +58,7 @@ namespace WinForm_App
             ModificarArticulo modificarArticulo = new ModificarArticulo();
             modificarArticulo.Articulo = articulo;
             modificarArticulo.ShowDialog();
+            cargar();
         }
 
         private void buttonEliminar_Click(object sender, EventArgs e)
