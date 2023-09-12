@@ -149,6 +149,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\default-placeholder-300x300.webp" />
     <None Include="Resources\maxresdefault.jpg" />
   </ItemGroup>
   <ItemGroup>
@@ -159,6 +160,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\user_24px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DefaultImage.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OIP.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

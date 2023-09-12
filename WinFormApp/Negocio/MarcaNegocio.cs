@@ -12,9 +12,8 @@ namespace Negocio
     {
         public List<Marca> list()
         {
-            List<Marca> marcaList = new List<Marca>();
             MarcaDAO marcaDAO = new MarcaDAO();
-            marcaList = marcaDAO.List();
+            List<Marca> marcaList = marcaDAO.List();
 
             return marcaList; 
         }

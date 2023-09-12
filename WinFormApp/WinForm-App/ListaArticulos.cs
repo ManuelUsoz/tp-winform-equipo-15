@@ -78,7 +78,9 @@ namespace WinForm_App
 
         private void OnCellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            Articulo articulo = dgvArticulos.CurrentRow.DataBoundItem as Articulo;
             ModificarArticulo modificarArticulo = new ModificarArticulo();
+            modificarArticulo.Articulo = articulo;
             modificarArticulo.ShowDialog();
         }
         /*

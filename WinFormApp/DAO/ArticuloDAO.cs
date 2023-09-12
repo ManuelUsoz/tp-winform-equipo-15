@@ -17,8 +17,10 @@ namespace DAO
             articulo.Descripcion = accesoADatos.Lector["Descripcion"].ToString();
             articulo.Marca = new Marca();
             articulo.Marca.Descripcion = accesoADatos.Lector["Marca"].ToString();
+            articulo.Marca.Id = (int)accesoADatos.Lector["Marcaid"];
             articulo.Categoria = new Categoria();
             articulo.Categoria.Descripcion = accesoADatos.Lector["Categoria"].ToString();
+            articulo.Categoria.Id = (int)accesoADatos.Lector["CategoriaId"];
             articulo.ImagenURL = new Imagen();
             articulo.ImagenURL.ImagenUrl = accesoADatos.Lector["ImagenUrl"].ToString();
             articulo.Precio = (decimal)accesoADatos.Lector["Precio"];
@@ -31,7 +33,7 @@ namespace DAO
             {
                 accesoADatos.AbrirConexion();
 
-                string consulta = "SELECT A.Id, A.Codigo, A.Nombre, A.Descripcion, M.Descripcion as Marca, C.Descripcion as Categoria, I.ImagenUrl, A.Precio FROM ARTICULOS A INNER JOIN MARCAS M ON A.IdMarca = M.Id INNER JOIN CATEGORIAS C ON A.IdCategoria = C.Id INNER JOIN IMAGENES I ON A.Id=I.IdArticulo";
+                string consulta = "SELECT A.Id, A.Codigo, A.Nombre, A.Descripcion, M.Descripcion as Marca, M.Id as MarcaId ,C.Descripcion as Categoria, C.Id as CategoriaId, I.ImagenUrl, A.Precio FROM ARTICULOS A INNER JOIN MARCAS M ON A.IdMarca = M.Id INNER JOIN CATEGORIAS C ON A.IdCategoria = C.Id INNER JOIN IMAGENES I ON A.Id=I.IdArticulo";
 
                 accesoADatos.consultar(consulta);
                 accesoADatos.ejecutarLectura();
