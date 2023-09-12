@@ -38,6 +38,8 @@ namespace WinForm_App
             TxtBoxDescripcion.Enabled = enableUserModification;
             TxtBoxNombre.Enabled = enableUserModification;
             TxtBoxPrecio.Enabled = enableUserModification;
+            TxtBoxImagenUrl.Enabled = enableUserModification;
+
             CboxCategorias.Enabled = enableUserModification;
             CboxMarca.Enabled = enableUserModification;
         }
@@ -82,6 +84,7 @@ namespace WinForm_App
             TxtBoxDescripcion.Text = Articulo.Descripcion;
             TxtBoxNombre.Text = Articulo.Nombre;
             TxtBoxPrecio.Text = Articulo.Precio.ToString();
+            TxtBoxImagenUrl.Text = Articulo.ImagenURL.ImagenUrl;
             CboxCategorias.SelectedValue = Articulo.Categoria.Id;
             CboxMarca.SelectedValue = Articulo.Marca.Id;
         }
@@ -102,6 +105,8 @@ namespace WinForm_App
             articulo.Code = TxtBoxCodigo.Text;
             articulo.Nombre = TxtBoxNombre.Text;
             articulo.Descripcion = TxtBoxDescripcion.Text;
+            articulo.ImagenURL.Id = Articulo.ImagenURL.Id;
+            articulo.ImagenURL.ImagenUrl = TxtBoxImagenUrl.Text;
             articulo.Marca = (Marca)CboxMarca.SelectedItem;
             articulo.Categoria = (Categoria)CboxCategorias.SelectedItem;
             articulo.Precio = decimal.Parse(TxtBoxPrecio.Text);
@@ -123,6 +128,19 @@ namespace WinForm_App
         private void BtnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void TxtBoxImagenUrl_Leave(object sender, EventArgs e)
+        {
+            try
+            {
+                PicBoxArticulo.Load(TxtBoxImagenUrl.Text);
+            }
+            catch (Exception)
+            {
+                PicBoxArticulo.Image = Properties.Resources.OIP;
+                MessageBox.Show("Error al cargar la imagen ingresada");
+            }
         }
     }
 }

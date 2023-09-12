@@ -43,6 +43,8 @@
             this.PicBoxArticulo = new System.Windows.Forms.PictureBox();
             this.TxtBoxPrecio = new System.Windows.Forms.TextBox();
             this.LblPrecio = new System.Windows.Forms.Label();
+            this.LblImagenUrl = new System.Windows.Forms.Label();
+            this.TxtBoxImagenUrl = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.PicBoxArticulo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -76,7 +78,7 @@
             // LblMarca
             // 
             this.LblMarca.AutoSize = true;
-            this.LblMarca.Location = new System.Drawing.Point(75, 188);
+            this.LblMarca.Location = new System.Drawing.Point(75, 223);
             this.LblMarca.Name = "LblMarca";
             this.LblMarca.Size = new System.Drawing.Size(45, 16);
             this.LblMarca.TabIndex = 3;
@@ -87,7 +89,7 @@
             this.LblCategoria.AutoEllipsis = true;
             this.LblCategoria.AutoSize = true;
             this.LblCategoria.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.LblCategoria.Location = new System.Drawing.Point(75, 223);
+            this.LblCategoria.Location = new System.Drawing.Point(75, 258);
             this.LblCategoria.Name = "LblCategoria";
             this.LblCategoria.Size = new System.Drawing.Size(66, 16);
             this.LblCategoria.TabIndex = 4;
@@ -95,7 +97,7 @@
             // 
             // BtnModificar
             // 
-            this.BtnModificar.Location = new System.Drawing.Point(352, 366);
+            this.BtnModificar.Location = new System.Drawing.Point(338, 366);
             this.BtnModificar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnModificar.Name = "BtnModificar";
             this.BtnModificar.Size = new System.Drawing.Size(96, 39);
@@ -118,7 +120,7 @@
             // CboxCategorias
             // 
             this.CboxCategorias.FormattingEnabled = true;
-            this.CboxCategorias.Location = new System.Drawing.Point(177, 220);
+            this.CboxCategorias.Location = new System.Drawing.Point(177, 255);
             this.CboxCategorias.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.CboxCategorias.Name = "CboxCategorias";
             this.CboxCategorias.Size = new System.Drawing.Size(121, 24);
@@ -127,7 +129,7 @@
             // CboxMarca
             // 
             this.CboxMarca.FormattingEnabled = true;
-            this.CboxMarca.Location = new System.Drawing.Point(177, 185);
+            this.CboxMarca.Location = new System.Drawing.Point(177, 220);
             this.CboxMarca.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.CboxMarca.Name = "CboxMarca";
             this.CboxMarca.Size = new System.Drawing.Size(121, 24);
@@ -162,14 +164,14 @@
             this.PicBoxArticulo.Location = new System.Drawing.Point(352, 84);
             this.PicBoxArticulo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PicBoxArticulo.Name = "PicBoxArticulo";
-            this.PicBoxArticulo.Size = new System.Drawing.Size(260, 160);
+            this.PicBoxArticulo.Size = new System.Drawing.Size(260, 221);
             this.PicBoxArticulo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.PicBoxArticulo.TabIndex = 13;
             this.PicBoxArticulo.TabStop = false;
             // 
             // TxtBoxPrecio
             // 
-            this.TxtBoxPrecio.Location = new System.Drawing.Point(177, 251);
+            this.TxtBoxPrecio.Location = new System.Drawing.Point(177, 286);
             this.TxtBoxPrecio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TxtBoxPrecio.Name = "TxtBoxPrecio";
             this.TxtBoxPrecio.Size = new System.Drawing.Size(121, 22);
@@ -178,17 +180,37 @@
             // LblPrecio
             // 
             this.LblPrecio.AutoSize = true;
-            this.LblPrecio.Location = new System.Drawing.Point(75, 254);
+            this.LblPrecio.Location = new System.Drawing.Point(75, 289);
             this.LblPrecio.Name = "LblPrecio";
             this.LblPrecio.Size = new System.Drawing.Size(46, 16);
             this.LblPrecio.TabIndex = 14;
             this.LblPrecio.Text = "Precio";
+            // 
+            // LblImagenUrl
+            // 
+            this.LblImagenUrl.AutoSize = true;
+            this.LblImagenUrl.Location = new System.Drawing.Point(75, 189);
+            this.LblImagenUrl.Name = "LblImagenUrl";
+            this.LblImagenUrl.Size = new System.Drawing.Size(77, 16);
+            this.LblImagenUrl.TabIndex = 16;
+            this.LblImagenUrl.Text = "Imagen (url)";
+            // 
+            // TxtBoxImagenUrl
+            // 
+            this.TxtBoxImagenUrl.Location = new System.Drawing.Point(177, 186);
+            this.TxtBoxImagenUrl.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.TxtBoxImagenUrl.Name = "TxtBoxImagenUrl";
+            this.TxtBoxImagenUrl.Size = new System.Drawing.Size(121, 22);
+            this.TxtBoxImagenUrl.TabIndex = 17;
+            this.TxtBoxImagenUrl.Leave += new System.EventHandler(this.TxtBoxImagenUrl_Leave);
             // 
             // ModificarArticulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(660, 434);
+            this.Controls.Add(this.TxtBoxImagenUrl);
+            this.Controls.Add(this.LblImagenUrl);
             this.Controls.Add(this.TxtBoxPrecio);
             this.Controls.Add(this.LblPrecio);
             this.Controls.Add(this.PicBoxArticulo);
@@ -231,5 +253,7 @@
         private System.Windows.Forms.PictureBox PicBoxArticulo;
         private System.Windows.Forms.TextBox TxtBoxPrecio;
         private System.Windows.Forms.Label LblPrecio;
+        private System.Windows.Forms.Label LblImagenUrl;
+        private System.Windows.Forms.TextBox TxtBoxImagenUrl;
     }
 }
