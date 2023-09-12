@@ -97,28 +97,18 @@ namespace WinForm_App
             modificarArticulo.Articulo = articulo;
             modificarArticulo.ShowDialog();
         }
-        /*
-* FALTA REVISAR
-* 
-* 
-private void dgvArticulos_SelectionChanged(object sender, EventArgs e)
-{
-   Articulo selecArt = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
-   cargarImagen(selecArt.ImagenURL);
-}
 
-private void cargarImagen(Imagen imagenURL)
-{
-   try
-   {
-       pbListaArticulos.Load();
-   }
-   catch (Exception ex)
-   {
-       pbListaArticulos.Load("https://i0.wp.com/casagres.com.ar/wp-content/uploads/2022/09/placeholder.png?ssl=1");
-   }
-}
-*/
-
+        private void dgvArticulos_SelectionChanged_1(object sender, EventArgs e)
+        {
+            Articulo articulo = dgvArticulos.CurrentRow.DataBoundItem as Articulo;
+            try
+            {
+                pbListaArticulos.Load(articulo.ImagenURL.ImagenUrl);
+            }
+            catch (Exception)
+            {
+                pbListaArticulos.Image = Properties.Resources.OIP;
+            }
+        }
     }
 }

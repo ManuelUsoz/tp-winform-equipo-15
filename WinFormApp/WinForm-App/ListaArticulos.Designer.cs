@@ -70,6 +70,7 @@
             this.dgvArticulos.Size = new System.Drawing.Size(759, 372);
             this.dgvArticulos.TabIndex = 6;
             this.dgvArticulos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.OnCellDoubleClick);
+            this.dgvArticulos.SelectionChanged += new System.EventHandler(this.dgvArticulos_SelectionChanged_1);
             // 
             // buttonAgregar
             // 
