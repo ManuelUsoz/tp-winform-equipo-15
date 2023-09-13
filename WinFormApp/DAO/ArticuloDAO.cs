@@ -430,16 +430,29 @@ namespace DAO
             AccesoADatos datos = new AccesoADatos();
             try
             {
-                datos.consultar("INSERT INTO ARTICULOS (Codigo, Nombre, Descripcion, IdMarca, IdCategoria, ImagenUrl, Precio) VALUES ('" + nuevo.Code+"', '"+nuevo.Nombre+"', '"+nuevo.Descripcion+ "', @IdMarca, @IdCategoria, @ImagenUrl," + nuevo.Precio+")");
+                datos.consultar("INSERT INTO ARTICULOS (Codigo, Nombre, Descripcion, IdMarca, IdCategoria, Precio) VALUES ('"+ nuevo.Code+"', '"+nuevo.Nombre+"', '"+nuevo.Descripcion+ "', @IdMarca, @IdCategoria," + nuevo.Precio+")");
                 datos.setearParametro("@IdMarca",nuevo.Marca.Id);
                 datos.setearParametro("@IdCategoria",nuevo.Categoria.Id);
-                //Revisar
-                //datos.setearParametro("@ImagenUrl",nuevo.ImagenURL.ImagenUrl);
+                
                 datos.ejecutarAccion();
             }
             catch (Exception ex)
             {
 
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+            try
+            {
+                //Revisar
+                datos.consultar("INSERT INTO IMAGENES VALUES ("+nuevo.ImagenURL.IdArticulo+", '"+nuevo.ImagenURL.ImagenUrl +"')");
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
                 throw ex;
             }
             finally
