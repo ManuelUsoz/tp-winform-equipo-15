@@ -424,10 +424,43 @@ namespace DAO
                 accesoADatos.cerrarConexion();
             }
         }
-        
+
+        public int GetArticuloIdPorCodigo(string codigo)
+        {
+            int articuloId = -1;
+            AccesoADatos accesoADatos = new AccesoADatos("server=.; database=CATALOGO_P3_DB; integrated security=true");
+
+            try
+            {
+                accesoADatos.AbrirConexion();
+
+                string consulta = "SELECT Id FROM ARTICULOS WHERE Codigo = @Codigo";
+                accesoADatos.consultar(consulta);
+                accesoADatos.setearParametro("@Codigo", codigo);
+                accesoADatos.ejecutarLectura();
+
+                if (accesoADatos.Lector.Read())
+                {
+                    articuloId = Convert.ToInt32(accesoADatos.Lector["Id"]);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                accesoADatos.cerrarConexion();
+            }
+
+            return articuloId;
+        }
+
+
         public void agregar(Articulo nuevo)
         {
             AccesoADatos datos = new AccesoADatos();
+            int idArtNuevoInsert = -1;
             try
             {
                 datos.consultar("INSERT INTO ARTICULOS (Codigo, Nombre, Descripcion, IdMarca, IdCategoria, Precio) VALUES ('"+ nuevo.Code+"', '"+nuevo.Nombre+"', '"+nuevo.Descripcion+ "', @IdMarca, @IdCategoria," + nuevo.Precio+")");
@@ -435,6 +468,8 @@ namespace DAO
                 datos.setearParametro("@IdCategoria",nuevo.Categoria.Id);
                 
                 datos.ejecutarAccion();
+
+                idArtNuevoInsert = GetArticuloIdPorCodigo(nuevo.Code);
             }
             catch (Exception ex)
             {
@@ -447,8 +482,7 @@ namespace DAO
             }
             try
             {
-                //Revisar
-                datos.consultar("INSERT INTO IMAGENES VALUES ("+nuevo.ImagenURL.IdArticulo+", '"+nuevo.ImagenURL.ImagenUrl +"')");
+                datos.consultar("INSERT INTO IMAGENES VALUES ("+ idArtNuevoInsert + ", '"+nuevo.ImagenURL.ImagenUrl +"')");
                 datos.ejecutarAccion();
             }
             catch (Exception ex)
