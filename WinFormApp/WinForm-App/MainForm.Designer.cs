@@ -44,7 +44,7 @@
             this.LblGreeting.BackColor = System.Drawing.SystemColors.HighlightText;
             this.LblGreeting.Font = new System.Drawing.Font("Century Gothic", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblGreeting.ForeColor = System.Drawing.Color.DimGray;
-            this.LblGreeting.Location = new System.Drawing.Point(426, 67);
+            this.LblGreeting.Location = new System.Drawing.Point(429, 73);
             this.LblGreeting.Name = "LblGreeting";
             this.LblGreeting.Size = new System.Drawing.Size(286, 56);
             this.LblGreeting.TabIndex = 1;
@@ -89,7 +89,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(226, 48);
             this.button1.TabIndex = 5;
-            this.button1.Text = "BUSCAR";
+            this.button1.Text = "BUSCAR ARTICULOS";
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);

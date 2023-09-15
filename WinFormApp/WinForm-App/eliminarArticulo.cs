@@ -42,9 +42,9 @@ namespace WinForm_App
                 lblExitoso.Text = $"Articulo con Id numero {id} eliminado con exito";
                 txtEliminar.Text = "";
             } 
-            catch(Exception ex) 
+            catch(Exception) 
             {
-                throw ex;
+                MessageBox.Show("Error al eliminar la entidad");
             }
         }
     }
