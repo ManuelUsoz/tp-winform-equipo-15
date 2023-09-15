@@ -47,7 +47,7 @@
             // 
             // txtEliminar
             // 
-            this.txtEliminar.Location = new System.Drawing.Point(116, 52);
+            this.txtEliminar.Location = new System.Drawing.Point(79, 52);
             this.txtEliminar.Name = "txtEliminar";
             this.txtEliminar.Size = new System.Drawing.Size(100, 20);
             this.txtEliminar.TabIndex = 1;
@@ -57,14 +57,14 @@
             this.lbl1.AutoSize = true;
             this.lbl1.Location = new System.Drawing.Point(14, 56);
             this.lbl1.Name = "lbl1";
-            this.lbl1.Size = new System.Drawing.Size(96, 13);
+            this.lbl1.Size = new System.Drawing.Size(59, 13);
             this.lbl1.TabIndex = 2;
-            this.lbl1.Text = "Ingrese ID articulo:";
+            this.lbl1.Text = "ID Articulo:";
             this.lbl1.Click += new System.EventHandler(this.label2_Click);
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(241, 50);
+            this.btnEliminar.Location = new System.Drawing.Point(185, 51);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(75, 23);
             this.btnEliminar.TabIndex = 3;

@@ -25,8 +25,6 @@ namespace WinForm_App
         private void frmListaArticulos_Load(object sender, EventArgs e)
         {
             cargar();
-            buttonDetalle.Enabled = false;
-            buttonEliminar.Enabled = false;
         }
 
         private void cargar()
@@ -65,7 +63,8 @@ namespace WinForm_App
 
         private void buttonEliminar_Click(object sender, EventArgs e)
         {
-            eliminarArticulo eliminar = new eliminarArticulo();
+            Articulo articulo = dgvArticulos.CurrentRow.DataBoundItem as Articulo;
+            eliminarArticulo eliminar = new eliminarArticulo(articulo.Id);
             eliminar.ShowDialog();
             cargar();
         }

@@ -14,9 +14,12 @@ namespace WinForm_App
 {
     public partial class eliminarArticulo : Form
     {
-        public eliminarArticulo()
+        private int articuloId;
+
+        public eliminarArticulo(int articuloId)
         {
             InitializeComponent();
+            this.articuloId = articuloId;
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -26,7 +29,7 @@ namespace WinForm_App
 
         private void eliminarArticulo_Load(object sender, EventArgs e)
         {
-
+            txtEliminar.Text = articuloId.ToString();
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
