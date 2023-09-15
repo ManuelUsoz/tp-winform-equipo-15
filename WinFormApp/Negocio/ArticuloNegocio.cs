@@ -141,16 +141,35 @@ namespace Negocio
 
         public void eliminar(int id)
         {
+            AccesoADatos datos = new AccesoADatos();
             try
             {
-                AccesoADatos datos = new AccesoADatos();
                 datos.AbrirConexion();
                 datos.consultar($"delete from ARTICULOS where Id = {id}");
                 datos.ejecutarLectura();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+            try
+            {
+                datos.AbrirConexion();
+                datos.consultar($"delete from IMAGENES where IdArticulo = {id}");
+                datos.ejecutarLectura();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
             }
         }
 
