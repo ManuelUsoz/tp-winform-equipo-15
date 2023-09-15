@@ -22,11 +22,6 @@ namespace WinForm_App
             this.articuloId = articuloId;
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void eliminarArticulo_Load(object sender, EventArgs e)
         {
             txtEliminar.Text = articuloId.ToString();
@@ -37,10 +32,14 @@ namespace WinForm_App
             ArticuloNegocio negocio = new ArticuloNegocio();
             try 
             {
-                int id = int.Parse(txtEliminar.Text.Trim());
-                negocio.eliminar(id);
-                lblExitoso.Text = $"Articulo con Id numero {id} eliminado con exito";
-                txtEliminar.Text = "";
+                DialogResult respuesta = MessageBox.Show("¿De verdad querés eliminarlo?", "Eliminando", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if(respuesta == DialogResult.Yes)
+                {
+                    int id = int.Parse(txtEliminar.Text.Trim());
+                    negocio.eliminar(id);
+                    lblExitoso.Text = $"Articulo con Id numero {id} eliminado con exito";
+                    txtEliminar.Text = "";
+                } 
             } 
             catch(Exception) 
             {

@@ -25,6 +25,7 @@ namespace WinForm_App
             this.categoriaNegocio = new CategoriaNegocio();
             this.articuloNegocio = new ArticuloNegocio();
         }
+        
 
         public ModificarArticulo(bool enableUserModification)
         {
@@ -42,6 +43,8 @@ namespace WinForm_App
 
             CboxCategorias.Enabled = enableUserModification;
             CboxMarca.Enabled = enableUserModification;
+
+            Text = "Detalle Articulo";
         }
 
         public Articulo Articulo { get; set; }

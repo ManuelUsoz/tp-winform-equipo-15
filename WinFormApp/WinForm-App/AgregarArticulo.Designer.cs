@@ -114,9 +114,9 @@
             // 
             // buttonAceptar
             // 
-            this.buttonAceptar.Location = new System.Drawing.Point(87, 237);
+            this.buttonAceptar.Location = new System.Drawing.Point(115, 224);
             this.buttonAceptar.Name = "buttonAceptar";
-            this.buttonAceptar.Size = new System.Drawing.Size(75, 23);
+            this.buttonAceptar.Size = new System.Drawing.Size(72, 32);
             this.buttonAceptar.TabIndex = 6;
             this.buttonAceptar.Text = "Aceptar";
             this.buttonAceptar.UseVisualStyleBackColor = true;
@@ -124,10 +124,10 @@
             // 
             // buttonCancelar
             // 
-            this.buttonCancelar.Location = new System.Drawing.Point(283, 237);
+            this.buttonCancelar.Location = new System.Drawing.Point(244, 224);
             this.buttonCancelar.Name = "buttonCancelar";
-            this.buttonCancelar.Size = new System.Drawing.Size(75, 23);
-            this.buttonCancelar.TabIndex = 7;
+            this.buttonCancelar.Size = new System.Drawing.Size(72, 32);
+            this.buttonCancelar.TabIndex = 6;
             this.buttonCancelar.Text = "Cancelar";
             this.buttonCancelar.UseVisualStyleBackColor = true;
             this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);
@@ -136,21 +136,21 @@
             // 
             this.txtbNombre.Location = new System.Drawing.Point(87, 49);
             this.txtbNombre.Name = "txtbNombre";
-            this.txtbNombre.Size = new System.Drawing.Size(271, 20);
+            this.txtbNombre.Size = new System.Drawing.Size(198, 20);
             this.txtbNombre.TabIndex = 1;
             // 
             // txtbDescripcion
             // 
             this.txtbDescripcion.Location = new System.Drawing.Point(87, 75);
             this.txtbDescripcion.Name = "txtbDescripcion";
-            this.txtbDescripcion.Size = new System.Drawing.Size(271, 20);
+            this.txtbDescripcion.Size = new System.Drawing.Size(198, 20);
             this.txtbDescripcion.TabIndex = 2;
             // 
             // txtbImagenUrl
             // 
             this.txtbImagenUrl.Location = new System.Drawing.Point(87, 156);
             this.txtbImagenUrl.Name = "txtbImagenUrl";
-            this.txtbImagenUrl.Size = new System.Drawing.Size(271, 20);
+            this.txtbImagenUrl.Size = new System.Drawing.Size(198, 20);
             this.txtbImagenUrl.TabIndex = 15;
             this.txtbImagenUrl.Leave += new System.EventHandler(this.txtbImagenUrl_Leave);
             // 
@@ -162,9 +162,19 @@
             0,
             0,
             0});
+            this.nudPrecio.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.nudPrecio.Name = "nudPrecio";
-            this.nudPrecio.Size = new System.Drawing.Size(271, 20);
+            this.nudPrecio.Size = new System.Drawing.Size(198, 20);
             this.nudPrecio.TabIndex = 5;
+            this.nudPrecio.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // cbMarca
             // 
@@ -172,7 +182,7 @@
             this.cbMarca.FormattingEnabled = true;
             this.cbMarca.Location = new System.Drawing.Point(87, 102);
             this.cbMarca.Name = "cbMarca";
-            this.cbMarca.Size = new System.Drawing.Size(271, 21);
+            this.cbMarca.Size = new System.Drawing.Size(198, 21);
             this.cbMarca.TabIndex = 3;
             // 
             // cbCategoria
@@ -181,21 +191,21 @@
             this.cbCategoria.FormattingEnabled = true;
             this.cbCategoria.Location = new System.Drawing.Point(87, 129);
             this.cbCategoria.Name = "cbCategoria";
-            this.cbCategoria.Size = new System.Drawing.Size(271, 21);
+            this.cbCategoria.Size = new System.Drawing.Size(198, 21);
             this.cbCategoria.TabIndex = 4;
             // 
             // txtbCodigo
             // 
             this.txtbCodigo.Location = new System.Drawing.Point(87, 19);
             this.txtbCodigo.Name = "txtbCodigo";
-            this.txtbCodigo.Size = new System.Drawing.Size(271, 20);
+            this.txtbCodigo.Size = new System.Drawing.Size(198, 20);
             this.txtbCodigo.TabIndex = 0;
             // 
             // pbImagenUrl
             // 
-            this.pbImagenUrl.Location = new System.Drawing.Point(374, 22);
+            this.pbImagenUrl.Location = new System.Drawing.Point(291, 19);
             this.pbImagenUrl.Name = "pbImagenUrl";
-            this.pbImagenUrl.Size = new System.Drawing.Size(338, 282);
+            this.pbImagenUrl.Size = new System.Drawing.Size(184, 184);
             this.pbImagenUrl.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbImagenUrl.TabIndex = 16;
             this.pbImagenUrl.TabStop = false;
@@ -204,7 +214,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(724, 316);
+            this.ClientSize = new System.Drawing.Size(489, 266);
             this.Controls.Add(this.pbImagenUrl);
             this.Controls.Add(this.txtbCodigo);
             this.Controls.Add(this.cbCategoria);
@@ -222,6 +232,7 @@
             this.Controls.Add(this.labelDescripcion);
             this.Controls.Add(this.labelNombre);
             this.Controls.Add(this.labelCode);
+            this.MinimumSize = new System.Drawing.Size(505, 305);
             this.Name = "frmAgregarArticulo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Agregar nuevo articulo";

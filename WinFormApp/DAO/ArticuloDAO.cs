@@ -55,7 +55,8 @@ namespace DAO
                 accesoADatos.AbrirConexion();
 
                 string consulta = "SELECT A.Id, A.Codigo, A.Nombre, A.Descripcion, M.Descripcion as Marca, M.Id as MarcaId ,C.Descripcion as Categoria, C.Id as CategoriaId, I.Id as ImagenId, I.ImagenUrl, A.Precio FROM ARTICULOS A INNER JOIN MARCAS M ON A.IdMarca = M.Id INNER JOIN CATEGORIAS C ON A.IdCategoria = C.Id INNER JOIN IMAGENES I ON A.Id=I.IdArticulo";
-
+                //string consulta = "SELECT A.Id, A.Codigo, A.Nombre, A.Descripcion, M.Descripcion AS Marca, M.Id AS MarcaId, C.Descripcion AS Categoria, C.Id AS CategoriaId, I.Id as ImagenId, I.ImagenUrl, A.Precio\r\nFROM ARTICULOS A LEFT JOIN MARCAS M ON A.IdMarca = M.Id LEFT JOIN CATEGORIAS C ON A.IdCategoria = C.Id LEFT JOIN IMAGENES I ON A.Id = I.IdArticulo";
+                
                 accesoADatos.consultar(consulta);
                 accesoADatos.ejecutarLectura();
 

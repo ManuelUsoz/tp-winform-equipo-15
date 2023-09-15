@@ -38,10 +38,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(185, 29);
+            this.label1.Size = new System.Drawing.Size(143, 24);
             this.label1.TabIndex = 0;
             this.label1.Text = "Eliminar articulo";
             // 
@@ -55,16 +55,15 @@
             // lbl1
             // 
             this.lbl1.AutoSize = true;
-            this.lbl1.Location = new System.Drawing.Point(14, 56);
+            this.lbl1.Location = new System.Drawing.Point(13, 55);
             this.lbl1.Name = "lbl1";
             this.lbl1.Size = new System.Drawing.Size(59, 13);
             this.lbl1.TabIndex = 2;
             this.lbl1.Text = "ID Articulo:";
-            this.lbl1.Click += new System.EventHandler(this.label2_Click);
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(185, 51);
+            this.btnEliminar.Location = new System.Drawing.Point(185, 52);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(75, 23);
             this.btnEliminar.TabIndex = 3;
@@ -75,7 +74,7 @@
             // lblExitoso
             // 
             this.lblExitoso.AutoSize = true;
-            this.lblExitoso.Location = new System.Drawing.Point(14, 89);
+            this.lblExitoso.Location = new System.Drawing.Point(12, 91);
             this.lblExitoso.Name = "lblExitoso";
             this.lblExitoso.Size = new System.Drawing.Size(0, 13);
             this.lblExitoso.TabIndex = 4;
@@ -84,15 +83,17 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(616, 246);
+            this.ClientSize = new System.Drawing.Size(271, 113);
             this.Controls.Add(this.lblExitoso);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.lbl1);
             this.Controls.Add(this.txtEliminar);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MinimumSize = new System.Drawing.Size(287, 152);
             this.Name = "eliminarArticulo";
-            this.Text = "eliminarArticulo";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Eliminar Articulo";
             this.Load += new System.EventHandler(this.eliminarArticulo_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

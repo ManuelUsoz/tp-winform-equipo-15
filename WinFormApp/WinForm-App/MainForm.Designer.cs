@@ -133,8 +133,8 @@
             this.Cursor = System.Windows.Forms.Cursors.Default;
             this.Font = new System.Drawing.Font("Arial", 8.25F);
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.MaximumSize = new System.Drawing.Size(1176, 615);
-            this.MinimumSize = new System.Drawing.Size(816, 500);
+            this.MaximumSize = new System.Drawing.Size(848, 572);
+            this.MinimumSize = new System.Drawing.Size(848, 572);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu Inicial";
