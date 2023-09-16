@@ -44,5 +44,27 @@ namespace Negocio
                 throw ex;
             }
         }
+
+        public void Update(Articulo articulo)
+        {
+            try
+            {
+                this.imagenDAO.Update(articulo);
+            }catch(Exception e)
+            {
+                throw e;
+            }
+        }
+
+        public void DeleteByImageId(int idImagen)
+        {
+            try
+            {
+                this.imagenDAO.Delete(idImagen);
+            }catch(Exception e)
+            {
+                throw e;
+            }
+        }
     }
 }

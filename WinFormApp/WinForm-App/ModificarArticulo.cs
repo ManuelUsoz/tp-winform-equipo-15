@@ -110,6 +110,8 @@ namespace WinForm_App
             CboxCategorias.DisplayMember = "Descripcion";
             CboxMarca.ValueMember = "Id";
             CboxMarca.DisplayMember = "Descripcion";
+            CboxImages.ValueMember = "Id";
+            CboxImages.DisplayMember = "ImagenUrl";
 
             TxtBoxCodigo.Text = Articulo.Code;
             TxtBoxDescripcion.Text = Articulo.Descripcion;
@@ -127,20 +129,20 @@ namespace WinForm_App
                 return;
             }
 
-            Articulo articulo = new Articulo();
-            articulo.Marca = new Marca();
-            articulo.Categoria  = new Categoria();
-            articulo.Id = Articulo.Id;
-            articulo.Code = TxtBoxCodigo.Text;
-            articulo.Nombre = TxtBoxNombre.Text;
-            articulo.Descripcion = TxtBoxDescripcion.Text;
-            articulo.Marca = (Marca)CboxMarca.SelectedItem;
-            articulo.Categoria = (Categoria)CboxCategorias.SelectedItem;
-            articulo.Precio = decimal.Parse(TxtBoxPrecio.Text);
+            //Articulo articulo = new Articulo();
+            Articulo.Marca = new Marca();
+            Articulo.Categoria  = new Categoria();
+            Articulo.Id = Articulo.Id;
+            Articulo.Code = TxtBoxCodigo.Text;
+            Articulo.Nombre = TxtBoxNombre.Text;
+            Articulo.Descripcion = TxtBoxDescripcion.Text;
+            Articulo.Marca = (Marca)CboxMarca.SelectedItem;
+            Articulo.Categoria = (Categoria)CboxCategorias.SelectedItem;
+            Articulo.Precio = decimal.Parse(TxtBoxPrecio.Text);
 
             try
             {
-                this.articuloNegocio.Update(articulo);
+                this.articuloNegocio.Update(Articulo);
                 MessageBox.Show("Entidad modificada correctamente!");
                 this.Close();
             }catch(Exception)
@@ -155,19 +157,6 @@ namespace WinForm_App
         private void BtnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void TxtBoxImagenUrl_Leave(object sender, EventArgs e)
-        {
-            try
-            {
-                //PicBoxArticulo.Load(TxtBoxImagenUrl.Text);
-            }
-            catch (Exception)
-            {
-                PicBoxArticulo.Image = Properties.Resources.OIP;
-                MessageBox.Show("Error al cargar la imagen ingresada");
-            }
         }
 
         private void CboxImages_SelectedIndexChanged(object sender, EventArgs e)
@@ -208,14 +197,44 @@ namespace WinForm_App
         private void BtnAddImage_Click(object sender, EventArgs e)
         {
             ImageForm imageForm = new ImageForm();
+            imageForm.Articulo = Articulo;
             imageForm.ShowDialog();
+            CboxImages.DataSource = Articulo.ImagenURL;
+
         }
 
         private void BtnModifyImage_Click(object sender, EventArgs e)
         {
-            ImageForm imageForm = new ImageForm(CboxImages.SelectedItem.ToString());
-            imageForm.articulo = Articulo;
-            imageForm.ShowDialog(this);
+            Imagen imagen = Articulo.ImagenURL.FirstOrDefault(img => img.ImagenUrl == CboxImages.SelectedItem.ToString());
+            if(imagen != null)
+            {
+                ImageForm imageForm = new ImageForm(CboxImages.SelectedItem.ToString());
+                imageForm.imagen = imagen;
+                imageForm.ShowDialog(this);
+                //Se resetea el DataSource para que sea aquellos que se hayan manipulado en ImagenURL
+                CboxImages.DataSource = Articulo.ImagenURL;
+
+            }
+            
+        }
+
+        private void BtnDeleteImage_Click(object sender, EventArgs e)
+        {
+            DialogResult respuesta = MessageBox.Show("¿De verdad querés eliminarlo? Esta acción es irreversible", "Eliminando", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (respuesta == DialogResult.Yes)
+            {
+                try
+                {
+                    Imagen selectedImage = (Imagen) CboxImages.SelectedItem;
+                    this.ImagenNegocio.DeleteByImageId(selectedImage.Id);
+                    MessageBox.Show("Imagen eliminada correctamente");
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Error eliminando la imagen");
+                }
+                
+            }
         }
     }
 }

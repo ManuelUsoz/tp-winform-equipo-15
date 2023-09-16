@@ -156,6 +156,7 @@ namespace Negocio
             try
             {
                 ArticuloDAO.Update(articulo);
+                ImagenNegocio.Update(articulo);
             }catch(Exception ex)
             {
                 throw ex;

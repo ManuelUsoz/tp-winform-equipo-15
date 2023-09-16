@@ -12,6 +12,7 @@ namespace DAO
     {
         private AccesoADatos datos;
         private List<Imagen> imagenes;
+        private string connection = "server=.; database=CATALOGO_P3_DB; integrated security=true";
         public List<Imagen> GetImagenes (int articuloId)
         {
             imagenes = new List<Imagen>();
@@ -81,6 +82,62 @@ namespace DAO
             }catch(Exception ex)
             {
                 throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
+        public void Update(Articulo articulo)
+        {
+            datos = new AccesoADatos(connection);
+            try
+            {
+                string query = "UPDATE IMAGENES SET ImagenUrl = @ImagenUrl WHERE Id = @IdImagen";
+
+                articulo.ImagenURL.ForEach(imagen =>
+                {
+                    if (imagen.Id != 0)
+                    {
+                        datos.consultar(query);
+                        datos.setearParametro("@ImagenUrl", imagen.ImagenUrl);
+                        datos.setearParametro("@IdImagen", imagen.Id);
+                        datos.ejecutarAccion();
+                        datos.cerrarConexion();
+                        datos.LimpiarParametros();
+                    }
+                    else
+                    {
+                        query = "INSERT INTO IMAGENES (IdArticulo, ImagenUrl) VALUES (@ArticuloId, @ImagenUrl)";
+                        datos.consultar(query);
+                        datos.setearParametro("@ArticuloId", articulo.Id);
+                        datos.setearParametro("@ImagenUrl", imagen.ImagenUrl);
+                        datos.ejecutarAccion();
+                        datos.cerrarConexion();
+                        datos.LimpiarParametros();
+                    }
+                });
+            }
+            catch(Exception e) {
+                throw e;
+            }
+            
+
+        }
+
+        public void DeleteByImagenId(int imagenId)
+        {
+            datos = new AccesoADatos(connection);
+            try
+            {
+                string query = "DELETE FROM IMAGENES WHERE Id = @ImagenId";
+                datos.consultar(query);
+                datos.setearParametro("@ImagenId", imagenId);
+                datos.ejecutarAccion();
+            }catch(Exception e) 
+            { 
+                throw e;
             }
             finally
             {

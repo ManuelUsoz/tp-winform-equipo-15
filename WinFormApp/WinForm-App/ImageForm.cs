@@ -13,30 +13,39 @@ namespace WinForm_App
 {
     public partial class ImageForm : Form
     {
-        public Articulo articulo { get; set; }
+        public Imagen imagen { get; set; }
+        public Articulo Articulo { get; set; }
 
-        private string imageUrl;
+        private readonly string imageUrl;
+        private readonly bool isEditing;
         public ImageForm()
         {
             InitializeComponent();
-        }
-
-        public ImageForm(bool isEditing)
-        {
-            InitializeComponent();
-            
+            this.isEditing = false;
         }
 
         public ImageForm(string imageUrl)
         {
             InitializeComponent();
             this.imageUrl = imageUrl;
+            this.isEditing = true;
         }
 
         private void BtnAgregar_Click(object sender, EventArgs e)
         {
-            Imagen imagen = new Imagen(TxtBoxImageUrl.Text);
-            articulo.ImagenURL.Add(imagen);
+
+            if (this.isEditing)
+            {
+                imagen.ImagenUrl = TxtBoxImageUrl.Text;
+            }
+            else
+            {
+                Imagen imagen = new Imagen(TxtBoxImageUrl.Text);
+                Articulo.ImagenURL.Add(imagen);
+            }
+
+            this.Close();
+
         }
 
         private void ImageForm_Load(object sender, EventArgs e)
