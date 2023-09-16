@@ -131,6 +131,7 @@
             this.BtnNextImage.TabIndex = 14;
             this.BtnNextImage.Text = "->";
             this.BtnNextImage.UseVisualStyleBackColor = true;
+            this.BtnNextImage.Click += new System.EventHandler(this.BtnNextImage_Click);
             // 
             // BtnPrevImage
             // 
@@ -141,6 +142,7 @@
             this.BtnPrevImage.TabIndex = 15;
             this.BtnPrevImage.Text = "<-";
             this.BtnPrevImage.UseVisualStyleBackColor = true;
+            this.BtnPrevImage.Click += new System.EventHandler(this.BtnPrevImage_Click);
             // 
             // frmListaArticulos
             // 

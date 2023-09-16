@@ -24,10 +24,11 @@ namespace DAO
                 datos.setearParametro("@ArticuloId", articuloId);
                 datos.consultar(consulta);
                 datos.ejecutarLectura();
-                Imagen imagen = new Imagen();
 
                 while (datos.Lector.Read())
                 {
+                    Imagen imagen = new Imagen();
+
                     imagen.Id = (int)datos.Lector["Id"];
                     imagen.IdArticulo = (int)datos.Lector["IdArticulo"];
                     imagen.ImagenUrl = datos.Lector["ImagenUrl"].ToString();

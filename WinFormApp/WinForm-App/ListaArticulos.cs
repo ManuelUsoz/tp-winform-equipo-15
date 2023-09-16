@@ -17,6 +17,7 @@ namespace WinForm_App
     public partial class frmListaArticulos : Form
     {
         private List<Articulo> listaArticulos;
+        private int imageCounter = 0;
         public frmListaArticulos()
         {
             InitializeComponent();
@@ -36,7 +37,6 @@ namespace WinForm_App
 
                 dgvArticulos.DataSource = listaArticulos;
 
-                //dgvArticulos.Columns["ImagenUrl"].Visible = false;
             }
             catch (Exception ex)
             {
@@ -101,9 +101,10 @@ namespace WinForm_App
         private void dgvArticulos_SelectionChanged_1(object sender, EventArgs e)
         {
             Articulo articulo = dgvArticulos.CurrentRow.DataBoundItem as Articulo;
+            this.imageCounter = 0;
             try
             {
-                pbListaArticulos.Load(articulo.ImagenURL[0].ImagenUrl);
+                pbListaArticulos.Load(articulo.ImagenURL[this.imageCounter].ImagenUrl);
             }
             catch (Exception)
             {
@@ -115,6 +116,35 @@ namespace WinForm_App
         {
             buttonDetalle.Enabled = true;
             buttonEliminar.Enabled = true;
+        }
+
+        private void BtnNextImage_Click(object sender, EventArgs e)
+        {
+            this.imageCounter++;
+            Articulo articulo = dgvArticulos.CurrentRow.DataBoundItem as Articulo;
+            try
+            {
+                pbListaArticulos.Load(articulo.ImagenURL[this.imageCounter].ImagenUrl);
+
+            }catch (Exception)
+            {
+                this.imageCounter--;
+                return;
+            }
+        }
+
+        private void BtnPrevImage_Click(object sender, EventArgs e)
+        {
+            this.imageCounter--;
+            Articulo articulo = dgvArticulos.CurrentRow.DataBoundItem as Articulo;
+            try
+            {
+                pbListaArticulos.Load(articulo.ImagenURL[this.imageCounter].ImagenUrl);
+            }catch(Exception) 
+            {
+                this.imageCounter++;
+                return; 
+            }
         }
     }
 }
