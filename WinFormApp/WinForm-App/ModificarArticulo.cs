@@ -62,6 +62,7 @@ namespace WinForm_App
 
             this.marcaNegocio = new MarcaNegocio();
             this.categoriaNegocio = new CategoriaNegocio();
+            this.imagenNegocio = new ImagenNegocio();
             BtnModificar.Enabled = false;
 
             TxtBoxCodigo.Enabled = enableUserModification;
