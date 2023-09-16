@@ -28,6 +28,12 @@ namespace WinForm_App
 
         private void buttonAceptar_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(txtbCodigo.Text) || string.IsNullOrWhiteSpace(txtbNombre.Text) || string.IsNullOrWhiteSpace(txtbDescripcion.Text) || cbMarca.SelectedItem == null || cbCategoria.SelectedItem == null || string.IsNullOrWhiteSpace(txtbImagenUrl.Text) || !int.TryParse(nudPrecio.Text, out int precio))
+            {
+                MessageBox.Show("Por favor, complete todos los campos correctamente.");
+                return;
+            }
+
             Articulo articulo = new Articulo();
             ArticuloDAO artDAO = new ArticuloDAO();
             articulo.ImagenURL = new Imagen();
