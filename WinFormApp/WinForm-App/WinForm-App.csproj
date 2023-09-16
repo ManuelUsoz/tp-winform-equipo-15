@@ -52,12 +52,6 @@
     <Compile Include="AgregarArticulo.Designer.cs">
       <DependentUpon>AgregarArticulo.cs</DependentUpon>
     </Compile>
-    <Compile Include="detalleArticulo.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="detalleArticulo.Designer.cs">
-      <DependentUpon>detalleArticulo.cs</DependentUpon>
-    </Compile>
     <Compile Include="eliminarArticulo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,9 +86,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AgregarArticulo.resx">
       <DependentUpon>AgregarArticulo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="detalleArticulo.resx">
-      <DependentUpon>detalleArticulo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="eliminarArticulo.resx">
       <DependentUpon>eliminarArticulo.cs</DependentUpon>

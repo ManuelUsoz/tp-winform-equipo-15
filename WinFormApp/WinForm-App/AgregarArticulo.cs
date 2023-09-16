@@ -28,12 +28,12 @@ namespace WinForm_App
 
         private void buttonAceptar_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtbCodigo.Text) || string.IsNullOrWhiteSpace(txtbNombre.Text) || string.IsNullOrWhiteSpace(txtbDescripcion.Text) || cbMarca.SelectedItem == null || cbCategoria.SelectedItem == null || string.IsNullOrWhiteSpace(txtbImagenUrl.Text) || !int.TryParse(nudPrecio.Text, out int precio))
+            if (string.IsNullOrWhiteSpace(txtbCodigo.Text) || string.IsNullOrWhiteSpace(txtbNombre.Text) || string.IsNullOrWhiteSpace(txtbDescripcion.Text) || cbMarca.SelectedItem == null || cbCategoria.SelectedItem == null || string.IsNullOrWhiteSpace(txtbImagenUrl.Text) || !decimal.TryParse(nudPrecio.Text, out decimal precio))
             {
                 MessageBox.Show("Por favor, complete todos los campos correctamente.");
                 return;
             }
-
+            
             Articulo articulo = new Articulo();
             ArticuloDAO artDAO = new ArticuloDAO();
             articulo.ImagenURL = new Imagen();
@@ -45,7 +45,7 @@ namespace WinForm_App
                 articulo.Marca = (Marca)cbMarca.SelectedItem;
                 articulo.Categoria = (Categoria)cbCategoria.SelectedItem;
                 articulo.ImagenURL.ImagenUrl = txtbImagenUrl.Text;
-                articulo.Precio=int.Parse(nudPrecio.Text);
+                articulo.Precio= decimal.Parse(nudPrecio.Text);
                 
                 artDAO.agregar(articulo);
                 MessageBox.Show("Agregado exitosamente");
