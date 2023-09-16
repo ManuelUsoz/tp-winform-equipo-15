@@ -45,6 +45,8 @@
             this.TxtBoxCriteriaFilter = new System.Windows.Forms.TextBox();
             this.BtnResetFilters = new System.Windows.Forms.Button();
             this.PicBoxArticulo = new System.Windows.Forms.PictureBox();
+            this.BtnPrevImage = new System.Windows.Forms.Button();
+            this.BtnNextImage = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResultadoBusquedaArticulo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PicBoxArticulo)).BeginInit();
             this.SuspendLayout();
@@ -227,12 +229,34 @@
             this.PicBoxArticulo.TabIndex = 27;
             this.PicBoxArticulo.TabStop = false;
             // 
-            // buscarForm
+            // BtnPrevImage
+            // 
+            this.BtnPrevImage.Location = new System.Drawing.Point(959, 397);
+            this.BtnPrevImage.Name = "BtnPrevImage";
+            this.BtnPrevImage.Size = new System.Drawing.Size(74, 24);
+            this.BtnPrevImage.TabIndex = 29;
+            this.BtnPrevImage.Text = "<-";
+            this.BtnPrevImage.UseVisualStyleBackColor = true;
+            this.BtnPrevImage.Click += new System.EventHandler(this.BtnPrevImage_Click);
+            // 
+            // BtnNextImage
+            // 
+            this.BtnNextImage.Location = new System.Drawing.Point(1039, 397);
+            this.BtnNextImage.Name = "BtnNextImage";
+            this.BtnNextImage.Size = new System.Drawing.Size(73, 24);
+            this.BtnNextImage.TabIndex = 28;
+            this.BtnNextImage.Text = "->";
+            this.BtnNextImage.UseVisualStyleBackColor = true;
+            this.BtnNextImage.Click += new System.EventHandler(this.BtnNextImage_Click);
+            // 
+            // BuscarForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ClientSize = new System.Drawing.Size(1184, 400);
+            this.ClientSize = new System.Drawing.Size(1184, 429);
+            this.Controls.Add(this.BtnPrevImage);
+            this.Controls.Add(this.BtnNextImage);
             this.Controls.Add(this.PicBoxArticulo);
             this.Controls.Add(this.BtnResetFilters);
             this.Controls.Add(this.TxtBoxCriteriaFilter);
@@ -252,7 +276,7 @@
             this.Controls.Add(this.btnBuscar);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MinimumSize = new System.Drawing.Size(1192, 439);
-            this.Name = "buscarForm";
+            this.Name = "BuscarForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "buscarForm";
             this.Load += new System.EventHandler(this.buscarForm_Load);
@@ -282,5 +306,7 @@
         private System.Windows.Forms.TextBox TxtBoxCriteriaFilter;
         private System.Windows.Forms.Button BtnResetFilters;
         private System.Windows.Forms.PictureBox PicBoxArticulo;
+        private System.Windows.Forms.Button BtnPrevImage;
+        private System.Windows.Forms.Button BtnNextImage;
     }
 }

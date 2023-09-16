@@ -30,7 +30,7 @@ Etapa 1: Construir las clases necesarias para el modelo de dicha aplicación jun
 Etapa 2: Construir la interacción con la base de datos y validaciones correspondiente para dar vida a la funcionalidad.
 
 Integrantes:
-Bee Bianco, Ignacio Ezequiel
-Bressani, Efrain Victorio
+Bee Bianco, Ignacio Ezequiel / 
+Bressani, Efrain Victorio / 
 Usoz Neri, Manuel Ignacio
 
