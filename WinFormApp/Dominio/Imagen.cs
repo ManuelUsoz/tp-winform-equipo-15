@@ -16,5 +16,12 @@ namespace Dominio
         {
             return ImagenUrl;
         }
+
+        public Imagen(string imagenUrl)
+        {
+            this.ImagenUrl = imagenUrl;
+        }
+
+        public Imagen(){}
     }
 }

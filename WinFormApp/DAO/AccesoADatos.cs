@@ -89,5 +89,13 @@ namespace Negocio
         {
             comando.Parameters.AddWithValue(nombre, valor);
         }
+
+        public void LimpiarParametros()
+        {
+            if (comando != null && comando.Parameters.Count > 0)
+            {
+                comando.Parameters.Clear();
+            }
+        }
     }
 }

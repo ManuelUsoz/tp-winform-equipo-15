@@ -182,5 +182,18 @@ namespace Negocio
                 throw ex;
             }
         }
+
+        public void Create(Articulo articulo)
+        {
+            try
+            {
+                ArticuloDAO.agregar(articulo);
+                int id = this.ArticuloDAO.GetLastId();
+                this.imagenDAO.Create(id, articulo.ImagenURL);
+            }catch(Exception e)
+            {
+                throw e;
+            }
+        }
     }
 }

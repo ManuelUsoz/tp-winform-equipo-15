@@ -16,10 +16,15 @@ namespace WinForm_App
 {
     public partial class frmAgregarArticulo : Form
     {
+        private Articulo articulo;
+
         public frmAgregarArticulo()
         {
             InitializeComponent();
+            this.articulo = new Articulo();
+            this.articulo.ImagenURL = new List<Imagen>();
         }
+
 
         private void buttonCancelar_Click(object sender, EventArgs e)
         {
@@ -34,9 +39,8 @@ namespace WinForm_App
                 return;
             }
             
-            Articulo articulo = new Articulo();
             ArticuloDAO artDAO = new ArticuloDAO();
-            //articulo.ImagenURL = new Imagen();
+            ArticuloNegocio articuloNegocio = new ArticuloNegocio();
             try
             {
                 articulo.Code = txtbCodigo.Text;
@@ -44,16 +48,14 @@ namespace WinForm_App
                 articulo.Descripcion = txtbDescripcion.Text;
                 articulo.Marca = (Marca)cbMarca.SelectedItem;
                 articulo.Categoria = (Categoria)cbCategoria.SelectedItem;
-                //articulo.ImagenURL.ImagenUrl = txtbImagenUrl.Text;
                 articulo.Precio= decimal.Parse(nudPrecio.Text);
-                
-                artDAO.agregar(articulo);
+                articuloNegocio.Create(articulo);
                 MessageBox.Show("Agregado exitosamente");
                 Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show("Error al dar de alta la entidad", ex.Message);
             }
         }
 
@@ -87,6 +89,19 @@ namespace WinForm_App
         private void txtbImagenUrl_Leave(object sender, EventArgs e)
         {
             cargarImagen(txtbImagenUrl.Text);
+        }
+
+        private void BtnAddImage_Click(object sender, EventArgs e)
+        {
+            if(txtbImagenUrl != null)
+            {
+                Imagen imagen = new Imagen(txtbImagenUrl.Text);
+                this.articulo.ImagenURL.Add(imagen);
+            }
+            else
+            {
+                MessageBox.Show("Por favor ingrese una url de imagen");
+            }
         }
     }
 }

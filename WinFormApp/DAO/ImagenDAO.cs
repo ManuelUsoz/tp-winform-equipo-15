@@ -15,11 +15,10 @@ namespace DAO
         public List<Imagen> GetImagenes (int articuloId)
         {
             imagenes = new List<Imagen>();
-            datos = new AccesoADatos();
             try
             {
-                string consulta = "SELECT I.Id, I.IdArticulo, I.ImagenUrl FROM IMAGENES I WHERE I.IdArticulo = @ArticuloId";
                 datos = new AccesoADatos("server=.; database=CATALOGO_P3_DB; integrated security=true");
+                string consulta = "SELECT I.Id, I.IdArticulo, I.ImagenUrl FROM IMAGENES I WHERE I.IdArticulo = @ArticuloId";
                 datos.AbrirConexion();
                 datos.setearParametro("@ArticuloId", articuloId);
                 datos.consultar(consulta);
@@ -43,6 +42,31 @@ namespace DAO
             finally
             {
                 datos.cerrarConexion();
+            }
+        }
+
+        public void Create(int articuloId, List<Imagen> imagenes)
+        {
+            datos = new AccesoADatos();
+            try
+            {
+                datos = new AccesoADatos("server=.; database=CATALOGO_P3_DB; integrated security=true");
+                string consulta = "INSERT INTO IMAGENES (IdArticulo, ImagenUrl) VALUES (@ArticuloId, @ImagenUrl)";
+                datos.consultar(consulta);
+
+                imagenes.ForEach(imagen =>
+                {
+                    
+                    datos.setearParametro("@ArticuloId", articuloId);
+                    datos.setearParametro("@ImagenUrl", imagen.ImagenUrl);
+                    datos.ejecutarAccion();
+                    datos.cerrarConexion();
+                    datos.LimpiarParametros();
+                });
+                
+            }catch(Exception ex)
+            {
+                throw ex;
             }
         }
     }

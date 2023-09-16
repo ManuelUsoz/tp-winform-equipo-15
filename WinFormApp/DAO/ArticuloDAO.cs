@@ -461,30 +461,12 @@ namespace DAO
 
         public void agregar(Articulo nuevo)
         {
-            AccesoADatos datos = new AccesoADatos();
-            int idArtNuevoInsert = -1;
+            AccesoADatos datos = new AccesoADatos("server=.; database=CATALOGO_P3_DB; integrated security=true");
             try
             {
                 datos.consultar("INSERT INTO ARTICULOS (Codigo, Nombre, Descripcion, IdMarca, IdCategoria, Precio) VALUES ('"+ nuevo.Code+"', '"+nuevo.Nombre+"', '"+nuevo.Descripcion+ "', @IdMarca, @IdCategoria," + nuevo.Precio+")");
                 datos.setearParametro("@IdMarca",nuevo.Marca.Id);
                 datos.setearParametro("@IdCategoria",nuevo.Categoria.Id);
-                
-                datos.ejecutarAccion();
-
-                idArtNuevoInsert = GetArticuloIdPorCodigo(nuevo.Code);
-            }
-            catch (Exception ex)
-            {
-
-                throw ex;
-            }
-            finally
-            {
-                datos.cerrarConexion();
-            }
-            try
-            {
-                //datos.consultar("INSERT INTO IMAGENES VALUES ("+ idArtNuevoInsert + ", '"+nuevo.ImagenURL.ImagenUrl +"')");
                 datos.ejecutarAccion();
             }
             catch (Exception ex)
@@ -495,6 +477,7 @@ namespace DAO
             {
                 datos.cerrarConexion();
             }
+            
         }  
 
         public void Update(Articulo articulo)
@@ -513,13 +496,28 @@ namespace DAO
             {
                accesoADatos.cerrarConexion();
             }
+        }
+
+        public int GetLastId()
+        {
+            AccesoADatos accesoADatos = new AccesoADatos("server=.; database=CATALOGO_P3_DB; integrated security=true");
+            int id = 0;
 
             try
             {
-                //accesoADatos.consultar("UPDATE IMAGENES SET ImagenUrl ='" + articulo.ImagenURL.ImagenUrl + "' WHERE Id = " + articulo.ImagenURL.Id + "");
-                accesoADatos.ejecutarAccion();
-            }catch(Exception ex) 
-            { 
+                string query = "SELECT TOP 1 Id FROM ARTICULOS ORDER BY Id DESC";
+                accesoADatos.consultar(query);
+                accesoADatos.AbrirConexion();
+                accesoADatos.ejecutarLectura();
+
+                while (accesoADatos.Lector.Read())
+                {
+                    id = (int)accesoADatos.Lector["Id"];
+                }
+
+                return id;
+            }catch(Exception ex)
+            {
                 throw ex;
             }
             finally
