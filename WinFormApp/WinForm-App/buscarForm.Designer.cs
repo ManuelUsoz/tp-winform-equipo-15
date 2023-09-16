@@ -1,6 +1,6 @@
 ﻿namespace WinForm_App
 {
-    partial class buscarForm
+    partial class BuscarForm
     {
         /// <summary>
         /// Required designer variable.

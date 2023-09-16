@@ -25,7 +25,7 @@ namespace WinForm_App
 
         private void button1_Click(object sender, EventArgs e)
         {
-            buscarForm buscarForm = new buscarForm();
+            BuscarForm buscarForm = new BuscarForm();
             buscarForm.ShowDialog(this);
         }
 

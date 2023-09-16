@@ -58,11 +58,11 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="buscarForm.cs">
+    <Compile Include="BuscarForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="buscarForm.Designer.cs">
-      <DependentUpon>buscarForm.cs</DependentUpon>
+    <Compile Include="BuscarForm.Designer.cs">
+      <DependentUpon>BuscarForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ListaArticulos.cs">
       <SubType>Form</SubType>
@@ -84,8 +84,8 @@
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="buscarForm.resx">
-      <DependentUpon>buscarForm.cs</DependentUpon>
+    <EmbeddedResource Include="BuscarForm.resx">
+      <DependentUpon>BuscarForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ListaArticulos.resx">
       <DependentUpon>ListaArticulos.cs</DependentUpon>

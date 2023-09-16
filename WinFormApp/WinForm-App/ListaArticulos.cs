@@ -84,7 +84,7 @@ namespace WinForm_App
 
         private void buttonBuscar_Click(object sender, EventArgs e)
         {
-            buscarForm buscar = new buscarForm();
+            BuscarForm buscar = new BuscarForm();
             buscar.ShowDialog();
         }
 

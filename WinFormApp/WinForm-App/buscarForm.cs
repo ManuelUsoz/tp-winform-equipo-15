@@ -12,9 +12,9 @@ using Negocio;
 
 namespace WinForm_App
 {
-    public partial class buscarForm : Form
+    public partial class BuscarForm : Form
     {
-        public buscarForm()
+        public BuscarForm()
         {
             InitializeComponent();
         }
