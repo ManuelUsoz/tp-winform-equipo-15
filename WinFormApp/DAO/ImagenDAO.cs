@@ -47,10 +47,9 @@ namespace DAO
 
         public void Create(int articuloId, List<Imagen> imagenes)
         {
-            datos = new AccesoADatos();
+            datos = new AccesoADatos("server=.; database=CATALOGO_P3_DB; integrated security=true");
             try
             {
-                datos = new AccesoADatos("server=.; database=CATALOGO_P3_DB; integrated security=true");
                 string consulta = "INSERT INTO IMAGENES (IdArticulo, ImagenUrl) VALUES (@ArticuloId, @ImagenUrl)";
                 datos.consultar(consulta);
 
@@ -67,6 +66,25 @@ namespace DAO
             }catch(Exception ex)
             {
                 throw ex;
+            }
+        }
+
+        public void Delete(int idArticulo)
+        {
+            datos = new AccesoADatos("server=.; database=CATALOGO_P3_DB; integrated security=true");
+            try
+            {
+                string query = "DELETE FROM IMAGENES WHERE IdArticulo = @IdArticulo";
+                datos.setearParametro("@IdArticulo", idArticulo);
+                datos.consultar(query);
+                datos.ejecutarAccion();
+            }catch(Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
             }
         }
     }

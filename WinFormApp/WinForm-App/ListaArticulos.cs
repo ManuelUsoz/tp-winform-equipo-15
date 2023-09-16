@@ -64,8 +64,21 @@ namespace WinForm_App
         private void buttonEliminar_Click(object sender, EventArgs e)
         {
             Articulo articulo = dgvArticulos.CurrentRow.DataBoundItem as Articulo;
-            eliminarArticulo eliminar = new eliminarArticulo(articulo.Id);
-            eliminar.ShowDialog();
+            try
+            {
+                DialogResult respuesta = MessageBox.Show("¿De verdad querés eliminarlo?", "Eliminando", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (respuesta == DialogResult.Yes)
+                {
+                    ArticuloNegocio negocio = new ArticuloNegocio();
+                    int id = articulo.Id;
+                    negocio.eliminar(id);
+                    MessageBox.Show("Entidad eliminada correctamente");
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Error al eliminar la entidad");
+            }
             cargar();
         }
 

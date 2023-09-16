@@ -44,7 +44,7 @@
             // pbListaArticulos
             // 
             this.pbListaArticulos.Location = new System.Drawing.Point(1058, 57);
-            this.pbListaArticulos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbListaArticulos.Margin = new System.Windows.Forms.Padding(4);
             this.pbListaArticulos.Name = "pbListaArticulos";
             this.pbListaArticulos.Size = new System.Drawing.Size(401, 332);
             this.pbListaArticulos.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -58,16 +58,16 @@
             this.labelListaArticulos.Location = new System.Drawing.Point(9, 11);
             this.labelListaArticulos.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelListaArticulos.Name = "labelListaArticulos";
-            this.labelListaArticulos.Size = new System.Drawing.Size(207, 29);
+            this.labelListaArticulos.Size = new System.Drawing.Size(111, 29);
             this.labelListaArticulos.TabIndex = 7;
-            this.labelListaArticulos.Text = "Lista de Artículos";
+            this.labelListaArticulos.Text = "Articulos";
             // 
             // dgvArticulos
             // 
             this.dgvArticulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvArticulos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvArticulos.Location = new System.Drawing.Point(16, 57);
-            this.dgvArticulos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvArticulos.Margin = new System.Windows.Forms.Padding(4);
             this.dgvArticulos.MultiSelect = false;
             this.dgvArticulos.Name = "dgvArticulos";
             this.dgvArticulos.RowHeadersWidth = 51;
@@ -81,7 +81,7 @@
             // buttonAgregar
             // 
             this.buttonAgregar.Location = new System.Drawing.Point(935, 10);
-            this.buttonAgregar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonAgregar.Margin = new System.Windows.Forms.Padding(4);
             this.buttonAgregar.Name = "buttonAgregar";
             this.buttonAgregar.Size = new System.Drawing.Size(96, 39);
             this.buttonAgregar.TabIndex = 9;
@@ -92,7 +92,7 @@
             // buttonModificar
             // 
             this.buttonModificar.Location = new System.Drawing.Point(833, 10);
-            this.buttonModificar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonModificar.Margin = new System.Windows.Forms.Padding(4);
             this.buttonModificar.Name = "buttonModificar";
             this.buttonModificar.Size = new System.Drawing.Size(96, 39);
             this.buttonModificar.TabIndex = 10;
@@ -103,7 +103,7 @@
             // buttonEliminar
             // 
             this.buttonEliminar.Location = new System.Drawing.Point(732, 10);
-            this.buttonEliminar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonEliminar.Margin = new System.Windows.Forms.Padding(4);
             this.buttonEliminar.Name = "buttonEliminar";
             this.buttonEliminar.Size = new System.Drawing.Size(96, 39);
             this.buttonEliminar.TabIndex = 11;
@@ -114,7 +114,7 @@
             // buttonDetalle
             // 
             this.buttonDetalle.Location = new System.Drawing.Point(631, 10);
-            this.buttonDetalle.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonDetalle.Margin = new System.Windows.Forms.Padding(4);
             this.buttonDetalle.Name = "buttonDetalle";
             this.buttonDetalle.Size = new System.Drawing.Size(96, 39);
             this.buttonDetalle.TabIndex = 13;
@@ -158,7 +158,7 @@
             this.Controls.Add(this.pbListaArticulos);
             this.Controls.Add(this.labelListaArticulos);
             this.Controls.Add(this.dgvArticulos);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MinimumSize = new System.Drawing.Size(1463, 433);
             this.Name = "frmListaArticulos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

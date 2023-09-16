@@ -525,5 +525,23 @@ namespace DAO
                 accesoADatos.cerrarConexion();
             }
         }
+
+        public void Delete(int id)
+        {
+            AccesoADatos datos = new AccesoADatos(connection);
+            try
+            {
+                datos.consultar($"delete from ARTICULOS where Id = {id}");
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
     }
 }

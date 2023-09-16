@@ -8,7 +8,7 @@ namespace Negocio
     public class ArticuloNegocio
     {
         private ArticuloDAO articuloDAO;
-        private ImagenDAO imagenDAO = new ImagenDAO();
+        private ImagenNegocio ImagenNegocio = new ImagenNegocio();
 
         public ArticuloNegocio()
         {
@@ -27,7 +27,7 @@ namespace Negocio
             try
             {
                 List<Articulo> artList = this.ArticuloDAO.GetArticulos();
-                artList.ForEach(articulo => articulo.ImagenURL = this.imagenDAO.GetImagenes(articulo.Id));
+                artList.ForEach(articulo => articulo.ImagenURL = this.ImagenNegocio.GetImagens(articulo.Id));
                 return artList;
             }
             catch (Exception ex)
@@ -140,36 +140,15 @@ namespace Negocio
 
         public void eliminar(int id)
         {
-            AccesoADatos datos = new AccesoADatos();
             try
             {
-                datos.AbrirConexion();
-                datos.consultar($"delete from ARTICULOS where Id = {id}");
-                datos.ejecutarLectura();
-            }
-            catch (Exception ex)
+                this.articuloDAO.Delete(id);
+                this.ImagenNegocio.Delete(id);
+            }catch(Exception e)
             {
-                throw ex;
-            }
-            finally
-            {
-                datos.cerrarConexion();
-            }
-            try
-            {
-                datos.AbrirConexion();
-                datos.consultar($"delete from IMAGENES where IdArticulo = {id}");
-                datos.ejecutarLectura();
-            }
-            catch (Exception ex)
-            {
-
-                throw ex;
-            }
-            finally
-            {
-                datos.cerrarConexion();
-            }
+                throw e;
+            }     
+            
         }
 
         public void Update(Articulo articulo)
@@ -189,7 +168,7 @@ namespace Negocio
             {
                 ArticuloDAO.agregar(articulo);
                 int id = this.ArticuloDAO.GetLastId();
-                this.imagenDAO.Create(id, articulo.ImagenURL);
+                this.ImagenNegocio.Create(id, articulo.ImagenURL);
             }catch(Exception e)
             {
                 throw e;

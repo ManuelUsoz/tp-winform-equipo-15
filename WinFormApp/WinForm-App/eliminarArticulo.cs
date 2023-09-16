@@ -29,22 +29,7 @@ namespace WinForm_App
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            ArticuloNegocio negocio = new ArticuloNegocio();
-            try 
-            {
-                DialogResult respuesta = MessageBox.Show("¿De verdad querés eliminarlo?", "Eliminando", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if(respuesta == DialogResult.Yes)
-                {
-                    int id = int.Parse(txtEliminar.Text.Trim());
-                    negocio.eliminar(id);
-                    lblExitoso.Text = $"Articulo con Id numero {id} eliminado con exito";
-                    txtEliminar.Text = "";
-                } 
-            } 
-            catch(Exception) 
-            {
-                MessageBox.Show("Error al eliminar la entidad");
-            }
+            
         }
     }
 }
