@@ -97,7 +97,14 @@ namespace WinForm_App
             CboxCategorias.DataSource = CategoriaNegocio.List();
             CboxImages.DataSource = ImagenNegocio.GetImagens(Articulo.Id);
 
-            LoadImage(Articulo.ImagenURL[0].ImagenUrl);
+            if (Articulo.ImagenURL == null || Articulo.ImagenURL.Count == 0)
+            {
+                PicBoxArticulo.Image = Properties.Resources.OIP;
+            }
+            else
+            {
+                LoadImage(Articulo.ImagenURL[0].ImagenUrl);
+            }
 
             CboxCategorias.ValueMember = "Id";
             CboxCategorias.DisplayMember = "Descripcion";
@@ -196,6 +203,19 @@ namespace WinForm_App
                 this.imageCounter++;
                 return;
             }
+        }
+
+        private void BtnAddImage_Click(object sender, EventArgs e)
+        {
+            ImageForm imageForm = new ImageForm();
+            imageForm.ShowDialog();
+        }
+
+        private void BtnModifyImage_Click(object sender, EventArgs e)
+        {
+            ImageForm imageForm = new ImageForm(CboxImages.SelectedItem.ToString());
+            imageForm.articulo = Articulo;
+            imageForm.ShowDialog(this);
         }
     }
 }

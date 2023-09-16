@@ -255,6 +255,7 @@
             this.BtnModifyImage.TabIndex = 22;
             this.BtnModifyImage.Text = "#";
             this.BtnModifyImage.UseVisualStyleBackColor = false;
+            this.BtnModifyImage.Click += new System.EventHandler(this.BtnModifyImage_Click);
             // 
             // BtnAddImage
             // 
@@ -267,6 +268,7 @@
             this.BtnAddImage.TabIndex = 23;
             this.BtnAddImage.Text = "+";
             this.BtnAddImage.UseVisualStyleBackColor = false;
+            this.BtnAddImage.Click += new System.EventHandler(this.BtnAddImage_Click);
             // 
             // ModificarArticulo
             // 
