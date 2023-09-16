@@ -7,7 +7,8 @@ namespace Negocio
 {
     public class ArticuloNegocio
     {
-        public ArticuloDAO articuloDAO;
+        private ArticuloDAO articuloDAO;
+        private ImagenDAO imagenDAO = new ImagenDAO();
 
         public ArticuloNegocio()
         {
@@ -23,13 +24,11 @@ namespace Negocio
         }
         public List<Articulo> listar()
         {
-            List<Articulo> artList = new List<Articulo>();
-            ArticuloDAO artDAO = new ArticuloDAO();
-            artList = artDAO.GetArticulos();
             try
             {
+                List<Articulo> artList = this.ArticuloDAO.GetArticulos();
+                artList.ForEach(articulo => articulo.ImagenURL = this.imagenDAO.GetImagenes(articulo.Id));
                 return artList;
-
             }
             catch (Exception ex)
             {

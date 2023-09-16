@@ -36,7 +36,7 @@ namespace WinForm_App
 
                 dgvArticulos.DataSource = listaArticulos;
 
-                dgvArticulos.Columns["ImagenUrl"].Visible = false;
+                //dgvArticulos.Columns["ImagenUrl"].Visible = false;
             }
             catch (Exception ex)
             {
@@ -77,8 +77,6 @@ namespace WinForm_App
 
         private void buttonDetalle_Click(object sender, EventArgs e)
         {
-            //detalleArticulo detalle= new detalleArticulo();
-            //detalle.ShowDialog();
             if (dgvArticulos.SelectedRows.Count > 0)
             {
                 Articulo articulo = dgvArticulos.SelectedRows[0].DataBoundItem as Articulo;
@@ -105,7 +103,7 @@ namespace WinForm_App
             Articulo articulo = dgvArticulos.CurrentRow.DataBoundItem as Articulo;
             try
             {
-                pbListaArticulos.Load(articulo.ImagenURL.ImagenUrl);
+                pbListaArticulos.Load(articulo.ImagenURL[0].ImagenUrl);
             }
             catch (Exception)
             {

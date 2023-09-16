@@ -45,6 +45,7 @@
     <Compile Include="AccesoADatos.cs" />
     <Compile Include="ArticuloDAO.cs" />
     <Compile Include="CategoriaDAO.cs" />
+    <Compile Include="ImagenDAO.cs" />
     <Compile Include="MarcaDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

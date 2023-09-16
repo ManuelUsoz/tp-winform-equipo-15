@@ -17,6 +17,33 @@ namespace WinForm_App
         private MarcaNegocio marcaNegocio;
         private CategoriaNegocio categoriaNegocio;
         private ArticuloNegocio articuloNegocio;
+        private ImagenNegocio imagenNegocio;
+
+        public Articulo Articulo { get; set; }
+
+        public MarcaNegocio MarcaNegocio
+        {
+            get
+            {
+                return this.marcaNegocio;
+            }
+        }
+
+        public ImagenNegocio ImagenNegocio
+        {
+            get
+            {
+                return this.imagenNegocio;
+            }
+        }
+
+        public CategoriaNegocio CategoriaNegocio
+        {
+            get
+            {
+                return this.categoriaNegocio;
+            }
+        }
 
         public ModificarArticulo()
         {
@@ -24,6 +51,7 @@ namespace WinForm_App
             this.marcaNegocio = new MarcaNegocio();
             this.categoriaNegocio = new CategoriaNegocio();
             this.articuloNegocio = new ArticuloNegocio();
+            this.imagenNegocio = new ImagenNegocio();
         }
         
 
@@ -39,7 +67,6 @@ namespace WinForm_App
             TxtBoxDescripcion.Enabled = enableUserModification;
             TxtBoxNombre.Enabled = enableUserModification;
             TxtBoxPrecio.Enabled = enableUserModification;
-            TxtBoxImagenUrl.Enabled = enableUserModification;
 
             CboxCategorias.Enabled = enableUserModification;
             CboxMarca.Enabled = enableUserModification;
@@ -47,31 +74,16 @@ namespace WinForm_App
             Text = "Detalle Articulo";
         }
 
-        public Articulo Articulo { get; set; }
-
-        public MarcaNegocio MarcaNegocio
-        {
-            get
-            {
-                return this.marcaNegocio;
-            }
-        }
-
-        public CategoriaNegocio CategoriaNegocio
-        {
-            get
-            {
-                return this.categoriaNegocio;
-            }
-        }
+        
 
         private void ModificarArticulo_Load(object sender, EventArgs e)
         {
             CboxMarca.DataSource = MarcaNegocio.list();
             CboxCategorias.DataSource = CategoriaNegocio.List();
+            CboxImages.DataSource = ImagenNegocio.GetImagens(Articulo.Id);
             try
             {
-                PicBoxArticulo.Load(Articulo.ImagenURL.ImagenUrl);
+                PicBoxArticulo.Load(Articulo.ImagenURL[0].ImagenUrl);
 
             }catch(Exception)
             {
@@ -87,7 +99,6 @@ namespace WinForm_App
             TxtBoxDescripcion.Text = Articulo.Descripcion;
             TxtBoxNombre.Text = Articulo.Nombre;
             TxtBoxPrecio.Text = Articulo.Precio.ToString();
-            TxtBoxImagenUrl.Text = Articulo.ImagenURL.ImagenUrl;
             CboxCategorias.SelectedValue = Articulo.Categoria.Id;
             CboxMarca.SelectedValue = Articulo.Marca.Id;
         }
@@ -103,13 +114,10 @@ namespace WinForm_App
             Articulo articulo = new Articulo();
             articulo.Marca = new Marca();
             articulo.Categoria  = new Categoria();
-            articulo.ImagenURL = new Imagen();
             articulo.Id = Articulo.Id;
             articulo.Code = TxtBoxCodigo.Text;
             articulo.Nombre = TxtBoxNombre.Text;
             articulo.Descripcion = TxtBoxDescripcion.Text;
-            articulo.ImagenURL.Id = Articulo.ImagenURL.Id;
-            articulo.ImagenURL.ImagenUrl = TxtBoxImagenUrl.Text;
             articulo.Marca = (Marca)CboxMarca.SelectedItem;
             articulo.Categoria = (Categoria)CboxCategorias.SelectedItem;
             articulo.Precio = decimal.Parse(TxtBoxPrecio.Text);
@@ -137,7 +145,7 @@ namespace WinForm_App
         {
             try
             {
-                PicBoxArticulo.Load(TxtBoxImagenUrl.Text);
+                //PicBoxArticulo.Load(TxtBoxImagenUrl.Text);
             }
             catch (Exception)
             {

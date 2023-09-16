@@ -8,6 +8,8 @@ namespace DAO
 {
     public class ArticuloDAO
     {
+        private string connection = "server=.; database=CATALOGO_P3_DB; integrated security=true";
+        private ImagenDAO ImagenDAO = new ImagenDAO();
         private void LoadArticle(ref Articulo articulo, ref AccesoADatos accesoADatos)
         {
             //Metodo que sirve para cargar el articulo proviniente de la base, con joins a MARCAS Y CATEGORIAS
@@ -21,9 +23,6 @@ namespace DAO
             articulo.Categoria = new Categoria();
             articulo.Categoria.Descripcion = accesoADatos.Lector["Categoria"].ToString();
             articulo.Categoria.Id = (int)accesoADatos.Lector["CategoriaId"];
-            articulo.ImagenURL = new Imagen();
-            articulo.ImagenURL.Id = (int)accesoADatos.Lector["ImagenId"];
-            articulo.ImagenURL.ImagenUrl = accesoADatos.Lector["ImagenUrl"].ToString();
             articulo.Precio = (decimal)accesoADatos.Lector["Precio"];
         }
 
@@ -41,8 +40,7 @@ namespace DAO
                 articulo.Categoria = new Categoria();
                 articulo.Categoria.Descripcion = accesoADatos.Lector["Categoria"].ToString();
                 articulo.Categoria.Id = (int)accesoADatos.Lector["CategoriaId"];
-                articulo.ImagenURL = new Imagen();
-                articulo.ImagenURL.ImagenUrl = accesoADatos.Lector["ImagenUrl"].ToString();
+                articulo.ImagenURL = new List<Imagen>();
                 articulo.Precio = (decimal)accesoADatos.Lector["Precio"];
             }
         }
@@ -54,7 +52,7 @@ namespace DAO
             {
                 accesoADatos.AbrirConexion();
 
-                string consulta = "SELECT A.Id, A.Codigo, A.Nombre, A.Descripcion, M.Descripcion as Marca, M.Id as MarcaId ,C.Descripcion as Categoria, C.Id as CategoriaId, I.Id as ImagenId, I.ImagenUrl, A.Precio FROM ARTICULOS A INNER JOIN MARCAS M ON A.IdMarca = M.Id INNER JOIN CATEGORIAS C ON A.IdCategoria = C.Id INNER JOIN IMAGENES I ON A.Id=I.IdArticulo";
+                string consulta = "SELECT A.Id, A.Codigo, A.Nombre, A.Descripcion, M.Descripcion as Marca, M.Id as MarcaId ,C.Descripcion as Categoria, C.Id as CategoriaId, A.Precio FROM ARTICULOS A INNER JOIN MARCAS M ON A.IdMarca = M.Id INNER JOIN CATEGORIAS C ON A.IdCategoria = C.Id ";
 
                 accesoADatos.consultar(consulta);
                 accesoADatos.ejecutarLectura();
@@ -72,6 +70,10 @@ namespace DAO
             catch (Exception ex)
             {
                 throw ex;
+            }
+            finally
+            {
+                accesoADatos.cerrarConexion();
             }
         }
 
@@ -482,7 +484,7 @@ namespace DAO
             }
             try
             {
-                datos.consultar("INSERT INTO IMAGENES VALUES ("+ idArtNuevoInsert + ", '"+nuevo.ImagenURL.ImagenUrl +"')");
+                //datos.consultar("INSERT INTO IMAGENES VALUES ("+ idArtNuevoInsert + ", '"+nuevo.ImagenURL.ImagenUrl +"')");
                 datos.ejecutarAccion();
             }
             catch (Exception ex)
@@ -514,7 +516,7 @@ namespace DAO
 
             try
             {
-                accesoADatos.consultar("UPDATE IMAGENES SET ImagenUrl ='" + articulo.ImagenURL.ImagenUrl + "' WHERE Id = " + articulo.ImagenURL.Id + "");
+                //accesoADatos.consultar("UPDATE IMAGENES SET ImagenUrl ='" + articulo.ImagenURL.ImagenUrl + "' WHERE Id = " + articulo.ImagenURL.Id + "");
                 accesoADatos.ejecutarAccion();
             }catch(Exception ex) 
             { 

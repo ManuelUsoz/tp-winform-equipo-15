@@ -229,7 +229,7 @@ namespace WinForm_App
             Articulo articulo = dgvResultadoBusquedaArticulo.CurrentRow.DataBoundItem as Articulo;
             try
             {
-                PicBoxArticulo.Load(articulo.ImagenURL.ImagenUrl);
+                //PicBoxArticulo.Load(articulo.ImagenURL.ImagenUrl);
             }
             catch (Exception)
             {

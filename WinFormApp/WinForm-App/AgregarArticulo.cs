@@ -36,7 +36,7 @@ namespace WinForm_App
             
             Articulo articulo = new Articulo();
             ArticuloDAO artDAO = new ArticuloDAO();
-            articulo.ImagenURL = new Imagen();
+            //articulo.ImagenURL = new Imagen();
             try
             {
                 articulo.Code = txtbCodigo.Text;
@@ -44,7 +44,7 @@ namespace WinForm_App
                 articulo.Descripcion = txtbDescripcion.Text;
                 articulo.Marca = (Marca)cbMarca.SelectedItem;
                 articulo.Categoria = (Categoria)cbCategoria.SelectedItem;
-                articulo.ImagenURL.ImagenUrl = txtbImagenUrl.Text;
+                //articulo.ImagenURL.ImagenUrl = txtbImagenUrl.Text;
                 articulo.Precio= decimal.Parse(nudPrecio.Text);
                 
                 artDAO.agregar(articulo);
