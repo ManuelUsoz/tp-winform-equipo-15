@@ -47,13 +47,16 @@
             this.BtnChangeNextImage = new System.Windows.Forms.Button();
             this.BtnChangePreviousImage = new System.Windows.Forms.Button();
             this.CboxImages = new System.Windows.Forms.ComboBox();
+            this.BtnDeleteImage = new System.Windows.Forms.Button();
+            this.BtnModifyImage = new System.Windows.Forms.Button();
+            this.BtnAddImage = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.PicBoxArticulo)).BeginInit();
             this.SuspendLayout();
             // 
             // LblCodigoArticulo
             // 
             this.LblCodigoArticulo.AutoSize = true;
-            this.LblCodigoArticulo.Location = new System.Drawing.Point(20, 76);
+            this.LblCodigoArticulo.Location = new System.Drawing.Point(37, 73);
             this.LblCodigoArticulo.Name = "LblCodigoArticulo";
             this.LblCodigoArticulo.Size = new System.Drawing.Size(51, 16);
             this.LblCodigoArticulo.TabIndex = 0;
@@ -62,7 +65,7 @@
             // LblNombre
             // 
             this.LblNombre.AutoSize = true;
-            this.LblNombre.Location = new System.Drawing.Point(20, 109);
+            this.LblNombre.Location = new System.Drawing.Point(37, 110);
             this.LblNombre.Name = "LblNombre";
             this.LblNombre.Size = new System.Drawing.Size(56, 16);
             this.LblNombre.TabIndex = 1;
@@ -71,7 +74,7 @@
             // LblDescripcion
             // 
             this.LblDescripcion.AutoSize = true;
-            this.LblDescripcion.Location = new System.Drawing.Point(20, 141);
+            this.LblDescripcion.Location = new System.Drawing.Point(37, 149);
             this.LblDescripcion.Name = "LblDescripcion";
             this.LblDescripcion.Size = new System.Drawing.Size(79, 16);
             this.LblDescripcion.TabIndex = 2;
@@ -80,7 +83,7 @@
             // LblMarca
             // 
             this.LblMarca.AutoSize = true;
-            this.LblMarca.Location = new System.Drawing.Point(20, 209);
+            this.LblMarca.Location = new System.Drawing.Point(342, 71);
             this.LblMarca.Name = "LblMarca";
             this.LblMarca.Size = new System.Drawing.Size(45, 16);
             this.LblMarca.TabIndex = 3;
@@ -91,7 +94,7 @@
             this.LblCategoria.AutoEllipsis = true;
             this.LblCategoria.AutoSize = true;
             this.LblCategoria.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.LblCategoria.Location = new System.Drawing.Point(20, 245);
+            this.LblCategoria.Location = new System.Drawing.Point(342, 113);
             this.LblCategoria.Name = "LblCategoria";
             this.LblCategoria.Size = new System.Drawing.Size(66, 16);
             this.LblCategoria.TabIndex = 4;
@@ -99,7 +102,7 @@
             // 
             // BtnModificar
             // 
-            this.BtnModificar.Location = new System.Drawing.Point(352, 405);
+            this.BtnModificar.Location = new System.Drawing.Point(567, 476);
             this.BtnModificar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnModificar.Name = "BtnModificar";
             this.BtnModificar.Size = new System.Drawing.Size(96, 39);
@@ -110,7 +113,7 @@
             // 
             // BtnCancelar
             // 
-            this.BtnCancelar.Location = new System.Drawing.Point(250, 405);
+            this.BtnCancelar.Location = new System.Drawing.Point(18, 476);
             this.BtnCancelar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnCancelar.Name = "BtnCancelar";
             this.BtnCancelar.Size = new System.Drawing.Size(96, 39);
@@ -122,7 +125,7 @@
             // CboxCategorias
             // 
             this.CboxCategorias.FormattingEnabled = true;
-            this.CboxCategorias.Location = new System.Drawing.Point(122, 241);
+            this.CboxCategorias.Location = new System.Drawing.Point(427, 110);
             this.CboxCategorias.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.CboxCategorias.Name = "CboxCategorias";
             this.CboxCategorias.Size = new System.Drawing.Size(192, 24);
@@ -131,7 +134,7 @@
             // CboxMarca
             // 
             this.CboxMarca.FormattingEnabled = true;
-            this.CboxMarca.Location = new System.Drawing.Point(122, 207);
+            this.CboxMarca.Location = new System.Drawing.Point(427, 68);
             this.CboxMarca.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.CboxMarca.Name = "CboxMarca";
             this.CboxMarca.Size = new System.Drawing.Size(192, 24);
@@ -139,7 +142,7 @@
             // 
             // TxtBoxDescripcion
             // 
-            this.TxtBoxDescripcion.Location = new System.Drawing.Point(122, 139);
+            this.TxtBoxDescripcion.Location = new System.Drawing.Point(122, 146);
             this.TxtBoxDescripcion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TxtBoxDescripcion.Name = "TxtBoxDescripcion";
             this.TxtBoxDescripcion.Size = new System.Drawing.Size(192, 22);
@@ -163,17 +166,17 @@
             // 
             // PicBoxArticulo
             // 
-            this.PicBoxArticulo.Location = new System.Drawing.Point(369, 70);
+            this.PicBoxArticulo.Location = new System.Drawing.Point(224, 234);
             this.PicBoxArticulo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PicBoxArticulo.Name = "PicBoxArticulo";
-            this.PicBoxArticulo.Size = new System.Drawing.Size(257, 226);
+            this.PicBoxArticulo.Size = new System.Drawing.Size(223, 195);
             this.PicBoxArticulo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.PicBoxArticulo.TabIndex = 13;
             this.PicBoxArticulo.TabStop = false;
             // 
             // TxtBoxPrecio
             // 
-            this.TxtBoxPrecio.Location = new System.Drawing.Point(122, 272);
+            this.TxtBoxPrecio.Location = new System.Drawing.Point(427, 148);
             this.TxtBoxPrecio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TxtBoxPrecio.Name = "TxtBoxPrecio";
             this.TxtBoxPrecio.Size = new System.Drawing.Size(192, 22);
@@ -182,7 +185,7 @@
             // LblPrecio
             // 
             this.LblPrecio.AutoSize = true;
-            this.LblPrecio.Location = new System.Drawing.Point(20, 275);
+            this.LblPrecio.Location = new System.Drawing.Point(342, 151);
             this.LblPrecio.Name = "LblPrecio";
             this.LblPrecio.Size = new System.Drawing.Size(46, 16);
             this.LblPrecio.TabIndex = 14;
@@ -191,7 +194,7 @@
             // LblImagenUrl
             // 
             this.LblImagenUrl.AutoSize = true;
-            this.LblImagenUrl.Location = new System.Drawing.Point(20, 176);
+            this.LblImagenUrl.Location = new System.Drawing.Point(37, 187);
             this.LblImagenUrl.Name = "LblImagenUrl";
             this.LblImagenUrl.Size = new System.Drawing.Size(77, 16);
             this.LblImagenUrl.TabIndex = 16;
@@ -199,38 +202,80 @@
             // 
             // BtnChangeNextImage
             // 
-            this.BtnChangeNextImage.Location = new System.Drawing.Point(503, 300);
+            this.BtnChangeNextImage.Location = new System.Drawing.Point(343, 433);
             this.BtnChangeNextImage.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnChangeNextImage.Name = "BtnChangeNextImage";
             this.BtnChangeNextImage.Size = new System.Drawing.Size(83, 25);
             this.BtnChangeNextImage.TabIndex = 18;
             this.BtnChangeNextImage.Text = "->";
             this.BtnChangeNextImage.UseVisualStyleBackColor = true;
+            this.BtnChangeNextImage.Click += new System.EventHandler(this.BtnChangeNextImage_Click);
             // 
             // BtnChangePreviousImage
             // 
-            this.BtnChangePreviousImage.Location = new System.Drawing.Point(401, 300);
+            this.BtnChangePreviousImage.Location = new System.Drawing.Point(241, 433);
             this.BtnChangePreviousImage.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnChangePreviousImage.Name = "BtnChangePreviousImage";
             this.BtnChangePreviousImage.Size = new System.Drawing.Size(96, 25);
             this.BtnChangePreviousImage.TabIndex = 19;
             this.BtnChangePreviousImage.Text = "<-";
             this.BtnChangePreviousImage.UseVisualStyleBackColor = true;
+            this.BtnChangePreviousImage.Click += new System.EventHandler(this.BtnChangePreviousImage_Click);
             // 
             // CboxImages
             // 
             this.CboxImages.FormattingEnabled = true;
-            this.CboxImages.Location = new System.Drawing.Point(122, 173);
+            this.CboxImages.Location = new System.Drawing.Point(122, 184);
             this.CboxImages.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.CboxImages.Name = "CboxImages";
             this.CboxImages.Size = new System.Drawing.Size(192, 24);
             this.CboxImages.TabIndex = 20;
+            this.CboxImages.SelectedIndexChanged += new System.EventHandler(this.CboxImages_SelectedIndexChanged);
+            // 
+            // BtnDeleteImage
+            // 
+            this.BtnDeleteImage.BackColor = System.Drawing.Color.Red;
+            this.BtnDeleteImage.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.BtnDeleteImage.Location = new System.Drawing.Point(343, 184);
+            this.BtnDeleteImage.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.BtnDeleteImage.Name = "BtnDeleteImage";
+            this.BtnDeleteImage.Size = new System.Drawing.Size(49, 25);
+            this.BtnDeleteImage.TabIndex = 21;
+            this.BtnDeleteImage.Text = "-";
+            this.BtnDeleteImage.UseVisualStyleBackColor = false;
+            // 
+            // BtnModifyImage
+            // 
+            this.BtnModifyImage.BackColor = System.Drawing.Color.Gold;
+            this.BtnModifyImage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnModifyImage.Location = new System.Drawing.Point(398, 184);
+            this.BtnModifyImage.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.BtnModifyImage.Name = "BtnModifyImage";
+            this.BtnModifyImage.Size = new System.Drawing.Size(49, 25);
+            this.BtnModifyImage.TabIndex = 22;
+            this.BtnModifyImage.Text = "#";
+            this.BtnModifyImage.UseVisualStyleBackColor = false;
+            // 
+            // BtnAddImage
+            // 
+            this.BtnAddImage.BackColor = System.Drawing.SystemColors.Highlight;
+            this.BtnAddImage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnAddImage.Location = new System.Drawing.Point(453, 184);
+            this.BtnAddImage.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.BtnAddImage.Name = "BtnAddImage";
+            this.BtnAddImage.Size = new System.Drawing.Size(49, 25);
+            this.BtnAddImage.TabIndex = 23;
+            this.BtnAddImage.Text = "+";
+            this.BtnAddImage.UseVisualStyleBackColor = false;
             // 
             // ModificarArticulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(684, 484);
+            this.ClientSize = new System.Drawing.Size(684, 526);
+            this.Controls.Add(this.BtnAddImage);
+            this.Controls.Add(this.BtnModifyImage);
+            this.Controls.Add(this.BtnDeleteImage);
             this.Controls.Add(this.CboxImages);
             this.Controls.Add(this.BtnChangePreviousImage);
             this.Controls.Add(this.BtnChangeNextImage);
@@ -283,5 +328,8 @@
         private System.Windows.Forms.Button BtnChangeNextImage;
         private System.Windows.Forms.Button BtnChangePreviousImage;
         private System.Windows.Forms.ComboBox CboxImages;
+        private System.Windows.Forms.Button BtnDeleteImage;
+        private System.Windows.Forms.Button BtnModifyImage;
+        private System.Windows.Forms.Button BtnAddImage;
     }
 }

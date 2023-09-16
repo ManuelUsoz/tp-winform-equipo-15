@@ -18,6 +18,7 @@ namespace WinForm_App
         private CategoriaNegocio categoriaNegocio;
         private ArticuloNegocio articuloNegocio;
         private ImagenNegocio imagenNegocio;
+        private int imageCounter = 0;
 
         public Articulo Articulo { get; set; }
 
@@ -74,6 +75,19 @@ namespace WinForm_App
             Text = "Detalle Articulo";
         }
 
+        private void LoadImage(string imageUrl)
+        {
+            try
+            {
+                PicBoxArticulo.Load(imageUrl);
+
+            }
+            catch (Exception)
+            {
+                PicBoxArticulo.Image = Properties.Resources.OIP;
+            }
+        }
+
         
 
         private void ModificarArticulo_Load(object sender, EventArgs e)
@@ -81,14 +95,8 @@ namespace WinForm_App
             CboxMarca.DataSource = MarcaNegocio.list();
             CboxCategorias.DataSource = CategoriaNegocio.List();
             CboxImages.DataSource = ImagenNegocio.GetImagens(Articulo.Id);
-            try
-            {
-                PicBoxArticulo.Load(Articulo.ImagenURL[0].ImagenUrl);
 
-            }catch(Exception)
-            {
-                PicBoxArticulo.Image = Properties.Resources.OIP;
-            }
+            LoadImage(Articulo.ImagenURL[0].ImagenUrl);
 
             CboxCategorias.ValueMember = "Id";
             CboxCategorias.DisplayMember = "Descripcion";
@@ -151,6 +159,41 @@ namespace WinForm_App
             {
                 PicBoxArticulo.Image = Properties.Resources.OIP;
                 MessageBox.Show("Error al cargar la imagen ingresada");
+            }
+        }
+
+        private void CboxImages_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadImage(CboxImages.SelectedItem.ToString()); 
+        }
+
+        private void BtnChangeNextImage_Click(object sender, EventArgs e)
+        {
+            this.imageCounter++;
+            try
+            {
+                PicBoxArticulo.Load(Articulo.ImagenURL[this.imageCounter].ImagenUrl);
+                CboxImages.SelectedIndex = this.imageCounter;
+            }
+            catch (Exception)
+            {
+                this.imageCounter--;
+                return;
+            }
+        }
+
+        private void BtnChangePreviousImage_Click(object sender, EventArgs e)
+        {
+            this.imageCounter--;
+            try
+            {
+                PicBoxArticulo.Load(Articulo.ImagenURL[this.imageCounter].ImagenUrl);
+                CboxImages.SelectedIndex = this.imageCounter;
+            }
+            catch (Exception)
+            {
+                this.imageCounter++;
+                return;
             }
         }
     }
