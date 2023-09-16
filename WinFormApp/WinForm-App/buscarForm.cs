@@ -14,6 +14,7 @@ namespace WinForm_App
 {
     public partial class BuscarForm : Form
     {
+        private int imageCounter = 0;
         public BuscarForm()
         {
             InitializeComponent();
@@ -227,14 +228,47 @@ namespace WinForm_App
         private void OnSelectionChange(object sender, EventArgs e)
         {
             Articulo articulo = dgvResultadoBusquedaArticulo.CurrentRow.DataBoundItem as Articulo;
+            this.imageCounter = 0;
             try
             {
-                //PicBoxArticulo.Load(articulo.ImagenURL.ImagenUrl);
+                PicBoxArticulo.Load(articulo.ImagenURL[this.imageCounter].ImagenUrl);
             }
             catch (Exception)
             {
                 PicBoxArticulo.Image = Properties.Resources.OIP;
             }
         }
+        private void BtnNextImage_Click(object sender, EventArgs e)
+        {
+            this.imageCounter++;
+            Articulo articulo = dgvResultadoBusquedaArticulo.CurrentRow.DataBoundItem as Articulo;
+            try
+            {
+                PicBoxArticulo.Load(articulo.ImagenURL[this.imageCounter].ImagenUrl);
+
+            }
+            catch (Exception)
+            {
+                this.imageCounter--;
+                return;
+            }
+        }
+
+        private void BtnPrevImage_Click(object sender, EventArgs e)
+        {
+            this.imageCounter--;
+            Articulo articulo = dgvResultadoBusquedaArticulo.CurrentRow.DataBoundItem as Articulo;
+            try
+            {
+                PicBoxArticulo.Load(articulo.ImagenURL[this.imageCounter].ImagenUrl);
+            }
+            catch (Exception)
+            {
+                this.imageCounter++;
+                return;
+            }
+        }
+
+        
     }
 }

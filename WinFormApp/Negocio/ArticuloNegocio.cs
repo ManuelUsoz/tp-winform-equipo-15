@@ -40,7 +40,8 @@ namespace Negocio
         {
             try
             {
-                List<Articulo> articulos = ArticuloDAO.GetArticulos(idMarca, idCategoria);
+                List<Articulo> articulos = this.ArticuloDAO.GetArticulos(idMarca, idCategoria);
+                articulos.ForEach(articulo => articulo.ImagenURL = this.ImagenNegocio.GetImagens(articulo.Id));
                 return articulos;
 
             }
@@ -54,7 +55,8 @@ namespace Negocio
         {
             try
             {
-                List<Articulo> articulos = ArticuloDAO.GetArticulos(idMarca);
+                List<Articulo> articulos = this.ArticuloDAO.GetArticulos(idMarca);
+                articulos.ForEach(articulo => articulo.ImagenURL = this.ImagenNegocio.GetImagens(articulo.Id));
                 return articulos;
             }
             catch (Exception ex)
@@ -69,7 +71,8 @@ namespace Negocio
         {
             try
             {
-                List<Articulo> articulos = ArticuloDAO.GetArticulosByCategoria(idCategoria);
+                List<Articulo> articulos = this.ArticuloDAO.GetArticulosByCategoria(idCategoria);
+                articulos.ForEach(articulo => articulo.ImagenURL = this.ImagenNegocio.GetImagens(articulo.Id));
                 return articulos;
 
             }catch(Exception ex)
@@ -82,7 +85,8 @@ namespace Negocio
         {
             try
             {
-                List<Articulo> articulos = ArticuloDAO.GetArticulosByHint(hint);
+                List<Articulo> articulos = this.ArticuloDAO.GetArticulosByHint(hint);
+                articulos.ForEach(articulo => articulo.ImagenURL = this.ImagenNegocio.GetImagens(articulo.Id));
                 return articulos;
             }catch(Exception ex)
             {
@@ -94,7 +98,8 @@ namespace Negocio
         {
             try
             {
-                List<Articulo> articulos = ArticuloDAO.GetArticulos(field, criteria, value);
+                List<Articulo> articulos = this.ArticuloDAO.GetArticulos(field, criteria, value);
+                articulos.ForEach(articulo => articulo.ImagenURL = this.ImagenNegocio.GetImagens(articulo.Id));
                 return articulos;
             }catch (Exception ex)
             {
@@ -106,7 +111,8 @@ namespace Negocio
         {
             try
             {
-                List<Articulo> articulos = ArticuloDAO.GetArticulos(idMarca, field, criteria, value);
+                List<Articulo> articulos = this.ArticuloDAO.GetArticulos(idMarca, field, criteria, value);
+                articulos.ForEach(articulo => articulo.ImagenURL = this.ImagenNegocio.GetImagens(articulo.Id));
                 return articulos;
             }catch(Exception ex)
             {
@@ -118,7 +124,8 @@ namespace Negocio
         {
             try
             {
-                List<Articulo> articulos = ArticuloDAO.GetArticulosByCategory(idCategoria, field, criteria, value);
+                List<Articulo> articulos = this.ArticuloDAO.GetArticulosByCategory(idCategoria, field, criteria, value);
+                articulos.ForEach(articulo => articulo.ImagenURL = this.ImagenNegocio.GetImagens(articulo.Id));
                 return articulos;
             }catch(Exception ex)
             {
@@ -130,7 +137,8 @@ namespace Negocio
         {
             try
             {
-                List<Articulo> articulos = ArticuloDAO.GetArticulos(idMarca, idCategoria, field, criteria, value);
+                List<Articulo> articulos = this.ArticuloDAO.GetArticulos(idMarca, idCategoria, field, criteria, value);
+                articulos.ForEach(articulo => articulo.ImagenURL = this.ImagenNegocio.GetImagens(articulo.Id));
                 return articulos;
             }catch(Exception ex)
             {

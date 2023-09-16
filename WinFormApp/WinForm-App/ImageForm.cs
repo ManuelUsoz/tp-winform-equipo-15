@@ -43,5 +43,10 @@ namespace WinForm_App
         {
             TxtBoxImageUrl.Text = this.imageUrl;
         }
+
+        private void BtnCancelar_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

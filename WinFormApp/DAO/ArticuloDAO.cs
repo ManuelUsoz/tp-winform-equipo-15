@@ -84,7 +84,7 @@ namespace DAO
                 AccesoADatos accesoADatos = new AccesoADatos("server=.; database=CATALOGO_P3_DB; integrated security=true");
                 List<Articulo> articulos = new List<Articulo>();
 
-                accesoADatos.consultar("SELECT A.Id, A.Codigo, A.Nombre, A.Descripcion, M.Descripcion as Marca, M.Id as MarcaId ,C.Descripcion as Categoria, C.Id as CategoriaId, I.ImagenUrl, A.Precio FROM ARTICULOS A INNER JOIN MARCAS M ON A.IdMarca = M.Id INNER JOIN CATEGORIAS C ON A.IdCategoria = C.Id INNER JOIN IMAGENES I ON A.Id=I.IdArticulo WHERE M.Id = @MarcaId AND C.Id = @CategoriaId;");
+                accesoADatos.consultar("SELECT A.Id, A.Codigo, A.Nombre, A.Descripcion, M.Descripcion as Marca, M.Id as MarcaId ,C.Descripcion as Categoria, C.Id as CategoriaId, A.Precio FROM ARTICULOS A INNER JOIN MARCAS M ON A.IdMarca = M.Id INNER JOIN CATEGORIAS C ON A.IdCategoria = C.Id WHERE M.Id = @MarcaId AND C.Id = @CategoriaId;");
                 accesoADatos.setearParametro("@MarcaId", marcaId);
                 accesoADatos.setearParametro("@CategoriaId", categoriaId);
                 accesoADatos.AbrirConexion();
@@ -116,7 +116,7 @@ namespace DAO
                 AccesoADatos accesoADatos = new AccesoADatos("server=.; database=CATALOGO_P3_DB; integrated security=true");
                 List<Articulo> articulos = new List<Articulo>();
 
-                accesoADatos.consultar("SELECT A.Id, A.Codigo, A.Nombre, A.Descripcion, M.Descripcion as Marca, M.Id as MarcaId ,C.Descripcion as Categoria, C.Id as CategoriaId, I.ImagenUrl, A.Precio FROM ARTICULOS A INNER JOIN MARCAS M ON A.IdMarca = M.Id INNER JOIN CATEGORIAS C ON A.IdCategoria = C.Id INNER JOIN IMAGENES I ON A.Id=I.IdArticulo WHERE M.Id = @MarcaId;");
+                accesoADatos.consultar("SELECT A.Id, A.Codigo, A.Nombre, A.Descripcion, M.Descripcion as Marca, M.Id as MarcaId ,C.Descripcion as Categoria, C.Id as CategoriaId, A.Precio FROM ARTICULOS A INNER JOIN MARCAS M ON A.IdMarca = M.Id INNER JOIN CATEGORIAS C ON A.IdCategoria = C.Id WHERE M.Id = @MarcaId;");
                 accesoADatos.setearParametro("@MarcaId", marcaId);
                 accesoADatos.AbrirConexion();
                 accesoADatos.ejecutarLectura();
@@ -144,7 +144,7 @@ namespace DAO
                 AccesoADatos accesoADatos = new AccesoADatos("server=.; database=CATALOGO_P3_DB; integrated security=true");
                 List<Articulo> articulos = new List<Articulo>();
 
-                accesoADatos.consultar("SELECT A.Id, A.Codigo, A.Nombre, A.Descripcion, M.Descripcion as Marca, M.Id as MarcaId ,C.Descripcion as Categoria, C.Id as CategoriaId, I.ImagenUrl, A.Precio FROM ARTICULOS A INNER JOIN MARCAS M ON A.IdMarca = M.Id INNER JOIN CATEGORIAS C ON A.IdCategoria = C.Id INNER JOIN IMAGENES I ON A.Id=I.IdArticulo WHERE A.IdCategoria = @CategoriaId;");
+                accesoADatos.consultar("SELECT A.Id, A.Codigo, A.Nombre, A.Descripcion, M.Descripcion as Marca, M.Id as MarcaId ,C.Descripcion as Categoria, C.Id as CategoriaId, A.Precio FROM ARTICULOS A INNER JOIN MARCAS M ON A.IdMarca = M.Id INNER JOIN CATEGORIAS C ON A.IdCategoria = C.Id WHERE A.IdCategoria = @CategoriaId;");
                 accesoADatos.setearParametro("@CategoriaId", idCategoria);
                 accesoADatos.AbrirConexion();
                 accesoADatos.ejecutarLectura();
@@ -184,17 +184,17 @@ namespace DAO
             string query;
             if (field == "Precio")
             {
-                query = "SELECT A.Id, A.Codigo, A.Nombre, A.Descripcion, M.Descripcion as Marca, M.Id as MarcaId ,C.Descripcion as Categoria, C.Id as CategoriaId, I.ImagenUrl, A.Precio FROM ARTICULOS A INNER JOIN MARCAS M ON A.IdMarca = M.Id INNER JOIN CATEGORIAS C ON A.IdCategoria = C.Id INNER JOIN IMAGENES I ON A.Id=I.IdArticulo WHERE " + field + " " + sqloperator + " " + value + "";
+                query = "SELECT A.Id, A.Codigo, A.Nombre, A.Descripcion, M.Descripcion as Marca, M.Id as MarcaId ,C.Descripcion as Categoria, C.Id as CategoriaId, A.Precio FROM ARTICULOS A INNER JOIN MARCAS M ON A.IdMarca = M.Id INNER JOIN CATEGORIAS C ON A.IdCategoria = C.Id WHERE " + field + " " + sqloperator + " " + value + "";
             }
             else
             {
                 if(sqloperator == "LIKE '%")
                 {
-                    query = "SELECT A.Id, A.Codigo, A.Nombre, A.Descripcion, M.Descripcion as Marca, M.Id as MarcaId ,C.Descripcion as Categoria, C.Id as CategoriaId, I.ImagenUrl, A.Precio FROM ARTICULOS A INNER JOIN MARCAS M ON A.IdMarca = M.Id INNER JOIN CATEGORIAS C ON A.IdCategoria = C.Id INNER JOIN IMAGENES I ON A.Id=I.IdArticulo WHERE " + field + " " + sqloperator + "" + value + "%'";
+                    query = "SELECT A.Id, A.Codigo, A.Nombre, A.Descripcion, M.Descripcion as Marca, M.Id as MarcaId ,C.Descripcion as Categoria, C.Id as CategoriaId, A.Precio FROM ARTICULOS A INNER JOIN MARCAS M ON A.IdMarca = M.Id INNER JOIN CATEGORIAS C ON A.IdCategoria = C.Id WHERE " + field + " " + sqloperator + "" + value + "%'";
                 }
                 else
                 {
-                    query = "SELECT A.Id, A.Codigo, A.Nombre, A.Descripcion, M.Descripcion as Marca, M.Id as MarcaId ,C.Descripcion as Categoria, C.Id as CategoriaId, I.ImagenUrl, A.Precio FROM ARTICULOS A INNER JOIN MARCAS M ON A.IdMarca = M.Id INNER JOIN CATEGORIAS C ON A.IdCategoria = C.Id INNER JOIN IMAGENES I ON A.Id=I.IdArticulo WHERE " + field + " " + sqloperator + " '" + value + "'";
+                    query = "SELECT A.Id, A.Codigo, A.Nombre, A.Descripcion, M.Descripcion as Marca, M.Id as MarcaId ,C.Descripcion as Categoria, C.Id as CategoriaId, A.Precio FROM ARTICULOS A INNER JOIN MARCAS M ON A.IdMarca = M.Id INNER JOIN CATEGORIAS C ON A.IdCategoria = C.Id WHERE " + field + " " + sqloperator + " '" + value + "'";
 
                 }
             }
@@ -229,7 +229,7 @@ namespace DAO
             List<Articulo> articulos = new List<Articulo>();
             try
             {
-                string query = "SELECT A.Id, A.Codigo, A.Nombre, A.Descripcion, M.Descripcion as Marca, M.Id as MarcaId ,C.Descripcion as Categoria, C.Id as CategoriaId, I.ImagenUrl, A.Precio FROM ARTICULOS A INNER JOIN MARCAS M ON A.IdMarca = M.Id INNER JOIN CATEGORIAS C ON A.IdCategoria = C.Id INNER JOIN IMAGENES I ON A.Id=I.IdArticulo WHERE A.Nombre LIKE '%" + hint +"%' OR A.Codigo LIKE '%" + hint +"%' OR A.Descripcion LIKE '%" + hint +"%' OR M.Descripcion LIKE '%" + hint +"%' OR C.Descripcion LIKE '%" + hint +"%';";
+                string query = "SELECT A.Id, A.Codigo, A.Nombre, A.Descripcion, M.Descripcion as Marca, M.Id as MarcaId ,C.Descripcion as Categoria, C.Id as CategoriaId, A.Precio FROM ARTICULOS A INNER JOIN MARCAS M ON A.IdMarca = M.Id INNER JOIN CATEGORIAS C ON A.IdCategoria = C.Id WHERE A.Nombre LIKE '%" + hint +"%' OR A.Codigo LIKE '%" + hint +"%' OR A.Descripcion LIKE '%" + hint +"%' OR M.Descripcion LIKE '%" + hint +"%' OR C.Descripcion LIKE '%" + hint +"%';";
                 accesoADatos.consultar(query);
                 accesoADatos.AbrirConexion();
                 accesoADatos.ejecutarLectura();
@@ -273,17 +273,17 @@ namespace DAO
 
                 if (field == "Precio")
                 {
-                    query = "SELECT A.Id, A.Codigo, A.Nombre, A.Descripcion, M.Descripcion as Marca, M.Id as MarcaId ,C.Descripcion as Categoria, C.Id as CategoriaId, I.ImagenUrl, A.Precio FROM ARTICULOS A INNER JOIN MARCAS M ON A.IdMarca = M.Id INNER JOIN CATEGORIAS C ON A.IdCategoria = C.Id INNER JOIN IMAGENES I ON A.Id=I.IdArticulo WHERE A." + field + " " + sqloperator + " " + value + " AND A.IdMarca = "+ idMarca + "";
+                    query = "SELECT A.Id, A.Codigo, A.Nombre, A.Descripcion, M.Descripcion as Marca, M.Id as MarcaId ,C.Descripcion as Categoria, C.Id as CategoriaId, A.Precio FROM ARTICULOS A INNER JOIN MARCAS M ON A.IdMarca = M.Id INNER JOIN CATEGORIAS C ON A.IdCategoria = C.Id WHERE A." + field + " " + sqloperator + " " + value + " AND A.IdMarca = "+ idMarca + "";
                 }
                 else
                 {
                     if (sqloperator == "LIKE '%")
                     {
-                        query = "SELECT A.Id, A.Codigo, A.Nombre, A.Descripcion, M.Descripcion as Marca, M.Id as MarcaId ,C.Descripcion as Categoria, C.Id as CategoriaId, I.ImagenUrl, A.Precio FROM ARTICULOS A INNER JOIN MARCAS M ON A.IdMarca = M.Id INNER JOIN CATEGORIAS C ON A.IdCategoria = C.Id INNER JOIN IMAGENES I ON A.Id=I.IdArticulo WHERE A." + field + " " + sqloperator + "" + value + "%' AND A.IdMarca = "+idMarca+"";
+                        query = "SELECT A.Id, A.Codigo, A.Nombre, A.Descripcion, M.Descripcion as Marca, M.Id as MarcaId ,C.Descripcion as Categoria, C.Id as CategoriaId, A.Precio FROM ARTICULOS A INNER JOIN MARCAS M ON A.IdMarca = M.Id INNER JOIN CATEGORIAS C ON A.IdCategoria = C.Id WHERE A." + field + " " + sqloperator + "" + value + "%' AND A.IdMarca = "+idMarca+"";
                     }
                     else
                     {
-                        query = "SELECT A.Id, A.Codigo, A.Nombre, A.Descripcion, M.Descripcion as Marca, M.Id as MarcaId ,C.Descripcion as Categoria, C.Id as CategoriaId, I.ImagenUrl, A.Precio FROM ARTICULOS A INNER JOIN MARCAS M ON A.IdMarca = M.Id INNER JOIN CATEGORIAS C ON A.IdCategoria = C.Id INNER JOIN IMAGENES I ON A.Id=I.IdArticulo WHERE A." + field + " " + sqloperator + " '" + value + "' AND A.IdMarca = " + idMarca + "";
+                        query = "SELECT A.Id, A.Codigo, A.Nombre, A.Descripcion, M.Descripcion as Marca, M.Id as MarcaId ,C.Descripcion as Categoria, C.Id as CategoriaId, A.Precio FROM ARTICULOS A INNER JOIN MARCAS M ON A.IdMarca = M.Id INNER JOIN CATEGORIAS C ON A.IdCategoria = C.Id WHERE A." + field + " " + sqloperator + " '" + value + "' AND A.IdMarca = " + idMarca + "";
 
                     }
                 }
@@ -330,17 +330,17 @@ namespace DAO
 
                 if (field == "Precio")
                 {
-                    query = "SELECT A.Id, A.Codigo, A.Nombre, A.Descripcion, M.Descripcion as Marca, M.Id as MarcaId ,C.Descripcion as Categoria, C.Id as CategoriaId, I.ImagenUrl, A.Precio FROM ARTICULOS A INNER JOIN MARCAS M ON A.IdMarca = M.Id INNER JOIN CATEGORIAS C ON A.IdCategoria = C.Id INNER JOIN IMAGENES I ON A.Id=I.IdArticulo WHERE A." + field + " " + sqloperator + " " + value + " AND A.IdCategoria = " + categoriaId + " AND A.IdMarca = "+idMarca+"";
+                    query = "SELECT A.Id, A.Codigo, A.Nombre, A.Descripcion, M.Descripcion as Marca, M.Id as MarcaId ,C.Descripcion as Categoria, C.Id as CategoriaId, A.Precio FROM ARTICULOS A INNER JOIN MARCAS M ON A.IdMarca = M.Id INNER JOIN CATEGORIAS C ON A.IdCategoria = C.Id WHERE A." + field + " " + sqloperator + " " + value + " AND A.IdCategoria = " + categoriaId + " AND A.IdMarca = "+idMarca+"";
                 }
                 else
                 {
                     if (sqloperator == "LIKE '%")
                     {
-                        query = "SELECT A.Id, A.Codigo, A.Nombre, A.Descripcion, M.Descripcion as Marca, M.Id as MarcaId ,C.Descripcion as Categoria, C.Id as CategoriaId, I.ImagenUrl, A.Precio FROM ARTICULOS A INNER JOIN MARCAS M ON A.IdMarca = M.Id INNER JOIN CATEGORIAS C ON A.IdCategoria = C.Id INNER JOIN IMAGENES I ON A.Id=I.IdArticulo WHERE A." + field + " " + sqloperator + "" + value + "%' AND A.IdCategoria = " + categoriaId + " AND A.IdMarca = " + idMarca + "";
+                        query = "SELECT A.Id, A.Codigo, A.Nombre, A.Descripcion, M.Descripcion as Marca, M.Id as MarcaId ,C.Descripcion as Categoria, C.Id as CategoriaId, A.Precio FROM ARTICULOS A INNER JOIN MARCAS M ON A.IdMarca = M.Id INNER JOIN CATEGORIAS C ON A.IdCategoria = C.Id WHERE A." + field + " " + sqloperator + "" + value + "%' AND A.IdCategoria = " + categoriaId + " AND A.IdMarca = " + idMarca + "";
                     }
                     else
                     {
-                        query = "SELECT A.Id, A.Codigo, A.Nombre, A.Descripcion, M.Descripcion as Marca, M.Id as MarcaId ,C.Descripcion as Categoria, C.Id as CategoriaId, I.ImagenUrl, A.Precio FROM ARTICULOS A INNER JOIN MARCAS M ON A.IdMarca = M.Id INNER JOIN CATEGORIAS C ON A.IdCategoria = C.Id INNER JOIN IMAGENES I ON A.Id=I.IdArticulo WHERE A." + field + " " + sqloperator + " '" + value + "' AND A.IdCategoria = " + categoriaId + " AND A.IdMarca = " + idMarca + "";
+                        query = "SELECT A.Id, A.Codigo, A.Nombre, A.Descripcion, M.Descripcion as Marca, M.Id as MarcaId ,C.Descripcion as Categoria, C.Id as CategoriaId, A.Precio FROM ARTICULOS A INNER JOIN MARCAS M ON A.IdMarca = M.Id INNER JOIN CATEGORIAS C ON A.IdCategoria = C.Id WHERE A." + field + " " + sqloperator + " '" + value + "' AND A.IdCategoria = " + categoriaId + " AND A.IdMarca = " + idMarca + "";
 
                     }
                 }
@@ -388,17 +388,17 @@ namespace DAO
 
                 if (field == "Precio")
                 {
-                    query = "SELECT A.Id, A.Codigo, A.Nombre, A.Descripcion, M.Descripcion as Marca, M.Id as MarcaId ,C.Descripcion as Categoria, C.Id as CategoriaId, I.ImagenUrl, A.Precio FROM ARTICULOS A INNER JOIN MARCAS M ON A.IdMarca = M.Id INNER JOIN CATEGORIAS C ON A.IdCategoria = C.Id INNER JOIN IMAGENES I ON A.Id=I.IdArticulo WHERE A." + field + " " + sqloperator + " " + value + " AND A.IdCategoria = " + categoryId + "";
+                    query = "SELECT A.Id, A.Codigo, A.Nombre, A.Descripcion, M.Descripcion as Marca, M.Id as MarcaId ,C.Descripcion as Categoria, C.Id as CategoriaId, A.Precio FROM ARTICULOS A INNER JOIN MARCAS M ON A.IdMarca = M.Id INNER JOIN CATEGORIAS C ON A.IdCategoria = C.Id WHERE A." + field + " " + sqloperator + " " + value + " AND A.IdCategoria = " + categoryId + "";
                 }
                 else
                 {
                     if (sqloperator == "LIKE '%")
                     {
-                        query = "SELECT A.Id, A.Codigo, A.Nombre, A.Descripcion, M.Descripcion as Marca, M.Id as MarcaId ,C.Descripcion as Categoria, C.Id as CategoriaId, I.ImagenUrl, A.Precio FROM ARTICULOS A INNER JOIN MARCAS M ON A.IdMarca = M.Id INNER JOIN CATEGORIAS C ON A.IdCategoria = C.Id INNER JOIN IMAGENES I ON A.Id=I.IdArticulo WHERE A." + field + " " + sqloperator + "" + value + "%' AND A.IdCategoria = " + categoryId + "";
+                        query = "SELECT A.Id, A.Codigo, A.Nombre, A.Descripcion, M.Descripcion as Marca, M.Id as MarcaId ,C.Descripcion as Categoria, C.Id as CategoriaId, A.Precio FROM ARTICULOS A INNER JOIN MARCAS M ON A.IdMarca = M.Id INNER JOIN CATEGORIAS C ON A.IdCategoria = C.Id WHERE A." + field + " " + sqloperator + "" + value + "%' AND A.IdCategoria = " + categoryId + "";
                     }
                     else
                     {
-                        query = "SELECT A.Id, A.Codigo, A.Nombre, A.Descripcion, M.Descripcion as Marca, M.Id as MarcaId ,C.Descripcion as Categoria, C.Id as CategoriaId, I.ImagenUrl, A.Precio FROM ARTICULOS A INNER JOIN MARCAS M ON A.IdMarca = M.Id INNER JOIN CATEGORIAS C ON A.IdCategoria = C.Id INNER JOIN IMAGENES I ON A.Id=I.IdArticulo WHERE A." + field + " " + sqloperator + " '" + value + "' AND A.IdCategoria = " + categoryId + "";
+                        query = "SELECT A.Id, A.Codigo, A.Nombre, A.Descripcion, M.Descripcion as Marca, M.Id as MarcaId ,C.Descripcion as Categoria, C.Id as CategoriaId, A.Precio FROM ARTICULOS A INNER JOIN MARCAS M ON A.IdMarca = M.Id INNER JOIN CATEGORIAS C ON A.IdCategoria = C.Id WHERE A." + field + " " + sqloperator + " '" + value + "' AND A.IdCategoria = " + categoryId + "";
 
                     }
                 }
