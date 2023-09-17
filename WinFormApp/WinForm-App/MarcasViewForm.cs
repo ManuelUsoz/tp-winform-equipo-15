@@ -52,10 +52,17 @@ namespace WinForm_App
             DialogResult respuesta = MessageBox.Show("¿De verdad querés eliminarlo?", "Esto es irreversible", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (respuesta == DialogResult.Yes)
             {
-                MarcaNegocio marcaNeg = new MarcaNegocio();
-                Marca marca = DgvMarcas.CurrentRow.DataBoundItem as Marca;
-                //marcaNeg.Eliminar(marca.Id);
-                MessageBox.Show("Entidad eliminada correctamente");
+                try
+                {
+                    MarcaNegocio marcaNeg = new MarcaNegocio();
+                    Marca marca = DgvMarcas.CurrentRow.DataBoundItem as Marca;
+                    marcaNeg.Eliminar(marca.Id);
+                    MessageBox.Show("Entidad eliminada correctamente");
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Error al eliminar la entidad");
+                }
             }
         }
     }

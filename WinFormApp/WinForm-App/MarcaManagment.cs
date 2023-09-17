@@ -1,4 +1,5 @@
 ﻿using Dominio;
+using Negocio;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -29,12 +30,39 @@ namespace WinForm_App
             {
                 TxtBoxDescripcion.Enabled = false;
                 TxtBoxDescripcion.Text = Marca.Descripcion;
+                BtnAgregar.Enabled = false;
             }
 
             if (readOrUpdate)
             {
                 TxtBoxDescripcion.Text = Marca.Descripcion;
+                BtnAgregar.Text = "Modificar";
             }
+        }
+
+        private void BtnAgregar_Click(object sender, EventArgs e)
+        {
+            Marca marca = new Marca();
+            marca.Descripcion = TxtBoxDescripcion.Text;
+            MarcaNegocio marcaNegocio = new MarcaNegocio();
+
+            try
+            {
+                if (!onlyRead && !readOrUpdate)
+                {
+                    marcaNegocio.Create(marca);
+                }
+                if (readOrUpdate)
+                {
+                    marcaNegocio.Update(marca);
+                }
+
+                MessageBox.Show("Entidad creada correctamente");
+            }catch (Exception)
+            {
+                MessageBox.Show("Error al eliminar la entidad");
+            }
+            
         }
     }
 }

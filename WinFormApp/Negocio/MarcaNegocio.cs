@@ -10,12 +10,43 @@ namespace Negocio
 {
     public class MarcaNegocio
     {
-        public List<Marca> list()
+        public void Create(Marca marca)
         {
             MarcaDAO marcaDAO = new MarcaDAO();
-            List<Marca> marcaList = marcaDAO.List();
+            marcaDAO.Create(marca);
+        }
 
-            return marcaList; 
+        public void Eliminar(int id)
+        {
+            MarcaDAO marcaDAO=new MarcaDAO();
+            marcaDAO.Delete(id);
+        }
+
+        public List<Marca> list()
+        {
+            try
+            {
+                MarcaDAO marcaDAO = new MarcaDAO();
+                List<Marca> marcaList = marcaDAO.List();
+                return marcaList;
+
+            }catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+
+        public void Update(Marca marca)
+        {
+            try
+            {
+                MarcaDAO marcaDAO = new MarcaDAO();
+                marcaDAO.Update(marca);
+            }catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }
