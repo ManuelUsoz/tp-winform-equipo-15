@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Negocio;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,17 @@ namespace WinForm_App
         public CategoriaViewForm()
         {
             InitializeComponent();
+        }
+
+        private void LoadData()
+        {
+            CategoriaNegocio categoriaNegocio = new CategoriaNegocio();
+            DgvCategories.DataSource = categoriaNegocio.List();
+        }
+
+        private void CategoriaViewForm_Load(object sender, EventArgs e)
+        {
+            LoadData();
         }
     }
 }
