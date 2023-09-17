@@ -19,16 +19,23 @@ namespace WinForm_App
             InitializeComponent();
         }
 
-        private void MarcasViewForm_Load(object sender, EventArgs e)
+        private void LoadData()
         {
             MarcaNegocio marcaNegocio = new MarcaNegocio();
             DgvMarcas.DataSource = marcaNegocio.list();
+        }
+
+        private void MarcasViewForm_Load(object sender, EventArgs e)
+        {
+            LoadData();
         }
 
         private void BtnAgregarMarca_Click(object sender, EventArgs e)
         {
             MarcaManagment marcaManagment = new MarcaManagment(false, false);
             marcaManagment.ShowDialog();
+            LoadData();
+
         }
 
         private void BtnModificarMarca_Click(object sender, EventArgs e)
@@ -37,6 +44,8 @@ namespace WinForm_App
             MarcaManagment marcaManagment = new MarcaManagment(false, true);
             marcaManagment.Marca = marca;
             marcaManagment.ShowDialog();
+            LoadData();
+
         }
 
         private void BtnVerDetalleMarca_Click(object sender, EventArgs e)
@@ -64,6 +73,8 @@ namespace WinForm_App
                     MessageBox.Show("Error al eliminar la entidad");
                 }
             }
+            LoadData();
+
         }
     }
 }

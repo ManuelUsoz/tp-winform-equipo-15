@@ -42,27 +42,37 @@ namespace WinForm_App
 
         private void BtnAgregar_Click(object sender, EventArgs e)
         {
-            Marca marca = new Marca();
-            marca.Descripcion = TxtBoxDescripcion.Text;
+            Marca.Descripcion = TxtBoxDescripcion.Text;
             MarcaNegocio marcaNegocio = new MarcaNegocio();
 
             try
             {
                 if (!onlyRead && !readOrUpdate)
                 {
-                    marcaNegocio.Create(marca);
+                    marcaNegocio.Create(Marca);
+                    MessageBox.Show("Entidad creada correctamente");
+
                 }
                 if (readOrUpdate)
                 {
-                    marcaNegocio.Update(marca);
+                    marcaNegocio.Update(Marca);
+                    MessageBox.Show("Entidad modificada correctamente");
                 }
 
-                MessageBox.Show("Entidad creada correctamente");
             }catch (Exception)
             {
                 MessageBox.Show("Error al eliminar la entidad");
             }
+            finally
+            {
+                this.Close();
+            }
             
+        }
+
+        private void BtnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
