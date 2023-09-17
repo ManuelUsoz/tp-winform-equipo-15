@@ -111,6 +111,9 @@
     <EmbeddedResource Include="ListaArticulos.resx">
       <DependentUpon>ListaArticulos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MarcasViewForm.resx">
+      <DependentUpon>MarcasViewForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ModificarArticulo.resx">
       <DependentUpon>ModificarArticulo.cs</DependentUpon>
     </EmbeddedResource>
@@ -181,6 +184,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8-minus-30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-edit-30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-eye-30.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
