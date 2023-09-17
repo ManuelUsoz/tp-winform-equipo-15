@@ -29,33 +29,39 @@
         private void InitializeComponent()
         {
             this.LblMarcasTitle = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.DgvMarcas = new System.Windows.Forms.DataGridView();
             this.BtnVerDetalleMarca = new System.Windows.Forms.Button();
             this.BtnEliminarMarca = new System.Windows.Forms.Button();
             this.BtnModificarMarca = new System.Windows.Forms.Button();
             this.BtnAgregarMarca = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvMarcas)).BeginInit();
             this.SuspendLayout();
             // 
             // LblMarcasTitle
             // 
             this.LblMarcasTitle.AutoSize = true;
             this.LblMarcasTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblMarcasTitle.ForeColor = System.Drawing.SystemColors.Highlight;
             this.LblMarcasTitle.Location = new System.Drawing.Point(6, 34);
             this.LblMarcasTitle.Name = "LblMarcasTitle";
             this.LblMarcasTitle.Size = new System.Drawing.Size(106, 32);
             this.LblMarcasTitle.TabIndex = 0;
             this.LblMarcasTitle.Text = "Marcas";
             // 
-            // dataGridView1
+            // DgvMarcas
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 82);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(764, 338);
-            this.dataGridView1.TabIndex = 1;
+            this.DgvMarcas.AllowUserToAddRows = false;
+            this.DgvMarcas.AllowUserToDeleteRows = false;
+            this.DgvMarcas.AllowUserToResizeColumns = false;
+            this.DgvMarcas.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
+            this.DgvMarcas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgvMarcas.Location = new System.Drawing.Point(12, 82);
+            this.DgvMarcas.Name = "DgvMarcas";
+            this.DgvMarcas.RowHeadersWidth = 51;
+            this.DgvMarcas.RowTemplate.Height = 24;
+            this.DgvMarcas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DgvMarcas.Size = new System.Drawing.Size(764, 338);
+            this.DgvMarcas.TabIndex = 1;
             // 
             // BtnVerDetalleMarca
             // 
@@ -66,6 +72,7 @@
             this.BtnVerDetalleMarca.Size = new System.Drawing.Size(84, 39);
             this.BtnVerDetalleMarca.TabIndex = 5;
             this.BtnVerDetalleMarca.UseVisualStyleBackColor = true;
+            this.BtnVerDetalleMarca.Click += new System.EventHandler(this.BtnVerDetalleMarca_Click);
             // 
             // BtnEliminarMarca
             // 
@@ -76,6 +83,7 @@
             this.BtnEliminarMarca.Size = new System.Drawing.Size(84, 39);
             this.BtnEliminarMarca.TabIndex = 4;
             this.BtnEliminarMarca.UseVisualStyleBackColor = true;
+            this.BtnEliminarMarca.Click += new System.EventHandler(this.BtnEliminarMarca_Click);
             // 
             // BtnModificarMarca
             // 
@@ -86,6 +94,7 @@
             this.BtnModificarMarca.Size = new System.Drawing.Size(84, 39);
             this.BtnModificarMarca.TabIndex = 3;
             this.BtnModificarMarca.UseVisualStyleBackColor = true;
+            this.BtnModificarMarca.Click += new System.EventHandler(this.BtnModificarMarca_Click);
             // 
             // BtnAgregarMarca
             // 
@@ -96,6 +105,7 @@
             this.BtnAgregarMarca.Size = new System.Drawing.Size(84, 39);
             this.BtnAgregarMarca.TabIndex = 2;
             this.BtnAgregarMarca.UseVisualStyleBackColor = true;
+            this.BtnAgregarMarca.Click += new System.EventHandler(this.BtnAgregarMarca_Click);
             // 
             // MarcasViewForm
             // 
@@ -106,11 +116,12 @@
             this.Controls.Add(this.BtnEliminarMarca);
             this.Controls.Add(this.BtnModificarMarca);
             this.Controls.Add(this.BtnAgregarMarca);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.DgvMarcas);
             this.Controls.Add(this.LblMarcasTitle);
             this.Name = "MarcasViewForm";
             this.Text = "MarcasViewForm";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.MarcasViewForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.DgvMarcas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -119,7 +130,7 @@
         #endregion
 
         private System.Windows.Forms.Label LblMarcasTitle;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView DgvMarcas;
         private System.Windows.Forms.Button BtnAgregarMarca;
         private System.Windows.Forms.Button BtnModificarMarca;
         private System.Windows.Forms.Button BtnEliminarMarca;

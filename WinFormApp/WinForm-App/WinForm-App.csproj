@@ -82,6 +82,12 @@
     <Compile Include="ListaArticulos.Designer.cs">
       <DependentUpon>ListaArticulos.cs</DependentUpon>
     </Compile>
+    <Compile Include="MarcaManagment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MarcaManagment.Designer.cs">
+      <DependentUpon>MarcaManagment.cs</DependentUpon>
+    </Compile>
     <Compile Include="MarcasViewForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,6 +116,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ListaArticulos.resx">
       <DependentUpon>ListaArticulos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MarcaManagment.resx">
+      <DependentUpon>MarcaManagment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MarcasViewForm.resx">
       <DependentUpon>MarcasViewForm.cs</DependentUpon>
