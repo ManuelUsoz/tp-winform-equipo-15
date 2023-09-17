@@ -227,7 +227,7 @@ namespace WinForm_App
                 {
                     Imagen selectedImage = (Imagen) CboxImages.SelectedItem;
                     this.ImagenNegocio.DeleteByImageId(selectedImage.Id);
-                    MessageBox.Show("Imagen eliminada correctamente");
+                    MessageBox.Show("Imagen eliminada correctamente");                         
                 }
                 catch (Exception)
                 {

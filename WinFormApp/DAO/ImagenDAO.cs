@@ -70,13 +70,13 @@ namespace DAO
             }
         }
 
-        public void Delete(int idArticulo)
+        public void Delete(int idImagen)
         {
             datos = new AccesoADatos("server=.; database=CATALOGO_P3_DB; integrated security=true");
             try
             {
-                string query = "DELETE FROM IMAGENES WHERE IdArticulo = @IdArticulo";
-                datos.setearParametro("@IdArticulo", idArticulo);
+                string query = "DELETE FROM IMAGENES WHERE Id = @IdImagen";
+                datos.setearParametro("@IdImagen", idImagen);
                 datos.consultar(query);
                 datos.ejecutarAccion();
             }catch(Exception ex)
