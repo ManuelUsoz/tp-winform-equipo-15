@@ -28,8 +28,10 @@ namespace Negocio
         {
             try
             {
-                categoriaDAO.Create(categoria);
-            }catch (Exception ex)
+                CategoriaDAO catDAO= new CategoriaDAO();
+                catDAO.Create(categoria);
+            }
+            catch (Exception ex)
             {
                 throw ex;
             }
@@ -39,7 +41,9 @@ namespace Negocio
         {
             try
             {
-                return CategoriaDAO.list();
+                CategoriaDAO catDAO = new CategoriaDAO();
+                List<Categoria> catList = catDAO.list();
+                return catList;
 
             }catch(Exception ex)
             {
@@ -51,11 +55,28 @@ namespace Negocio
         {
             try
             {
-                categoriaDAO.Update(categoria);
-            }catch(Exception ex)
+                CategoriaDAO catDAO= new CategoriaDAO();
+                catDAO.Update(categoria);
+            }
+            catch(Exception ex)
             {
                 throw ex;
             }
         }
+
+        public void Eliminar(int id)
+        {
+            try
+            {
+                CategoriaDAO catDAO = new CategoriaDAO();
+                catDAO.Delete(id);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
     }
 }

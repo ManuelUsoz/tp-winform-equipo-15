@@ -60,7 +60,7 @@ namespace Negocio
         {
             try
             {
-                this.imagenDAO.Delete(idImagen);
+                this.imagenDAO.DeleteByIdImage(idImagen);
             }catch(Exception e)
             {
                 throw e;

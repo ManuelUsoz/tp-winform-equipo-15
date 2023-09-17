@@ -97,6 +97,7 @@
             this.Controls.Add(this.BtnAgregar);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ImageForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ImageForm";
             this.Load += new System.EventHandler(this.ImageForm_Load);
             this.ResumeLayout(false);

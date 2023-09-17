@@ -35,7 +35,6 @@ namespace WinForm_App
             MarcaManagment marcaManagment = new MarcaManagment(false, false);
             marcaManagment.ShowDialog();
             LoadData();
-
         }
 
         private void BtnModificarMarca_Click(object sender, EventArgs e)
@@ -45,7 +44,6 @@ namespace WinForm_App
             marcaManagment.Marca = marca;
             marcaManagment.ShowDialog();
             LoadData();
-
         }
 
         private void BtnVerDetalleMarca_Click(object sender, EventArgs e)

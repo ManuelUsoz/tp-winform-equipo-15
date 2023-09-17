@@ -22,6 +22,7 @@ namespace WinForm_App
         {
             InitializeComponent();
             this.isEditing = false;
+            Text = "Agregar Imagen";
         }
 
         public ImageForm(string imageUrl)
@@ -29,6 +30,7 @@ namespace WinForm_App
             InitializeComponent();
             this.imageUrl = imageUrl;
             this.isEditing = true;
+            Text = "Modificar ImagenURL";
         }
 
         private void BtnAgregar_Click(object sender, EventArgs e)

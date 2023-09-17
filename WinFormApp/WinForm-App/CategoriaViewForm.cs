@@ -34,6 +34,7 @@ namespace WinForm_App
         {
             CategoriaManagment categoriaManagment = new CategoriaManagment(false, false);
             categoriaManagment.ShowDialog();
+            LoadData();
         }
 
         private void BtnModify_Click(object sender, EventArgs e)
@@ -42,6 +43,7 @@ namespace WinForm_App
             CategoriaManagment categoriaManagment = new CategoriaManagment(false, true);
             categoriaManagment.Categoria = categoria;
             categoriaManagment.ShowDialog();
+            LoadData();
         }
 
         private void BtnSeeDetail_Click(object sender, EventArgs e)
@@ -49,7 +51,27 @@ namespace WinForm_App
             Categoria categoria = DgvCategories.CurrentRow.DataBoundItem as Categoria;
             CategoriaManagment categoriaManagment = new CategoriaManagment(true, true);
             categoriaManagment.Categoria = categoria;
-            categoriaManagment.ShowDialog();
+            categoriaManagment.ShowDialog(this);
+        }
+
+        private void BtnDelete_Click(object sender, EventArgs e)
+        {
+            DialogResult respuesta = MessageBox.Show("¿De verdad querés eliminarlo?", "Esto es irreversible", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (respuesta == DialogResult.Yes)
+            {
+                try
+                {
+                    CategoriaNegocio catNeg = new CategoriaNegocio();
+                    Categoria categoria = DgvCategories.CurrentRow.DataBoundItem as Categoria;
+                    catNeg.Eliminar(categoria.Id);
+                    MessageBox.Show("Entidad eliminada correctamente");
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Error al eliminar la entidad");
+                }
+            }
+            LoadData();
         }
     }
 }

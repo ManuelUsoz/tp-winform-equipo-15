@@ -36,9 +36,10 @@
             // 
             // BtnAdd
             // 
-            this.BtnAdd.Location = new System.Drawing.Point(177, 199);
+            this.BtnAdd.Location = new System.Drawing.Point(133, 162);
+            this.BtnAdd.Margin = new System.Windows.Forms.Padding(2);
             this.BtnAdd.Name = "BtnAdd";
-            this.BtnAdd.Size = new System.Drawing.Size(86, 35);
+            this.BtnAdd.Size = new System.Drawing.Size(64, 28);
             this.BtnAdd.TabIndex = 0;
             this.BtnAdd.Text = "Guardar";
             this.BtnAdd.UseVisualStyleBackColor = true;
@@ -46,9 +47,10 @@
             // 
             // BtnCancel
             // 
-            this.BtnCancel.Location = new System.Drawing.Point(85, 199);
+            this.BtnCancel.Location = new System.Drawing.Point(64, 162);
+            this.BtnCancel.Margin = new System.Windows.Forms.Padding(2);
             this.BtnCancel.Name = "BtnCancel";
-            this.BtnCancel.Size = new System.Drawing.Size(86, 35);
+            this.BtnCancel.Size = new System.Drawing.Size(64, 28);
             this.BtnCancel.TabIndex = 1;
             this.BtnCancel.Text = "Cancelar";
             this.BtnCancel.UseVisualStyleBackColor = true;
@@ -57,32 +59,36 @@
             // LblDescripción
             // 
             this.LblDescripción.AutoSize = true;
-            this.LblDescripción.Location = new System.Drawing.Point(36, 93);
+            this.LblDescripción.Location = new System.Drawing.Point(27, 76);
+            this.LblDescripción.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.LblDescripción.Name = "LblDescripción";
-            this.LblDescripción.Size = new System.Drawing.Size(79, 16);
+            this.LblDescripción.Size = new System.Drawing.Size(63, 13);
             this.LblDescripción.TabIndex = 2;
             this.LblDescripción.Text = "Descripción";
             // 
             // TxtBoxDescription
             // 
-            this.TxtBoxDescription.Location = new System.Drawing.Point(121, 90);
+            this.TxtBoxDescription.Location = new System.Drawing.Point(91, 73);
+            this.TxtBoxDescription.Margin = new System.Windows.Forms.Padding(2);
             this.TxtBoxDescription.Name = "TxtBoxDescription";
-            this.TxtBoxDescription.Size = new System.Drawing.Size(142, 22);
+            this.TxtBoxDescription.Size = new System.Drawing.Size(108, 20);
             this.TxtBoxDescription.TabIndex = 3;
             // 
             // CategoriaManagment
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(348, 246);
+            this.ClientSize = new System.Drawing.Size(262, 206);
             this.Controls.Add(this.TxtBoxDescription);
             this.Controls.Add(this.LblDescripción);
             this.Controls.Add(this.BtnCancel);
             this.Controls.Add(this.BtnAdd);
-            this.MaximumSize = new System.Drawing.Size(366, 293);
-            this.MinimumSize = new System.Drawing.Size(366, 293);
+            this.Margin = new System.Windows.Forms.Padding(2);
+            this.MaximumSize = new System.Drawing.Size(278, 245);
+            this.MinimumSize = new System.Drawing.Size(278, 245);
             this.Name = "CategoriaManagment";
-            this.Text = "CategoriaManagment";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Modificiar categoría";
             this.Load += new System.EventHandler(this.CategoriaManagment_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace DAO
@@ -59,7 +60,46 @@ namespace DAO
 
         public void Update(Categoria categoria)
         {
-            throw new NotImplementedException();
+            AccesoADatos accesoADatos = new AccesoADatos(connection);
+            try
+            {
+                string query = "UPDATE CATEGORIAS SET Descripcion = @Descripcion WHERE Id = @Id";
+                accesoADatos.consultar(query);
+                accesoADatos.setearParametro("@Descripcion", categoria.Descripcion);
+                accesoADatos.setearParametro("@Id", categoria.Id);
+                accesoADatos.ejecutarAccion();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                accesoADatos.cerrarConexion();
+            }
+        }
+
+        
+
+        public void Delete(int id)
+        {
+            AccesoADatos accesoADatos = new AccesoADatos(connection);
+            try
+            {
+                string query = "DELETE FROM CATEGORIAS WHERE Id = @Id";
+                accesoADatos.consultar(query);
+                accesoADatos.setearParametro("@Id", id);
+                accesoADatos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                accesoADatos.cerrarConexion();
+            }
         }
     }
 }

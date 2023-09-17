@@ -64,6 +64,9 @@ namespace WinForm_App
             this.categoriaNegocio = new CategoriaNegocio();
             this.imagenNegocio = new ImagenNegocio();
             BtnModificar.Enabled = false;
+            BtnAddImage.Enabled = false;
+            BtnDeleteImage.Enabled = false;
+            BtnModifyImage.Enabled = false;
 
             TxtBoxCodigo.Enabled = enableUserModification;
             TxtBoxDescripcion.Enabled = enableUserModification;
@@ -145,9 +148,10 @@ namespace WinForm_App
                 this.articuloNegocio.Update(Articulo);
                 MessageBox.Show("Entidad modificada correctamente!");
                 this.Close();
-            }catch(Exception)
+            }
+            catch(Exception)
             {
-                MessageBox.Show("Error al modificar la entidad");
+                MessageBox.Show("Error al modificar la entidad(Puede que sea por el .0000 de precios)");
             }
 
             

@@ -30,29 +30,35 @@ namespace WinForm_App
             {
                 TxtBoxDescription.Text = Categoria.Descripcion;
                 TxtBoxDescription.Enabled = false;
+                BtnAdd.Enabled = false;
+                Text = "Detalle categoría";
             }
 
             if(readOrUpdate)
             {
                 TxtBoxDescription.Text = Categoria.Descripcion;
+                BtnAdd.Text = "Modificar";
             }
         }
 
         private void BtnAdd_Click(object sender, EventArgs e)
         {
-            Categoria.Descripcion = TxtBoxDescription.Text;
+           
             CategoriaNegocio categoriaNegocio = new CategoriaNegocio();
 
             try
             {
                 if (!onlyRead && !readOrUpdate)
                 {
-                    categoriaNegocio.Create(Categoria);
+                    Categoria categoria = new Categoria();
+                    categoria.Descripcion = TxtBoxDescription.Text;
+                    categoriaNegocio.Create(categoria);
                     MessageBox.Show("Entidad creada correctamente");
 
                 }
                 if (readOrUpdate)
                 {
+                    Categoria.Descripcion = TxtBoxDescription.Text;
                     categoriaNegocio.Update(Categoria);
                     MessageBox.Show("Entidad modificada correctamente");
                 }

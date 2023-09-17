@@ -7,6 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -31,6 +32,7 @@ namespace WinForm_App
                 TxtBoxDescripcion.Enabled = false;
                 TxtBoxDescripcion.Text = Marca.Descripcion;
                 BtnAgregar.Enabled = false;
+                Text = "Detalle marca";
             }
 
             if (readOrUpdate)
@@ -41,27 +43,29 @@ namespace WinForm_App
         }
 
         private void BtnAgregar_Click(object sender, EventArgs e)
-        {
-            Marca.Descripcion = TxtBoxDescripcion.Text;
+        {       
             MarcaNegocio marcaNegocio = new MarcaNegocio();
-
             try
             {
                 if (!onlyRead && !readOrUpdate)
                 {
-                    marcaNegocio.Create(Marca);
+                    Marca marca = new Marca();
+                    marca.Descripcion=TxtBoxDescripcion.Text;
+                    marcaNegocio.Create(marca);
                     MessageBox.Show("Entidad creada correctamente");
 
                 }
                 if (readOrUpdate)
                 {
+                    Marca.Descripcion = TxtBoxDescripcion.Text;
                     marcaNegocio.Update(Marca);
                     MessageBox.Show("Entidad modificada correctamente");
                 }
 
-            }catch (Exception)
+            }
+            catch (Exception)
             {
-                MessageBox.Show("Error al eliminar la entidad");
+                MessageBox.Show("Error al agregar la entidad");
             }
             finally
             {

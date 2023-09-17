@@ -42,9 +42,10 @@
             this.LblMarcasTitle.AutoSize = true;
             this.LblMarcasTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblMarcasTitle.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.LblMarcasTitle.Location = new System.Drawing.Point(6, 34);
+            this.LblMarcasTitle.Location = new System.Drawing.Point(4, 28);
+            this.LblMarcasTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.LblMarcasTitle.Name = "LblMarcasTitle";
-            this.LblMarcasTitle.Size = new System.Drawing.Size(106, 32);
+            this.LblMarcasTitle.Size = new System.Drawing.Size(83, 26);
             this.LblMarcasTitle.TabIndex = 0;
             this.LblMarcasTitle.Text = "Marcas";
             // 
@@ -55,21 +56,25 @@
             this.DgvMarcas.AllowUserToResizeColumns = false;
             this.DgvMarcas.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.DgvMarcas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DgvMarcas.Location = new System.Drawing.Point(12, 82);
+            this.DgvMarcas.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.DgvMarcas.Location = new System.Drawing.Point(9, 67);
+            this.DgvMarcas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.DgvMarcas.MultiSelect = false;
             this.DgvMarcas.Name = "DgvMarcas";
             this.DgvMarcas.RowHeadersWidth = 51;
             this.DgvMarcas.RowTemplate.Height = 24;
             this.DgvMarcas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DgvMarcas.Size = new System.Drawing.Size(764, 338);
+            this.DgvMarcas.Size = new System.Drawing.Size(573, 275);
             this.DgvMarcas.TabIndex = 1;
             // 
             // BtnVerDetalleMarca
             // 
             this.BtnVerDetalleMarca.BackgroundImage = global::WinForm_App.Properties.Resources.icons8_eye_30;
             this.BtnVerDetalleMarca.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.BtnVerDetalleMarca.Location = new System.Drawing.Point(422, 34);
+            this.BtnVerDetalleMarca.Location = new System.Drawing.Point(316, 28);
+            this.BtnVerDetalleMarca.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.BtnVerDetalleMarca.Name = "BtnVerDetalleMarca";
-            this.BtnVerDetalleMarca.Size = new System.Drawing.Size(84, 39);
+            this.BtnVerDetalleMarca.Size = new System.Drawing.Size(63, 32);
             this.BtnVerDetalleMarca.TabIndex = 5;
             this.BtnVerDetalleMarca.UseVisualStyleBackColor = true;
             this.BtnVerDetalleMarca.Click += new System.EventHandler(this.BtnVerDetalleMarca_Click);
@@ -78,9 +83,10 @@
             // 
             this.BtnEliminarMarca.BackgroundImage = global::WinForm_App.Properties.Resources.icons8_minus_30;
             this.BtnEliminarMarca.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.BtnEliminarMarca.Location = new System.Drawing.Point(512, 34);
+            this.BtnEliminarMarca.Location = new System.Drawing.Point(384, 28);
+            this.BtnEliminarMarca.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.BtnEliminarMarca.Name = "BtnEliminarMarca";
-            this.BtnEliminarMarca.Size = new System.Drawing.Size(84, 39);
+            this.BtnEliminarMarca.Size = new System.Drawing.Size(63, 32);
             this.BtnEliminarMarca.TabIndex = 4;
             this.BtnEliminarMarca.UseVisualStyleBackColor = true;
             this.BtnEliminarMarca.Click += new System.EventHandler(this.BtnEliminarMarca_Click);
@@ -89,9 +95,10 @@
             // 
             this.BtnModificarMarca.BackgroundImage = global::WinForm_App.Properties.Resources.icons8_edit_30;
             this.BtnModificarMarca.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.BtnModificarMarca.Location = new System.Drawing.Point(602, 34);
+            this.BtnModificarMarca.Location = new System.Drawing.Point(452, 28);
+            this.BtnModificarMarca.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.BtnModificarMarca.Name = "BtnModificarMarca";
-            this.BtnModificarMarca.Size = new System.Drawing.Size(84, 39);
+            this.BtnModificarMarca.Size = new System.Drawing.Size(63, 32);
             this.BtnModificarMarca.TabIndex = 3;
             this.BtnModificarMarca.UseVisualStyleBackColor = true;
             this.BtnModificarMarca.Click += new System.EventHandler(this.BtnModificarMarca_Click);
@@ -100,26 +107,29 @@
             // 
             this.BtnAgregarMarca.BackgroundImage = global::WinForm_App.Properties.Resources.icons8_add_30;
             this.BtnAgregarMarca.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.BtnAgregarMarca.Location = new System.Drawing.Point(692, 34);
+            this.BtnAgregarMarca.Location = new System.Drawing.Point(519, 28);
+            this.BtnAgregarMarca.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.BtnAgregarMarca.Name = "BtnAgregarMarca";
-            this.BtnAgregarMarca.Size = new System.Drawing.Size(84, 39);
+            this.BtnAgregarMarca.Size = new System.Drawing.Size(63, 32);
             this.BtnAgregarMarca.TabIndex = 2;
             this.BtnAgregarMarca.UseVisualStyleBackColor = true;
             this.BtnAgregarMarca.Click += new System.EventHandler(this.BtnAgregarMarca_Click);
             // 
             // MarcasViewForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(600, 366);
             this.Controls.Add(this.BtnVerDetalleMarca);
             this.Controls.Add(this.BtnEliminarMarca);
             this.Controls.Add(this.BtnModificarMarca);
             this.Controls.Add(this.BtnAgregarMarca);
             this.Controls.Add(this.DgvMarcas);
             this.Controls.Add(this.LblMarcasTitle);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "MarcasViewForm";
-            this.Text = "MarcasViewForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Marcas";
             this.Load += new System.EventHandler(this.MarcasViewForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DgvMarcas)).EndInit();
             this.ResumeLayout(false);

@@ -69,6 +69,7 @@
             this.dgvResultadoBusquedaArticulo.GridColor = System.Drawing.SystemColors.ActiveCaption;
             this.dgvResultadoBusquedaArticulo.Location = new System.Drawing.Point(11, 121);
             this.dgvResultadoBusquedaArticulo.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvResultadoBusquedaArticulo.MultiSelect = false;
             this.dgvResultadoBusquedaArticulo.Name = "dgvResultadoBusquedaArticulo";
             this.dgvResultadoBusquedaArticulo.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dgvResultadoBusquedaArticulo.RowHeadersWidth = 51;
