@@ -52,6 +52,12 @@
     <Compile Include="AgregarArticulo.Designer.cs">
       <DependentUpon>AgregarArticulo.cs</DependentUpon>
     </Compile>
+    <Compile Include="CategoriaViewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CategoriaViewForm.Designer.cs">
+      <DependentUpon>CategoriaViewForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ImageForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -75,6 +81,12 @@
     </Compile>
     <Compile Include="ListaArticulos.Designer.cs">
       <DependentUpon>ListaArticulos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MarcasViewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MarcasViewForm.Designer.cs">
+      <DependentUpon>MarcasViewForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ModificarArticulo.cs">
       <SubType>Form</SubType>

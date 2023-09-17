@@ -36,12 +36,14 @@ namespace WinForm_App
 
         private void BtnMarcasMenu_Click(object sender, EventArgs e)
         {
-
+            MarcasViewForm marcasViewForm = new MarcasViewForm();
+            marcasViewForm.ShowDialog();
         }
 
         private void BtnCategoriasMenu_Click(object sender, EventArgs e)
         {
-
+            CategoriaViewForm categoriaViewForm = new CategoriaViewForm();
+            categoriaViewForm.ShowDialog();
         }
     }
 }
