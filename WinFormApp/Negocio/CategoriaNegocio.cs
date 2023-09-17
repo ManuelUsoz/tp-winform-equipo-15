@@ -23,12 +23,35 @@ namespace Negocio
                 return categoriaDAO;
             }
         }
+
+        public void Create(Categoria categoria)
+        {
+            try
+            {
+                categoriaDAO.Create(categoria);
+            }catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public List<Categoria> List()
         {
             try
             {
                 return CategoriaDAO.list();
 
+            }catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public void Update(Categoria categoria)
+        {
+            try
+            {
+                categoriaDAO.Update(categoria);
             }catch(Exception ex)
             {
                 throw ex;

@@ -1,4 +1,5 @@
 ﻿using Dominio;
+using Negocio;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -35,6 +36,41 @@ namespace WinForm_App
             {
                 TxtBoxDescription.Text = Categoria.Descripcion;
             }
+        }
+
+        private void BtnAdd_Click(object sender, EventArgs e)
+        {
+            Categoria.Descripcion = TxtBoxDescription.Text;
+            CategoriaNegocio categoriaNegocio = new CategoriaNegocio();
+
+            try
+            {
+                if (!onlyRead && !readOrUpdate)
+                {
+                    categoriaNegocio.Create(Categoria);
+                    MessageBox.Show("Entidad creada correctamente");
+
+                }
+                if (readOrUpdate)
+                {
+                    categoriaNegocio.Update(Categoria);
+                    MessageBox.Show("Entidad modificada correctamente");
+                }
+
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Error al eliminar la entidad");
+            }
+            finally
+            {
+                this.Close();
+            }
+        }
+
+        private void BtnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

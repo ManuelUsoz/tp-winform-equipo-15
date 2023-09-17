@@ -10,6 +10,27 @@ namespace DAO
 {
     public class CategoriaDAO
     {
+        private string connection = "server=.; database=CATALOGO_P3_DB; integrated security=true";
+        public void Create(Categoria categoria)
+        {
+            AccesoADatos accesoADatos = new AccesoADatos(connection);
+            try
+            {
+                string query = "INSERT INTO CATEGORIAS (Descripcion) VALUES (@Descripcion)";
+                accesoADatos.consultar(query);
+                accesoADatos.setearParametro("@Descripcion", categoria.Descripcion);
+                accesoADatos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                accesoADatos.cerrarConexion();
+            }
+        }
+
         public List<Categoria> list()
         {
             try
@@ -34,6 +55,11 @@ namespace DAO
                 throw new Exception("Error al listar las categorias");
             }
             
+        }
+
+        public void Update(Categoria categoria)
+        {
+            throw new NotImplementedException();
         }
     }
 }

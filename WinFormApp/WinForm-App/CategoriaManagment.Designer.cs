@@ -42,6 +42,7 @@
             this.BtnAdd.TabIndex = 0;
             this.BtnAdd.Text = "Guardar";
             this.BtnAdd.UseVisualStyleBackColor = true;
+            this.BtnAdd.Click += new System.EventHandler(this.BtnAdd_Click);
             // 
             // BtnCancel
             // 
@@ -51,6 +52,7 @@
             this.BtnCancel.TabIndex = 1;
             this.BtnCancel.Text = "Cancelar";
             this.BtnCancel.UseVisualStyleBackColor = true;
+            this.BtnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
             // LblDescripción
             // 
