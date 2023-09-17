@@ -34,6 +34,8 @@
             this.button1 = new System.Windows.Forms.Button();
             this.OpenArticlesForm = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.BtnMarcasMenu = new System.Windows.Forms.Button();
+            this.BtnCategoriasMenu = new System.Windows.Forms.Button();
             this.SidePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -46,20 +48,22 @@
             this.LblGreeting.ForeColor = System.Drawing.Color.DimGray;
             this.LblGreeting.Location = new System.Drawing.Point(429, 73);
             this.LblGreeting.Name = "LblGreeting";
-            this.LblGreeting.Size = new System.Drawing.Size(286, 56);
+            this.LblGreeting.Size = new System.Drawing.Size(353, 70);
             this.LblGreeting.TabIndex = 1;
             this.LblGreeting.Text = "Bienvenido";
             // 
             // SidePanel
             // 
             this.SidePanel.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.SidePanel.Controls.Add(this.BtnCategoriasMenu);
+            this.SidePanel.Controls.Add(this.BtnMarcasMenu);
             this.SidePanel.Controls.Add(this.pictureBox1);
             this.SidePanel.Controls.Add(this.button1);
             this.SidePanel.Controls.Add(this.OpenArticlesForm);
             this.SidePanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.SidePanel.Location = new System.Drawing.Point(0, 0);
             this.SidePanel.Name = "SidePanel";
-            this.SidePanel.Size = new System.Drawing.Size(283, 533);
+            this.SidePanel.Size = new System.Drawing.Size(283, 525);
             this.SidePanel.TabIndex = 3;
             // 
             // pictureBox1
@@ -121,12 +125,50 @@
             this.panel1.Size = new System.Drawing.Size(836, 42);
             this.panel1.TabIndex = 6;
             // 
+            // BtnMarcasMenu
+            // 
+            this.BtnMarcasMenu.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.BtnMarcasMenu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BtnMarcasMenu.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnMarcasMenu.FlatAppearance.BorderSize = 0;
+            this.BtnMarcasMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnMarcasMenu.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnMarcasMenu.ForeColor = System.Drawing.SystemColors.Control;
+            this.BtnMarcasMenu.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnMarcasMenu.Location = new System.Drawing.Point(26, 279);
+            this.BtnMarcasMenu.Name = "BtnMarcasMenu";
+            this.BtnMarcasMenu.Size = new System.Drawing.Size(226, 48);
+            this.BtnMarcasMenu.TabIndex = 6;
+            this.BtnMarcasMenu.Text = "MARCAS";
+            this.BtnMarcasMenu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnMarcasMenu.UseVisualStyleBackColor = false;
+            this.BtnMarcasMenu.Click += new System.EventHandler(this.BtnMarcasMenu_Click);
+            // 
+            // BtnCategoriasMenu
+            // 
+            this.BtnCategoriasMenu.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.BtnCategoriasMenu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BtnCategoriasMenu.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnCategoriasMenu.FlatAppearance.BorderSize = 0;
+            this.BtnCategoriasMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnCategoriasMenu.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnCategoriasMenu.ForeColor = System.Drawing.SystemColors.Control;
+            this.BtnCategoriasMenu.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnCategoriasMenu.Location = new System.Drawing.Point(26, 333);
+            this.BtnCategoriasMenu.Name = "BtnCategoriasMenu";
+            this.BtnCategoriasMenu.Size = new System.Drawing.Size(226, 48);
+            this.BtnCategoriasMenu.TabIndex = 7;
+            this.BtnCategoriasMenu.Text = "CATEGORIAS";
+            this.BtnCategoriasMenu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnCategoriasMenu.UseVisualStyleBackColor = false;
+            this.BtnCategoriasMenu.Click += new System.EventHandler(this.BtnCategoriasMenu_Click);
+            // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(832, 533);
+            this.ClientSize = new System.Drawing.Size(830, 525);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.SidePanel);
             this.Controls.Add(this.LblGreeting);
@@ -152,6 +194,8 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button BtnCategoriasMenu;
+        private System.Windows.Forms.Button BtnMarcasMenu;
     }
 }
 

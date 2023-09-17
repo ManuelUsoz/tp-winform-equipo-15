@@ -33,5 +33,15 @@ namespace WinForm_App
         {
             MessageBox.Show("Grupo 15 / Integrantes: Bee Bianco, Ignacio Ezequiel / Bressani, Efrain Victorio / Usoz Neri, Manuel Ignacio");   
         }
+
+        private void BtnMarcasMenu_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnCategoriasMenu_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
