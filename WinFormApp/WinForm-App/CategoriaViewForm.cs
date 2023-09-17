@@ -1,4 +1,5 @@
-﻿using Negocio;
+﻿using Dominio;
+using Negocio;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -27,6 +28,28 @@ namespace WinForm_App
         private void CategoriaViewForm_Load(object sender, EventArgs e)
         {
             LoadData();
+        }
+
+        private void BtnAdd_Click(object sender, EventArgs e)
+        {
+            CategoriaManagment categoriaManagment = new CategoriaManagment(false, false);
+            categoriaManagment.ShowDialog();
+        }
+
+        private void BtnModify_Click(object sender, EventArgs e)
+        {
+            Categoria categoria = DgvCategories.CurrentRow.DataBoundItem as Categoria;
+            CategoriaManagment categoriaManagment = new CategoriaManagment(false, true);
+            categoriaManagment.Categoria = categoria;
+            categoriaManagment.ShowDialog();
+        }
+
+        private void BtnSeeDetail_Click(object sender, EventArgs e)
+        {
+            Categoria categoria = DgvCategories.CurrentRow.DataBoundItem as Categoria;
+            CategoriaManagment categoriaManagment = new CategoriaManagment(true, true);
+            categoriaManagment.Categoria = categoria;
+            categoriaManagment.ShowDialog();
         }
     }
 }

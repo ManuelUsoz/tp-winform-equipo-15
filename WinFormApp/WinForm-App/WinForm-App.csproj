@@ -52,6 +52,12 @@
     <Compile Include="AgregarArticulo.Designer.cs">
       <DependentUpon>AgregarArticulo.cs</DependentUpon>
     </Compile>
+    <Compile Include="CategoriaManagment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CategoriaManagment.Designer.cs">
+      <DependentUpon>CategoriaManagment.cs</DependentUpon>
+    </Compile>
     <Compile Include="CategoriaViewForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,6 +110,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AgregarArticulo.resx">
       <DependentUpon>AgregarArticulo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CategoriaManagment.resx">
+      <DependentUpon>CategoriaManagment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CategoriaViewForm.resx">
       <DependentUpon>CategoriaViewForm.cs</DependentUpon>

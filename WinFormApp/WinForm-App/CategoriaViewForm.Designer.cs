@@ -30,10 +30,10 @@
         {
             this.DgvCategories = new System.Windows.Forms.DataGridView();
             this.LblTitle = new System.Windows.Forms.Label();
-            this.BtnAdd = new System.Windows.Forms.Button();
-            this.BtnModify = new System.Windows.Forms.Button();
-            this.BtnDelete = new System.Windows.Forms.Button();
             this.BtnSeeDetail = new System.Windows.Forms.Button();
+            this.BtnDelete = new System.Windows.Forms.Button();
+            this.BtnModify = new System.Windows.Forms.Button();
+            this.BtnAdd = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DgvCategories)).BeginInit();
             this.SuspendLayout();
             // 
@@ -65,25 +65,16 @@
             this.LblTitle.TabIndex = 1;
             this.LblTitle.Text = "Categorías";
             // 
-            // BtnAdd
+            // BtnSeeDetail
             // 
-            this.BtnAdd.BackgroundImage = global::WinForm_App.Properties.Resources.icons8_add_30;
-            this.BtnAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.BtnAdd.Location = new System.Drawing.Point(731, 31);
-            this.BtnAdd.Name = "BtnAdd";
-            this.BtnAdd.Size = new System.Drawing.Size(57, 40);
-            this.BtnAdd.TabIndex = 2;
-            this.BtnAdd.UseVisualStyleBackColor = true;
-            // 
-            // BtnModify
-            // 
-            this.BtnModify.BackgroundImage = global::WinForm_App.Properties.Resources.icons8_edit_30;
-            this.BtnModify.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.BtnModify.Location = new System.Drawing.Point(668, 31);
-            this.BtnModify.Name = "BtnModify";
-            this.BtnModify.Size = new System.Drawing.Size(57, 40);
-            this.BtnModify.TabIndex = 3;
-            this.BtnModify.UseVisualStyleBackColor = true;
+            this.BtnSeeDetail.BackgroundImage = global::WinForm_App.Properties.Resources.icons8_eye_30;
+            this.BtnSeeDetail.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BtnSeeDetail.Location = new System.Drawing.Point(533, 31);
+            this.BtnSeeDetail.Name = "BtnSeeDetail";
+            this.BtnSeeDetail.Size = new System.Drawing.Size(66, 40);
+            this.BtnSeeDetail.TabIndex = 5;
+            this.BtnSeeDetail.UseVisualStyleBackColor = true;
+            this.BtnSeeDetail.Click += new System.EventHandler(this.BtnSeeDetail_Click);
             // 
             // BtnDelete
             // 
@@ -95,15 +86,27 @@
             this.BtnDelete.TabIndex = 4;
             this.BtnDelete.UseVisualStyleBackColor = true;
             // 
-            // BtnSeeDetail
+            // BtnModify
             // 
-            this.BtnSeeDetail.BackgroundImage = global::WinForm_App.Properties.Resources.icons8_eye_30;
-            this.BtnSeeDetail.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.BtnSeeDetail.Location = new System.Drawing.Point(533, 31);
-            this.BtnSeeDetail.Name = "BtnSeeDetail";
-            this.BtnSeeDetail.Size = new System.Drawing.Size(66, 40);
-            this.BtnSeeDetail.TabIndex = 5;
-            this.BtnSeeDetail.UseVisualStyleBackColor = true;
+            this.BtnModify.BackgroundImage = global::WinForm_App.Properties.Resources.icons8_edit_30;
+            this.BtnModify.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BtnModify.Location = new System.Drawing.Point(668, 31);
+            this.BtnModify.Name = "BtnModify";
+            this.BtnModify.Size = new System.Drawing.Size(57, 40);
+            this.BtnModify.TabIndex = 3;
+            this.BtnModify.UseVisualStyleBackColor = true;
+            this.BtnModify.Click += new System.EventHandler(this.BtnModify_Click);
+            // 
+            // BtnAdd
+            // 
+            this.BtnAdd.BackgroundImage = global::WinForm_App.Properties.Resources.icons8_add_30;
+            this.BtnAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BtnAdd.Location = new System.Drawing.Point(731, 31);
+            this.BtnAdd.Name = "BtnAdd";
+            this.BtnAdd.Size = new System.Drawing.Size(57, 40);
+            this.BtnAdd.TabIndex = 2;
+            this.BtnAdd.UseVisualStyleBackColor = true;
+            this.BtnAdd.Click += new System.EventHandler(this.BtnAdd_Click);
             // 
             // CategoriaViewForm
             // 
